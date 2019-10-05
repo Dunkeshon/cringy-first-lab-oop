@@ -8,6 +8,7 @@ private:
 	mylist *prev;
 	T key;
 public:
-	mylist();
+	mylist(T val);
 	~mylist();
+	void print_list();
 };
