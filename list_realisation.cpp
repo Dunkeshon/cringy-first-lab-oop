@@ -4,8 +4,8 @@
 
 template <class T>list_realisation<T>::list_realisation(T FirstEl)
 {
-	begin = new mylist<T>(FirstEl);//первый элемент списка-новый обьект mylist, вызывается конструктор
-	end = begin;
+	head = new mylist<T>(FirstEl);//первый элемент списка-новый обьект mylist, вызывается конструктор
+	tail = head;
 }
 
 
@@ -16,6 +16,22 @@ template <class T>list_realisation<T>::~list_realisation()
 template<typename T>
 void list_realisation<T>::printFuncList()
 {
-	begin->printList();
+	head->printList();
+}
+
+template<typename T>
+void list_realisation<T>::addEl(T val)
+{
+	mylist<T> *temp = new mylist<T>(val);
+	if (head == nullptr) {
+		head = temp;
+		tail = temp;
+		temp = nullptr; // не уверен зачем но пускай будет
+	}
+	else
+	{
+		tail->next = temp;
+		tail = temp;
+	}
 }
 

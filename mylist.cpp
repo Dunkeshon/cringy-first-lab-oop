@@ -22,5 +22,5 @@
 		 cout << tmp->key << "->";
 		 tmp = tmp->next;
 	 }
-	 cout << end;
+	 cout << tail;
  }

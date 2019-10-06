@@ -5,11 +5,12 @@ template <typename T>
 class list_realisation
 {
 private:
-	mylist<T> * begin;
-	mylist<T> * end;
+	mylist<T> * head;
+	mylist<T> * tail;
 public:
-	list_realisation(T FirstEl);
+	list_realisation(T FirstEl);//создание первого элемента
 	~list_realisation();
 	void printFuncList();
+	void addEl(T val);
 };
 
