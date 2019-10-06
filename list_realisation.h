@@ -12,5 +12,6 @@ public:
 	~list_realisation();
 	void printFuncList();
 	void addEl(T val);
+
 };
 

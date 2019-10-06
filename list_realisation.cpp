@@ -41,3 +41,14 @@ void list_realisation<T>::addEl(T val)
 	}
 }
 
+template<typename T>
+void list_realisation<T>::deletion()
+{
+	while (head)
+	{
+		tail = head->next;
+		delete head;
+		head = tail;
+	}
+}
+
