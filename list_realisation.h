@@ -12,6 +12,7 @@ public:
 	~list_realisation();
 	void printFuncList();
 	void addEl(T val);
-
+	void deletion();
+	void insertion(mylist *previous,T val);
 };
 

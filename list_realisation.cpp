@@ -52,3 +52,18 @@ void list_realisation<T>::deletion()
 	}
 }
 
+template<typename T>
+void list_realisation<T>::insertion(mylist<T> *previous, T val)
+{
+	mylist<T> *p;//p-storring pointer to the next el
+	mylist <T> * temp = new mylist;
+	p = previous->next;
+	previous->next = temp;
+	temp->key = val;
+	temp->next = p;
+	temp->prev = previous;
+	if (p != nullptr) {
+		p->prev = temp;
+	}
+}
+
