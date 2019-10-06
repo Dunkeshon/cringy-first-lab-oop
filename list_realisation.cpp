@@ -11,6 +11,12 @@ template <class T>list_realisation<T>::list_realisation(T FirstEl)
 
 template <class T>list_realisation<T>::~list_realisation()
 {
+	while (head)
+	{
+		tail = head->next;
+		delete head;
+		head = tail;
+	}
 }
 
 template<typename T>
@@ -26,10 +32,10 @@ void list_realisation<T>::addEl(T val)
 	if (head == nullptr) {
 		head = temp;
 		tail = temp;
-		temp = nullptr; // не уверен зачем но пускай будет
 	}
 	else
 	{
+		temp->prev = tail;
 		tail->next = temp;
 		tail = temp;
 	}
