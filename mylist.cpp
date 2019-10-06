@@ -4,8 +4,8 @@
 
  template <class T> mylist <T>::mylist(T val)
 {
-	 mylist.next = nullptr;
-	 mylist.prev = nullptr;
+	 next = nullptr;//нужно имя переменной класса а не класса
+	 prev = nullptr;
 	 key = val;
 }
 
@@ -14,7 +14,7 @@
 {
 
 }
- template<class T>
+ /*template<class T>
  void mylist<T>::print_list()
  {
 	 mylist<T> * tmp = this;
@@ -22,5 +22,5 @@
 		 cout << tmp->key << "->";
 		 tmp = tmp->next;
 	 }
-	 cout << tail;
- }
+	 cout << tail ;//нужно реализовать в реализации а не тут
+ }*/

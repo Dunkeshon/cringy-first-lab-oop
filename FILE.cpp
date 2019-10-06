@@ -2,8 +2,8 @@
 #include "FILE.h"
 
 
-
-file::file()//создаем новый файл, вводим данные с клавиатуры 
+template <class T,class V>
+file<T,V>::file()//создаем новый файл, вводим данные с клавиатуры 
 {
 	//нужно реализовать динамическое выделение памяти 
 	string temp_name, temp_time, temp_changed_time, temp_file_type;
@@ -26,12 +26,13 @@ file::file()//создаем новый файл, вводим данные с клавиатуры
 }
 
 
-file::~file()
+template <class T, class V>
+file<T, V>::~file()
 {
 	//нужно реализовать динамическое удаление памяти 
 }
-
-void file::print_info()//вывод информации о файле 
+template <class T, class V>
+void file<T,V>::print_info()//вывод информации о файле 
 {
 	cout <<'\t'<< "File info: "<<'\n';
 	cout << "File _name: " << _name<< '\n';
@@ -40,4 +41,23 @@ void file::print_info()//вывод информации о файле
 	cout << "Time of the last change: " << _changed_time << '\n';
 	cout << "File type: " << _file_type << '\n';
 
+}
+template <class T, class V>
+T file<T,V>::Get(fileInfo)
+{
+	switch (fileInfo)
+	{
+	case name:return _name;
+		break;
+	case Size:return _size;
+		break;
+	case time:return _time;
+		break;
+	case changed_time:return _changed_time;
+		break;
+	case file_type:return _file_type;
+		break;
+	default:
+		break;
+	}
 }

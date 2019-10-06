@@ -18,13 +18,13 @@ template <class T>list_realisation<T>::~list_realisation()
 		head = tail;
 	}
 }
-
+/*
 template<typename T>
 void list_realisation<T>::printFuncList()
 {
 	head->printList();
 }
-
+*/
 template<typename T>
 void list_realisation<T>::addEl(T val)
 {

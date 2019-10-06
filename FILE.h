@@ -2,18 +2,24 @@
 #include <string>
 #include <iostream>
 using namespace std;
+enum fileInfo
+{
+	name,Size,time,changed_time,file_type
+};
+template <class T,class V>
 class file
 {
 private:
 	string _file_type;
 protected:
-	string _name;
-	int _size;
-	string _time;
-	string _changed_time;
+	T _name;
+	V _size;
+	T _time;
+	T _changed_time;
 public:
 	file();
 	~file();
 	void print_info();
+	T Get(fileInfo);
 };
 

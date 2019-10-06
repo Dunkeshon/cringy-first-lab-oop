@@ -10,5 +10,5 @@ private:
 public:
 	mylist(T val);
 	~mylist();
-	void print_list();
+	/*void print_list();*/
 };

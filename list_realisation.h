@@ -10,9 +10,9 @@ private:
 public:
 	list_realisation(T FirstEl);//создание первого элемента
 	~list_realisation();
-	void printFuncList();
+	/*void printFuncList();*/
 	void addEl(T val);
 	void deletion();
-	void insertion(mylist *previous,T val);
+	void insertion(mylist<T> *previous,T val);
 };
 
