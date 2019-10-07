@@ -1,9 +1,9 @@
 #include "pch.h"
-#include "FILE.h"
 
 
-template <class T,class V>
-file<T,V>::file()//создаем новый файл, вводим данные с клавиатуры 
+
+template <class T, class V>
+file<T, V>::file()//создаем новый файл, вводим данные с клавиатуры 
 {
 	//нужно реализовать динамическое выделение памяти 
 	string temp_name, temp_time, temp_changed_time, temp_file_type;
@@ -32,18 +32,18 @@ file<T, V>::~file()
 	//нужно реализовать динамическое удаление памяти 
 }
 template <class T, class V>
-void file<T,V>::print_info()//вывод информации о файле 
+void file<T, V>::print_info()//вывод информации о файле 
 {
-	cout <<'\t'<< "File info: "<<'\n';
-	cout << "File _name: " << _name<< '\n';
+	cout << '\t' << "File info: " << '\n';
+	cout << "File _name: " << _name << '\n';
 	cout << "File _size: " << _size << '\n';
 	cout << "Time of creation: " << _time << '\n';
 	cout << "Time of the last change: " << _changed_time << '\n';
 	cout << "File type: " << _file_type << '\n';
 
 }
-template <class T, class V>
-T file<T,V>::Get(fileInfo)
+/*template <class T, class V>
+T file<T, V>::Get(fileInfo)// написать для всех Get()
 {
 	switch (fileInfo)
 	{
@@ -61,3 +61,4 @@ T file<T,V>::Get(fileInfo)
 		break;
 	}
 }
+*/

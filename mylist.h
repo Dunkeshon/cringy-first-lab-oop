@@ -9,6 +9,9 @@ private:
 	T key;
 public:
 	mylist(T val);
+	mylist();
 	~mylist();
 	/*void print_list();*/
 };
+
+#include "mylist.hxx"

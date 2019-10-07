@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "list_realisation.h"
+
 
 
 template <class T>list_realisation<T>::list_realisation(T FirstEl)
@@ -11,20 +11,26 @@ template <class T>list_realisation<T>::list_realisation(T FirstEl)
 
 template <class T>list_realisation<T>::~list_realisation()
 {
-	while (head)
+	auto current = head, temp;
+	while (current)
 	{
-		tail = head->next;
-		delete head;
-		head = tail;
+		temp = current;
+		current = current->next;
+		delete temp;
 	}
 }
-/*
+
 template<typename T>
 void list_realisation<T>::printFuncList()
 {
-	head->printList();
+	auto tmp = head;
+	while (tmp) {
+		cout << tmp->key << "->";
+		tmp = tmp->next;
+	}
+	cout << tail;
 }
-*/
+
 template<typename T>
 void list_realisation<T>::addEl(T val)
 {
@@ -44,11 +50,12 @@ void list_realisation<T>::addEl(T val)
 template<typename T>
 void list_realisation<T>::deletion()
 {
-	while (head)
+	auto current = head, temp;
+	while (current)
 	{
-		tail = head->next;
-		delete head;
-		head = tail;
+		temp = current;
+		current = current->next;
+		delete temp;
 	}
 }
 
@@ -56,14 +63,13 @@ template<typename T>
 void list_realisation<T>::insertion(mylist<T> *previous, T val)
 {
 	mylist<T> *p;//p-storring pointer to the next el
-	mylist <T> * temp = new mylist;
+	mylist <T> * new_node = new mylist<T>;
 	p = previous->next;
-	previous->next = temp;
-	temp->key = val;
-	temp->next = p;
-	temp->prev = previous;
+	previous->next = new_node;
+	new_node->key = val;
+	new_node->next = p;
+	new_node->prev = previous;
 	if (p != nullptr) {
-		p->prev = temp;
+		p->prev = new_node;
 	}
 }
-
