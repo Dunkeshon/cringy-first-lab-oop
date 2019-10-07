@@ -3,11 +3,7 @@
 #include <iostream>
 
 using namespace std;
-/*
-enum fileInfo
-{
-	name,Size,time,changed_time,file_type
-};*/
+
 template <class T,class V>
 class file
 {
@@ -22,6 +18,11 @@ public:
 	file();
 	~file();
 	void print_info();
+	T Get_name();
+	V Get_size();
+	T Get_time();
+	T Get_changed_time();
+	T Get_type();
 	/*T Get(fileInfo);*/
 };
 

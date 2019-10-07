@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "FILE.h"
 
 
 
@@ -42,23 +43,28 @@ void file<T, V>::print_info()//вывод информации о файле
 	cout << "File type: " << _file_type << '\n';
 
 }
-/*template <class T, class V>
-T file<T, V>::Get(fileInfo)// написать для всех Get()
+template<class T, class V>
+inline T file<T, V>::Get_name()
 {
-	switch (fileInfo)
-	{
-	case name:return _name;
-		break;
-	case Size:return _size;
-		break;
-	case time:return _time;
-		break;
-	case changed_time:return _changed_time;
-		break;
-	case file_type:return _file_type;
-		break;
-	default:
-		break;
-	}
+	return _name;
 }
-*/
+template<class T, class V>
+inline V file<T, V>::Get_size()
+{
+	return _size;
+}
+template<class T, class V>
+inline T file<T, V>::Get_time()
+{
+	return _time;
+}
+template<class T, class V>
+inline T file<T, V>::Get_changed_time()
+{
+	return _changed_time;
+}
+template<class T, class V>
+inline T file<T, V>::Get_type()
+{
+	return _file_type;
+}
