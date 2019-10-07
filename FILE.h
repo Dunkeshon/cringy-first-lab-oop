@@ -18,12 +18,11 @@ public:
 	file();
 	~file();
 	void print_info();
-	T Get_name();
-	V Get_size();
-	T Get_time();
-	T Get_changed_time();
-	T Get_type();
-	/*T Get(fileInfo);*/
+	T Get_name() const;
+	V Get_size() const;
+	T Get_time() const;
+	T Get_changed_time() const;
+	T Get_type() const;
 };
 
 

@@ -44,27 +44,27 @@ void file<T, V>::print_info()//вывод информации о файле
 
 }
 template<class T, class V>
-inline T file<T, V>::Get_name()
+inline T file<T, V>::Get_name() const
 {
 	return _name;
 }
 template<class T, class V>
-inline V file<T, V>::Get_size()
+inline V file<T, V>::Get_size() const
 {
 	return _size;
 }
 template<class T, class V>
-inline T file<T, V>::Get_time()
+inline T file<T, V>::Get_time() const
 {
 	return _time;
 }
 template<class T, class V>
-inline T file<T, V>::Get_changed_time()
+inline T file<T, V>::Get_changed_time() const
 {
 	return _changed_time;
 }
 template<class T, class V>
-inline T file<T, V>::Get_type()
+inline T file<T, V>::Get_type() const
 {
 	return _file_type;
 }
