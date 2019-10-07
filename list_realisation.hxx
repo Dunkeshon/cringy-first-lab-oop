@@ -11,7 +11,9 @@ template <class T>list_realisation<T>::list_realisation(T FirstEl)
 
 template <class T>list_realisation<T>::~list_realisation()
 {
-	auto current = head, temp;
+	mylist<T> *current = head;
+	mylist<T> *temp;
+
 	while (current)
 	{
 		temp = current;
@@ -24,11 +26,18 @@ template<typename T>
 void list_realisation<T>::printFuncList()
 {
 	auto tmp = head;
-	while (tmp) {
-		cout << tmp->key << "->";
-		tmp = tmp->next;
+	if (head != tail) {
+		while (tmp) {
+			cout << tmp->key << "->";
+			tmp = tmp->next;
+		}
+		cout << tail->key;
 	}
-	cout << tail;
+		else
+		{
+		cout << tmp->key;
+		}
+	
 }
 
 template<typename T>
