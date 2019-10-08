@@ -2,14 +2,14 @@
 
 
 
-template <class T>list_realisation<T>::list_realisation(T FirstEl)
+template <class T>list_realisation<T>::list_realisation(T FirstEl)//создание первого элемента
 {
 	head = new mylist<T>(FirstEl);//первый элемент списка-новый обьект mylist, вызывается конструктор
 	tail = head;
 }
 
 
-template <class T>list_realisation<T>::~list_realisation()
+template <class T>list_realisation<T>::~list_realisation()// удаляет список
 {
 	mylist<T> *current = head;
 	mylist<T> *temp;
@@ -23,7 +23,7 @@ template <class T>list_realisation<T>::~list_realisation()
 }
 
 template<typename T>
-void list_realisation<T>::printFuncList()
+void list_realisation<T>::printFuncList()// вывод списка
 {
 	auto tmp = head;
 	if (head != tail) {
@@ -41,7 +41,7 @@ void list_realisation<T>::printFuncList()
 }
 
 template<typename T>
-void list_realisation<T>::addEl(T val)
+void list_realisation<T>::addEl(T val)// добавление элемента
 {
 	mylist<T> *temp = new mylist<T>(val);
 	if (head == nullptr) {
@@ -57,7 +57,7 @@ void list_realisation<T>::addEl(T val)
 }
 
 template<typename T>
-void list_realisation<T>::deletion()
+void list_realisation<T>::deletion()// удаление списка
 {
 	auto current = head, temp;
 	while (current)
@@ -69,7 +69,7 @@ void list_realisation<T>::deletion()
 }
 
 template<typename T>
-void list_realisation<T>::insertion(mylist<T> *previous, T val)
+void list_realisation<T>::insertion(mylist<T> *previous, T val) // вставка эллемента после элемента,который мы передаем в функцию
 {
 	mylist<T> *p;//p-storring pointer to the next el
 	mylist <T> * new_node = new mylist<T>;

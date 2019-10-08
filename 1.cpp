@@ -9,7 +9,7 @@ using namespace std;
 int main()
 {
     std::cout << "Hello World!\n"; 
-	file<string,int> one;// error
+	file<string,int> one;
 	one.print_info();
 	list_realisation<int> list(one.Get_size());
 	list.printFuncList();

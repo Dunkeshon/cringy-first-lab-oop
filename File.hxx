@@ -30,7 +30,7 @@ file<T, V>::file()//создаем новый файл, вводим данные с клавиатуры
 template <class T, class V>
 file<T, V>::~file()
 {
-	//нужно реализовать динамическое удаление памяти 
+	
 }
 template <class T, class V>
 void file<T, V>::print_info()//вывод информации о файле 
@@ -43,6 +43,9 @@ void file<T, V>::print_info()//вывод информации о файле
 	cout << "File type: " << _file_type << '\n';
 
 }
+/**
+геттеры для получиния информации из private полей
+*/
 template<class T, class V>
 inline T file<T, V>::Get_name() const
 {
