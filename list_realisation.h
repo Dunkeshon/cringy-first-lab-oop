@@ -4,7 +4,7 @@
 #include "mylist.h"
 
 
-template <typename T>
+template <class T>
 class list_realisation
 {
 private:

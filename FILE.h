@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include "Taime.h"
 
 using namespace std;
 
@@ -12,17 +13,18 @@ private:
 protected:
 	T _name;
 	V _size;
-	T _time;
-	T _changed_time;
+	Taime _time;
+	Taime _changed_time;
 public:
 	file();
 	~file();
 	void print_info();
 	T Get_name() const;
 	V Get_size() const;
-	T Get_time() const;
-	T Get_changed_time() const;
+	Taime Get_time() const;
+	Taime Get_changed_time() const;
 	T Get_type() const;
+
 };
 
 

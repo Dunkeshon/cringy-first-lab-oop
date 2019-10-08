@@ -158,6 +158,8 @@
     <ClInclude Include="mylist.h" />
     <ClInclude Include="mylist.hxx" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Taime.h" />
+    <ClInclude Include="Taime.hxx" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="1.cpp" />

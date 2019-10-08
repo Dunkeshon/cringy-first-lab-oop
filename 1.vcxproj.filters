@@ -36,6 +36,12 @@
     <ClInclude Include="list_realisation.hxx">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Taime.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Taime.hxx">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

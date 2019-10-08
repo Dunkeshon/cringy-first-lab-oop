@@ -22,7 +22,7 @@ template <class T>list_realisation<T>::~list_realisation()// удаляет список
 	}
 }
 
-template<typename T>
+template<class T>
 void list_realisation<T>::printFuncList()// вывод списка
 {
 	auto tmp = head;
@@ -40,7 +40,7 @@ void list_realisation<T>::printFuncList()// вывод списка
 	
 }
 
-template<typename T>
+template<class T>
 void list_realisation<T>::addEl(T val)// добавление элемента
 {
 	mylist<T> *temp = new mylist<T>(val);
@@ -56,7 +56,7 @@ void list_realisation<T>::addEl(T val)// добавление элемента
 	}
 }
 
-template<typename T>
+template<class T>
 void list_realisation<T>::deletion()// удаление списка
 {
 	auto current = head, temp;
@@ -68,7 +68,7 @@ void list_realisation<T>::deletion()// удаление списка
 	}
 }
 
-template<typename T>
+template<class T>
 void list_realisation<T>::insertion(mylist<T> *previous, T val) // вставка эллемента после элемента,который мы передаем в функцию
 {
 	mylist<T> *p;//p-storring pointer to the next el
