@@ -2,10 +2,10 @@
 
 
 
-template <class T>list_realisation<T>::list_realisation(file *FirstEl)//создание первого элемента
+template <class T>list_realisation<T>::list_realisation()//создание первого элемента
 {
-	head = FirstEl;//первый элемент списка 
-	tail = head;
+	head = tail=nullptr;//первый элемент списка 
+	
 }
 
 
@@ -72,7 +72,7 @@ void list_realisation<T>::deletion()// удаление списка
 template<class T>
 void list_realisation<T>::insertion(mylist *previous) // вставка эллемента после элемента,который мы передаем в функцию
 {
-	// нужно вызвать конструктор нового элемента и заполнить его данными
+	// нужно вызвать конструктор нового элемента и заполнить его данными- done
 	mylist *p;//p-storring pointer to the next el
 	mylist  * new_node = new mylist;
 	p = previous->next;

@@ -11,7 +11,7 @@ private:
 	mylist * head;
 	mylist * tail;
 public:
-	list_realisation(file *FirstEl);//создание первого элемента
+	list_realisation();// initialisation with nullptr
 	~list_realisation();// удаляет список
 	void printFuncList();// вывод списка
 	void addEl();// добавление элемента НУЖНО ПЕРЕДАТЬ КЛАСС ПО УКАЗАТЕЛЮ

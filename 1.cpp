@@ -6,18 +6,23 @@
 #include "list_realisation.h"
 #include <vector>
 using namespace std;
-void menu();
+//void menu();
 int main()
 {
-	//char input;// используется в меню
+	char input;// используется в меню
 	//vector<int> files;//количество файлов 
-
+	list_realisation<file> list;
+	menu:
 	cout << "to add a file press 1 : ";
+	cin >> input;
+	if (input == '1') {
+		list.addEl();// два раза вызывается конструктор файла пофиксить
+	}
 	//если '1' то file<string,int> one; vector.pushback(1);
 	// if vector.size=0 -> list_realisation <file> list(one.Get_file());
 	// else list.addel();
-	file one;
 	
+	goto menu;
 	//autism
 
 	
