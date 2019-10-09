@@ -2,17 +2,17 @@
 
 
 
-template <class T>list_realisation<T>::list_realisation(T FirstEl)//создание первого элемента
+template <class T>list_realisation<T>::list_realisation(file *FirstEl)//создание первого элемента
 {
-	head = new mylist<T>(FirstEl);//первый элемент списка-новый обьект mylist, вызывается конструктор
+	head = FirstEl;//первый элемент списка 
 	tail = head;
 }
 
 
 template <class T>list_realisation<T>::~list_realisation()// удаляет список
 {
-	mylist<T> *current = head;
-	mylist<T> *temp;
+	mylist *current = head;
+	mylist *temp;
 
 	while (current)
 	{
@@ -28,14 +28,14 @@ void list_realisation<T>::printFuncList()// вывод списка
 	auto tmp = head;
 	if (head != tail) {
 		while (tmp) {
-			cout << tmp->key << "->";
+			cout << tmp->info << "->";
 			tmp = tmp->next;
 		}
-		cout << tail->key;
+		cout << tail->info;
 	}
 		else
 		{
-		cout << tmp->key;
+		cout << tmp->info;
 		}
 	
 }
@@ -69,13 +69,14 @@ void list_realisation<T>::deletion()// удаление списка
 }
 
 template<class T>
-void list_realisation<T>::insertion(mylist<T> *previous, T val) // вставка эллемента после элемента,который мы передаем в функцию
+void list_realisation<T>::insertion(mylist *previous) // вставка эллемента после элемента,который мы передаем в функцию
 {
-	mylist<T> *p;//p-storring pointer to the next el
-	mylist <T> * new_node = new mylist<T>;
+	// нужно вызвать конструктор нового элемента и заполнить его данными
+	mylist *p;//p-storring pointer to the next el
+	mylist  * new_node = new mylist;
 	p = previous->next;
 	previous->next = new_node;
-	new_node->key = val;
+	new_node->info = val;
 	new_node->next = p;
 	new_node->prev = previous;
 	if (p != nullptr) {

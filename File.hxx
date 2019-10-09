@@ -3,8 +3,8 @@
 
 
 
-template <class T, class V>
-file<T, V>::file()//создаем новый файл, вводим данные с клавиатуры 
+
+file::file()//создаем новый файл, вводим данные с клавиатуры 
 {
 	string temp_name, temp_file_type;
 	int temp_size;
@@ -24,13 +24,13 @@ file<T, V>::file()//создаем новый файл, вводим данные с клавиатуры
 }
 
 
-template <class T, class V>
-file<T, V>::~file()
+
+file::~file()
 {
 	
 }
-template <class T, class V>
-void file<T, V>::print_info()//вывод информации о файле 
+
+void file::print_info()//вывод информации о файле 
 {
 	cout << '\t' << "File info: " << '\n';
 	cout << "File _name: " << _name << '\n';
@@ -45,28 +45,27 @@ void file<T, V>::print_info()//вывод информации о файле
 /**
 геттеры для получиния информации из private полей
 */
-template<class T, class V>
-inline T file<T, V>::Get_name() const
+
+inline string file::Get_name() const
 {
 	return _name;
 }
-template<class T, class V>
-inline V file<T, V>::Get_size() const
+inline int file::Get_size() const
 {
 	return _size;
 }
-template<class T, class V>
-inline Taime file<T, V>::Get_time() const
+
+inline Taime file::Get_time() const
 {
 	return _time;
 }
-template<class T, class V>
-inline Taime file<T, V>::Get_changed_time() const
+
+inline Taime file ::Get_changed_time() const
 {
 	return _changed_time;
 }
-template<class T, class V>
-inline T file<T, V>::Get_type() const
+
+inline string file::Get_type() const
 {
 	return _file_type;
 }

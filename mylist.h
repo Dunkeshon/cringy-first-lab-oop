@@ -1,15 +1,15 @@
 #pragma once
+#include "FILE.h"
 
-template <class T>
 class mylist
 {
 public:
 	mylist *next;
 	mylist *prev;
-	T key;
+	file info;// class with all info
 
-	mylist(T val);
-	mylist();
+	mylist(file* val);//нужно избавится от этого и оставить только по умолчанию
+	mylist();// нужно реализовать функцию заполнения и создания файла
 	~mylist();
 
 };
