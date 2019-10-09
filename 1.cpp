@@ -18,7 +18,7 @@ int main()
 	// else list.addel();
 	file one;
 	
-
+	//autism
 
 	
 	//one.print_info();
