@@ -18,6 +18,7 @@ protected:
 public:
 	file();
 	~file();
+	void set_info();
 	void print_info();
 	string Get_name() const;
 	int Get_size() const;

@@ -13,10 +13,18 @@ int main()
 	//vector<int> files;//количество файлов 
 	list_realisation<file> list;
 	menu:
-	cout << "to add a file press 1 : ";
+	cout << "to add a file press 1 : "<<endl;
+	cout << "to print your list press 2 : "<<endl;
+	cout << "to delete tour list press 3 :" << endl;
 	cin >> input;
 	if (input == '1') {
 		list.addEl();// два раза вызывается конструктор файла пофиксить
+	}
+	if (input == '2') {
+		list.printFuncList();// два раза вызывается конструктор файла пофиксить
+	}
+	if (input == '3') {
+		list.deletion();// сказать что список пустой, при попытке вывести список на экран говорить что список пуст 
 	}
 	//если '1' то file<string,int> one; vector.pushback(1);
 	// if vector.size=0 -> list_realisation <file> list(one.Get_file());

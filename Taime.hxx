@@ -4,7 +4,8 @@
 
 Taime::Taime()
 {
-	
+	hour = 0;
+	min = 0;
 }
 
 

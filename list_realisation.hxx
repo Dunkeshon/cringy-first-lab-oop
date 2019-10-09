@@ -27,16 +27,16 @@ void list_realisation<T>::printFuncList()// вывод списка
 {
 	auto tmp = head;
 	if (head != tail) {
-		while (tmp) {
-			cout << tmp->info.print_info() << endl;
+		while (tmp){
+			 tmp->info.print_info() ;
 			cout << "######################" << endl;
 			tmp = tmp->next;
-		}
-		cout << tail->info.print_info();
+		} 
+		
 	}
 		else
 		{
-		cout << tmp->info.print_info();
+			tmp->info.print_info();
 		}
 	
 }
@@ -45,6 +45,7 @@ template<class T>
 void list_realisation<T>::addEl()// добавление элемента
 {
 	mylist *temp = new mylist();
+	temp->info.set_info();
 	if (head == nullptr) {
 		head = temp;
 		tail = temp;
@@ -60,7 +61,8 @@ void list_realisation<T>::addEl()// добавление элемента
 template<class T>
 void list_realisation<T>::deletion()// удаление списка
 {
-	auto current = head, temp;
+	auto current = head;
+	auto temp = head;
 	while (current)
 	{
 		temp = current;
@@ -75,6 +77,7 @@ void list_realisation<T>::insertion(mylist *previous) // вставка эллемента после
 	// нужно вызвать конструктор нового элемента и заполнить его данными- done
 	mylist *p;//p-storring pointer to the next el
 	mylist  * new_node = new mylist;
+	new_node->info.set_info();
 	p = previous->next;
 	previous->next = new_node;
 	new_node->next = p;
