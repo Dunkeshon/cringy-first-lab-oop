@@ -9,21 +9,21 @@ using namespace std;
 void menu();
 int main()
 {
-	char input;// используется в меню
-	vector<int> files;//количество файлов 
+	//char input;// используется в меню
+	//vector<int> files;//количество файлов 
 
 	cout << "to add a file press 1 : ";
 	//если '1' то file<string,int> one; vector.pushback(1);
 	// if vector.size=0 -> list_realisation <file> list(one.Get_file());
 	// else list.addel();
-	file<string,int> one;
-	list_realisation <Taime> list(one.Get_time());
+	file one;
+	
 
 
 	
 	//one.print_info();
 	
-	list.printFuncList();
+	//list.printFuncList();
 	return 0;
 }
 /*

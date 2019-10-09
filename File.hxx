@@ -32,7 +32,7 @@ file::~file()
 
 void file::print_info()//вывод информации о файле 
 {
-	cout << '\t' << "File info: " << '\n';
+	//cout << '\t' << "File info: " << '\n';
 	cout << "File _name: " << _name << '\n';
 	cout << "File _size: " << _size << '\n';
 	cout << "Time of creation: ";

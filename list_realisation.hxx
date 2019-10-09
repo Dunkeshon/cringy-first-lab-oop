@@ -28,22 +28,23 @@ void list_realisation<T>::printFuncList()// вывод списка
 	auto tmp = head;
 	if (head != tail) {
 		while (tmp) {
-			cout << tmp->info << "->";
+			cout << tmp->info.print_info() << endl;
+			cout << "######################" << endl;
 			tmp = tmp->next;
 		}
-		cout << tail->info;
+		cout << tail->info.print_info();
 	}
 		else
 		{
-		cout << tmp->info;
+		cout << tmp->info.print_info();
 		}
 	
 }
 
 template<class T>
-void list_realisation<T>::addEl(T val)// добавление элемента
+void list_realisation<T>::addEl()// добавление элемента
 {
-	mylist<T> *temp = new mylist<T>(val);
+	mylist *temp = new mylist();
 	if (head == nullptr) {
 		head = temp;
 		tail = temp;
@@ -76,7 +77,6 @@ void list_realisation<T>::insertion(mylist *previous) // вставка эллемента после
 	mylist  * new_node = new mylist;
 	p = previous->next;
 	previous->next = new_node;
-	new_node->info = val;
 	new_node->next = p;
 	new_node->prev = previous;
 	if (p != nullptr) {

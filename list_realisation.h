@@ -8,15 +8,15 @@ template <class T>
 class list_realisation
 {
 private:
-	mylist<T> * head;
-	mylist<T> * tail;
+	mylist * head;
+	mylist * tail;
 public:
-	list_realisation(T FirstEl);//создание первого элемента
+	list_realisation(file *FirstEl);//создание первого элемента
 	~list_realisation();// удаляет список
 	void printFuncList();// вывод списка
-	void addEl(T val);// добавление элемента
+	void addEl();// добавление элемента НУЖНО ПЕРЕДАТЬ КЛАСС ПО УКАЗАТЕЛЮ
 	void deletion();// удаление списка
-	void insertion(mylist<T> *previous,T val); // вставка эллемента после элемента,который мы передаем в функцию
+	void insertion(mylist *previous); // вставка эллемента после элемента,который мы передаем в функцию
 };
 
 #include "list_realisation.hxx"
