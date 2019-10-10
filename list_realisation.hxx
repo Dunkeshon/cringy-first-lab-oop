@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "list_realisation.h"
 
 
 
@@ -90,4 +91,11 @@ void list_realisation<T>::insertion(mylist *previous) // вставка эллемента после
 	if (p != nullptr) {
 		p->prev = new_node;
 	}
+}
+
+template<class T>
+mylist* list_realisation<T>::search(T key)
+{
+	// нужно пройти по списку и вернуть адресс
+	return *mylist();
 }

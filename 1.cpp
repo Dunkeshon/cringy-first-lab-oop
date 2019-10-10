@@ -9,25 +9,33 @@ using namespace std;
 //void menu();
 int main()
 {
-	char input;// используется в меню
+	string input;// используется в меню
 	//vector<int> files;//количество файлов 
 	list_realisation<file> list;
 	menu:
 	cout << "to add a file press 1 : "<<endl;
 	cout << "to print your list press 2 : "<<endl;
 	cout << "to delete tour list press 3 :" << endl;
+	cout << "to insert a file inside your list press 4 : " << endl;
+
 	cin >> input;
-	if (input == '1') {
+	if (input == "1") {
 		list.addEl();
 	}
-	if (input == '2') {
+	if (input == "2") {
 		list.printFuncList();
 	}
-	if (input == '3') {
+	if (input == "3") {
 		list.deletion(); 
 		cout << "your list have been deleted" << endl;
 	}
-	
+	if (input == "4") {
+		cout << "choose the name of the file after which you want to insert a new file: " << endl;
+		list.printFuncList();
+		cout << "enter the chosen name :";
+		cin >> input;
+
+	}
 	
 	goto menu;
 	//autism
