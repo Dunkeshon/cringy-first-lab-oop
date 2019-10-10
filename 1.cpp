@@ -4,7 +4,7 @@
 #include "FILE.h"
 #include "mylist.h"
 #include "list_realisation.h"
-#include <vector>
+//#include <vector>
 using namespace std;
 //void menu();
 int main()
@@ -18,25 +18,19 @@ int main()
 	cout << "to delete tour list press 3 :" << endl;
 	cin >> input;
 	if (input == '1') {
-		list.addEl();// два раза вызывается конструктор файла пофиксить
+		list.addEl();
 	}
 	if (input == '2') {
-		list.printFuncList();// два раза вызывается конструктор файла пофиксить
+		list.printFuncList();
 	}
 	if (input == '3') {
-		list.deletion();// сказать что список пустой, при попытке вывести список на экран говорить что список пуст 
+		list.deletion(); 
+		cout << "your list have been deleted" << endl;
 	}
-	//если '1' то file<string,int> one; vector.pushback(1);
-	// if vector.size=0 -> list_realisation <file> list(one.Get_file());
-	// else list.addel();
+	
 	
 	goto menu;
 	//autism
-
-	
-	//one.print_info();
-	
-	//list.printFuncList();
 	return 0;
 }
 /*

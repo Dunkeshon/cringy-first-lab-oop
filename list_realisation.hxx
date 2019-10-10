@@ -34,11 +34,14 @@ void list_realisation<T>::printFuncList()// вывод списка
 		} 
 		
 	}
-		else
-		{
-			tmp->info.print_info();
-		}
-	
+	else if ((head == tail)&&(head!=nullptr))
+	{
+		tmp->info.print_info();
+	}
+	else
+	{
+		cout << "list is empty" << endl;
+	}
 }
 
 template<class T>
@@ -69,6 +72,8 @@ void list_realisation<T>::deletion()// удаление списка
 		current = current->next;
 		delete temp;
 	}
+	head = nullptr;
+	tail = nullptr;
 }
 
 template<class T>
