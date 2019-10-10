@@ -124,3 +124,32 @@ template<class T>
  {
 	 return tail;
  }
+
+ template<class T>
+ void list_realisation<T>::delete_element(mylist * el_to_delete)
+ {	 if ((el_to_delete == head) && (el_to_delete == tail))
+	 {
+		 delete el_to_delete;
+		 head = nullptr;
+		 tail = nullptr;
+		 cout << "element has been deleted" << endl;
+		 return;
+	 }
+	 else if (el_to_delete==head) {
+		 el_to_delete->next->prev = nullptr;
+		 head = el_to_delete->next;
+		 delete el_to_delete;
+	 }
+	 else if(el_to_delete==tail){
+		 el_to_delete->prev->next = nullptr;
+		 tail = el_to_delete->prev;
+		 delete el_to_delete;
+	 }
+	 
+	 else {
+		 el_to_delete->prev->next = el_to_delete->next;
+		 el_to_delete->next->prev = el_to_delete->prev;
+		 delete el_to_delete;
+	 }
+	 cout << "element has been deleted" << endl;
+ }

@@ -16,7 +16,8 @@ int main()
 	cout << "to add a file press 1 : "<<endl;
 	cout << "to print your list press 2 : "<<endl;
 	cout << "to delete tour list press 3 :" << endl;
-	cout << "to insert a file inside your list press 4 : " << endl;
+	cout << "to delete a file press 4 :" << endl;
+	cout << "to insert a file inside your list press 5 : " << endl;
 
 	cin >> input;
 	if (input == "1") {
@@ -30,17 +31,28 @@ int main()
 		cout << "your list have been deleted" << endl;
 	}
 	if (input == "4") {
+		cout << "choose the name of the file which you want to delete: " << endl;
+		list.printFuncList();
+		if ((list.Get_head() == nullptr)) {
+			goto skip;// УЖЕ ВЫВЕДЕТСЯ ЧТО СПИСОК ПУСТ , ПОЭТОМУ ВЫЙТИ ИЗ ФУНКЦИИУ
+		}
+		cout << "enter the chosen name :";
+		cin >> input;
+		list.delete_element(list.search_name(input));
+
+	}
+	if (input == "5") {
 		cout << "choose the name of the file after which you want to insert a new file: " << endl;
 		list.printFuncList();
 		if ((list.Get_head() == nullptr)) {
-			goto skip;
+			goto skip;// УЖЕ ВЫВЕДЕТСЯ ЧТО СПИСОК ПУСТ , ПОЭТОМУ ВЫЙТИ ИЗ ФУНКЦИИУ
 		}
 		cout << "enter the chosen name :";
 		cin >> input;
 		list.insertion(list.search_name(input));
 		
 	}
-	skip:
+	skip:// СЮДЫ ВЫХОДИМ
 	goto menu;
 	//autism
 	return 0;
