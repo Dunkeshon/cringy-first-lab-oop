@@ -94,8 +94,33 @@ void list_realisation<T>::insertion(mylist *previous) // вставка эллемента после
 }
 
 template<class T>
-mylist* list_realisation<T>::search(T key)
+mylist* list_realisation<T>::search_name(string key)
 {
+	mylist *temp = new mylist;
+	temp = head;
+	while (temp) {
+		if (temp->info.Get_name() == key)
+		{
+			return temp;
+		}
+		else {
+			temp = temp->next;
+		}
+	}
+	cout << "file with this name don't exist" << endl;
 	// нужно пройти по списку и вернуть адресс
-	return *mylist();
+	return nullptr;
 }
+
+template<class T>
+ mylist * list_realisation<T>::Get_head()
+{
+
+	return head;
+}
+
+ template<class T>
+ mylist * list_realisation<T>::Get_tail()
+ {
+	 return tail;
+ }

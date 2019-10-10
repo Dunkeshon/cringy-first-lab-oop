@@ -32,11 +32,15 @@ int main()
 	if (input == "4") {
 		cout << "choose the name of the file after which you want to insert a new file: " << endl;
 		list.printFuncList();
+		if ((list.Get_head() == nullptr)) {
+			goto skip;
+		}
 		cout << "enter the chosen name :";
 		cin >> input;
-
+		list.insertion(list.search_name(input));
+		
 	}
-	
+	skip:
 	goto menu;
 	//autism
 	return 0;

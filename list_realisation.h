@@ -17,7 +17,9 @@ public:
 	void addEl();// добавление элемента НУЖНО ПЕРЕДАТЬ КЛАСС ПО УКАЗАТЕЛЮ
 	void deletion();// удаление списка
 	void insertion(mylist *previous); // вставка эллемента после элемента,который мы передаем в функцию
-	mylist* search(T key);// поиск по элементу, возвращает адрес элемента с этим критерием
+	mylist* search_name(string key);// поиск по имени, возвращает адрес элемента с этим критерием
+	mylist* Get_head();
+	mylist* Get_tail();
 };
 
 #include "list_realisation.hxx"
