@@ -80,16 +80,23 @@ void list_realisation<T>::deletion()// удаление списка
 template<class T>
 void list_realisation<T>::insertion(mylist *previous) // вставка эллемента после элемента,который мы передаем в функцию
 {
-	// нужно вызвать конструктор нового элемента и заполнить его данными- done
-	mylist *p;//p-storring pointer to the next el
-	mylist  * new_node = new mylist;
-	new_node->info.set_info();
-	p = previous->next;
-	previous->next = new_node;
-	new_node->next = p;
-	new_node->prev = previous;
-	if (p != nullptr) {
-		p->prev = new_node;
+	 if (previous->next == nullptr)
+	{
+		addEl();
+		return;
+	}
+	else {
+		// нужно вызвать конструктор нового элемента и заполнить его данными- done
+		mylist *p;//p-storring pointer to the next el
+		mylist  * new_node = new mylist;
+		new_node->info.set_info();
+		p = previous->next;
+		previous->next = new_node;
+		new_node->next = p;
+		new_node->prev = previous;
+		if (p != nullptr) {
+			p->prev = new_node;
+		}
 	}
 }
 
