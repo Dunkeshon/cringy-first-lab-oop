@@ -50,6 +50,7 @@ void list_realisation<T>::addEl()// добавление элемента
 {
 	mylist *temp = new mylist();
 	temp->info.set_info();
+	// change set_info to seting info 
 	if (head == nullptr) {
 		head = temp;
 		tail = temp;

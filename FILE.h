@@ -1,30 +1,18 @@
 #pragma once
-#include <string>
-#include <iostream>
-#include "Taime.h"
-
-using namespace std;
-
-
-class file
+#include "System_object.h"
+#include "Catalog.h"
+class file:public System_object
 {
 private:
+	Catalog *parent;
 	string _file_type;
-protected:
-	string _name;
-	int _size;
-	Taime _time;
-	Taime _changed_time;
 public:
 	file();
 	~file();
-	void set_info();
+	void set_info(Catalog *father);
 	void print_info();
-	string Get_name() const;
-	int Get_size() const;
-	Taime Get_time() const;
-	Taime Get_changed_time() const;
 	string Get_type() const;
+
 
 };
 
