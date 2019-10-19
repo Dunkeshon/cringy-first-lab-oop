@@ -10,8 +10,6 @@ private:
 	//vector<file*> children_files;
 	//vector<Catalog*> children_catalogs;
 	Catalog *parent;
-	//file child;
-	//mylist test;
 public:
 	Catalog();
 	~Catalog();
