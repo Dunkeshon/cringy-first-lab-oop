@@ -1,4 +1,5 @@
-﻿
+﻿//I need to write other menu , because me logic has changed. Firstly i need to create catalogs and files inside 
+//the first catalog, and then decide which ones i want to put in list (and what operations i should do on them) 
 #include "pch.h"
 #include <iostream>
 #include "FILE.h"
