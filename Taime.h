@@ -1,3 +1,4 @@
+// class for time
 #pragma once
 using namespace std;
 class Taime

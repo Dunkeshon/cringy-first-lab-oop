@@ -1,5 +1,7 @@
+//this is a node class
+// i think i should make it template because i have to make the list of catalogs also
 #pragma once
-#include "FILE.h"
+#include "File.h"
 
 class mylist
 {

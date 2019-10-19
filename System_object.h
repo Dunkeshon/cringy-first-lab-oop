@@ -1,6 +1,7 @@
+//this class is a super  class for "file" and "catalog". It has common info and methods for both of them
 #pragma once
-#include <string>
 #include <iostream>
+#include <string>
 #include "Taime.h"
 
 using namespace std;
@@ -8,7 +9,6 @@ using namespace std;
 class System_object
 {
 protected:
-	//Catalog *parent;
 	string _name;
 	int _size;
 	Taime _time;
@@ -20,7 +20,6 @@ public:
 	int Get_size() const;
 	Taime Get_time() const;
 	Taime Get_changed_time() const;
-	//void Set_Parent(Catalog *father);
 	System_object();
 	~System_object();
 };

@@ -86,7 +86,7 @@ void menu(list_realisation<file> &list,int &input)
 	{
 	case 1:
 		if (input == 1) {
-			list.addEl();
+		//	list.addEl();
 		}
 		break;
 	case 2:
@@ -118,7 +118,7 @@ void menu(list_realisation<file> &list,int &input)
 		}
 		cout << "enter the chosen name :";
 		cin >> input_name;
-		list.insertion(list.search_name(input_name));
+		//list.insertion(list.search_name(input_name)); нужно добавить адресс єлемента который нужно вставить
 		break;
 	case 6: 
 		return;

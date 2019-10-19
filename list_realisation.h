@@ -13,15 +13,15 @@ private:
 	mylist * tail;
 public:
 	list_realisation();// initialisation with nullptr
-	~list_realisation();// удаляет список
-	void printFuncList();// вывод списка
-	void addEl();// добавление элемента 
-	void deletion();// удаление списка
-	void insertion(mylist *previous); // вставка эллемента после элемента,который мы передаем в функцию
-	mylist* search_name(string key);// поиск по имени, возвращает адрес элемента с этим критерием
+	~list_realisation();// deleting list
+	void printFuncList();// print list
+	void addEl(T *file);// i need to add already existing element to the list
+	void deletion();// deleting the list
+	void insertion(mylist *previous,T *adress_of_el); // inserting element that already exist after the one we put in function
+	mylist* search_name(string key);// searching by name, returns adress of an element with such name
 	mylist* Get_head();//getter
 	mylist* Get_tail();//getter
-	void delete_element(mylist *el_to_delete);// удаление элемента
+	void delete_element(mylist *el_to_delete);// deleting an element
 };
 
 #include "list_realisation.hxx"

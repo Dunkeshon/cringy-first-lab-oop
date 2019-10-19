@@ -154,7 +154,7 @@
     <ClInclude Include="Catalog.h" />
     <ClInclude Include="Catalog.hxx" />
     <ClInclude Include="FILE.h" />
-    <ClInclude Include="File.hxx" />
+    <ClInclude Include="FILE.hxx" />
     <ClInclude Include="list_realisation.h" />
     <ClInclude Include="list_realisation.hxx" />
     <ClInclude Include="mylist.h" />
@@ -173,7 +173,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="System_object.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

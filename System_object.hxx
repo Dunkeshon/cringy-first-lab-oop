@@ -27,7 +27,7 @@ void System_object::set_common_info()
 	_size = temp_size;
 }
 
-void System_object::print_common_info()//вывод информации о файле 
+void System_object::print_common_info()//print
 {
 	//cout << '\t' << "File info: " << '\n';
 	cout << "File _name: " << _name << '\n';
@@ -39,7 +39,7 @@ void System_object::print_common_info()//вывод информации о файле
 }
 
 /**
-геттеры для получиния информации из private полей
+getters
 */
 
 string System_object::Get_name() const

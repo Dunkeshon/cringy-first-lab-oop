@@ -46,10 +46,10 @@ void list_realisation<T>::printFuncList()// вывод списка
 }
 
 template<class T>
-void list_realisation<T>::addEl()// добавление элемента
+void list_realisation<T>::addEl(T *file)// добавление элемента
 {
 	mylist *temp = new mylist();
-	temp->info.set_info();
+	temp->info=file;
 	// change set_info to seting info 
 	if (head == nullptr) {
 		head = temp;
@@ -79,7 +79,7 @@ void list_realisation<T>::deletion()// удаление списка
 }
 
 template<class T>
-void list_realisation<T>::insertion(mylist *previous) // вставка эллемента после элемента,который мы передаем в функцию
+void list_realisation<T>::insertion(mylist *previous,T *adress_of_el) // вставка эллемента после элемента,который мы передаем в функцию
 {
 	 if (previous->next == nullptr)
 	{
