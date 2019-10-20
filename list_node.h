@@ -3,17 +3,17 @@
 #pragma once
 #include "File.h"
 
-class mylist
+class list_node
 {
 public:
-	mylist *next;
-	mylist *prev;
+	list_node *next;
+	list_node *prev;
 	file info;// class with all info
 
 	
-	mylist();// нужно реализовать функцию заполнения и создания файла
-	~mylist();
+	list_node();// нужно реализовать функцию заполнения и создания файла
+	~list_node();
 
 };
 
-#include "mylist.hxx"
+#include "list_node.hxx"

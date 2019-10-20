@@ -1,6 +1,6 @@
-#pragma once
-#include "pch.h"
 #include "Catalog.h"
+
+
 Catalog::Catalog()
 {
 	parent = nullptr;
@@ -15,17 +15,55 @@ Catalog::~Catalog()
 {
 }
 
-void Catalog::create_child_file()
+void Catalog::set_common_info(Catalog *parent)
 {
-	
-	//file *new_file = new file;
-	//new_file->set_info(this);
-	
-
+	string temp_name;
+	int temp_size;
+	cout << "enter name : ";
+	cin >> temp_name;
+	cout << "enter size : ";
+	cin >> temp_size;
+	cout << "enter the time of creation : " << endl;
+	_time.SetTime();
+	cout << "enter the time of the last change : " << endl;
+	_changed_time.SetTime();
+	_name = temp_name;
+	_size = temp_size;
 }
 
-inline void Catalog::set_info(Catalog * father)// if this is first catalog-> set nullptr
+void Catalog::print_common_info()//print
 {
-	set_common_info();// basic class function 
-	parent = father;
+	//cout << '\t' << "File info: " << '\n';
+	cout << "File _name: " << _name << '\n';
+	cout << "File _size: " << _size << '\n';
+	cout << "Time of creation: ";
+	_time.PrintTime();
+	cout << "Time of the last change: ";
+	_changed_time.PrintTime();
 }
+
+/**
+getters
+*/
+
+string Catalog::Get_name() const
+{
+	return _name;
+}
+int Catalog::Get_size() const
+{
+	return _size;
+}
+
+Taime Catalog::Get_time() const
+{
+	return _time;
+}
+
+Taime Catalog::Get_changed_time() const
+{
+	return _changed_time;
+}
+
+
+

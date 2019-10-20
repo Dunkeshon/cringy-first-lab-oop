@@ -12,8 +12,8 @@ template <class T>list_realisation<T>::list_realisation()//создание первого элем
 
 template <class T>list_realisation<T>::~list_realisation()// удаляет список
 {
-	mylist *current = head;
-	mylist *temp;
+	list_node *current = head;
+	list_node *temp;
 
 	while (current)
 	{
@@ -48,7 +48,7 @@ void list_realisation<T>::printFuncList()// вывод списка
 template<class T>
 void list_realisation<T>::addEl(T *file)// добавление элемента
 {
-	mylist *temp = new mylist();
+	list_node *temp = new list_node();
 	temp->info=file;
 	// change set_info to seting info 
 	if (head == nullptr) {
@@ -79,7 +79,7 @@ void list_realisation<T>::deletion()// удаление списка
 }
 
 template<class T>
-void list_realisation<T>::insertion(mylist *previous,T *adress_of_el) // вставка эллемента после элемента,который мы передаем в функцию
+void list_realisation<T>::insertion(list_node *previous,T *adress_of_el) // вставка эллемента после элемента,который мы передаем в функцию
 {
 	 if (previous->next == nullptr)
 	{
@@ -88,8 +88,8 @@ void list_realisation<T>::insertion(mylist *previous,T *adress_of_el) // вставка
 	}
 	else {
 		// нужно вызвать конструктор нового элемента и заполнить его данными- done
-		mylist *p;//p-storring pointer to the next el
-		mylist  * new_node = new mylist;
+		list_node *p;//p-storring pointer to the next el
+		list_node  * new_node = new list_node;
 		new_node->info.set_info();
 		p = previous->next;
 		previous->next = new_node;
@@ -102,9 +102,9 @@ void list_realisation<T>::insertion(mylist *previous,T *adress_of_el) // вставка
 }
 
 template<class T>
-mylist* list_realisation<T>::search_name(string key)
+list_node* list_realisation<T>::search_name(string key)
 {
-	mylist *temp = new mylist;
+	list_node *temp = new list_node;
 	temp = head;
 	while (temp) {
 		if (temp->info.Get_name() == key)
@@ -121,20 +121,20 @@ mylist* list_realisation<T>::search_name(string key)
 }
 
 template<class T>
- mylist * list_realisation<T>::Get_head()
+ list_node * list_realisation<T>::Get_head()
 {
 
 	return head;
 }
 
  template<class T>
- mylist * list_realisation<T>::Get_tail()
+ list_node * list_realisation<T>::Get_tail()
  {
 	 return tail;
  }
 
  template<class T>
- void list_realisation<T>::delete_element(mylist * el_to_delete)
+ void list_realisation<T>::delete_element(list_node * el_to_delete)
  {	 if ((el_to_delete == head) && (el_to_delete == tail))
 	 {
 		 delete el_to_delete;

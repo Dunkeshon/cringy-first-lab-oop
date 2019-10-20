@@ -151,19 +151,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Catalog.h" />
-    <ClInclude Include="Catalog.hxx" />
     <ClInclude Include="FILE.h" />
     <ClInclude Include="FILE.hxx" />
     <ClInclude Include="list_realisation.h" />
     <ClInclude Include="list_realisation.hxx" />
-    <ClInclude Include="mylist.h" />
-    <ClInclude Include="mylist.hxx" />
+    <ClInclude Include="list_node.h" />
+    <ClInclude Include="list_node.hxx" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="System_object.h" />
-    <ClInclude Include="System_object.hxx" />
+    <ClInclude Include="Catalog.h" />
+    <ClInclude Include="Catalog.hxx" />
     <ClInclude Include="Taime.h" />
     <ClInclude Include="Taime.hxx" />
+    <ClInclude Include="TreeNode.h" />
+    <ClInclude Include="TreeNode.hxx" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="1.cpp" />
