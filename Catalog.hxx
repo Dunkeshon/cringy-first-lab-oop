@@ -15,6 +15,15 @@ Catalog::~Catalog()
 {
 }
 
+bool Catalog::is_empty()
+{
+	if (_name==""&& _size==0)
+	{
+		return true;
+	}
+	return false;
+}
+
 void Catalog::set_common_info(Catalog *parent)
 {
 	string temp_name;
@@ -63,6 +72,11 @@ Taime Catalog::Get_time() const
 Taime Catalog::Get_changed_time() const
 {
 	return _changed_time;
+}
+
+Catalog* Catalog::Get_parent() const
+{
+	return parent;
 }
 
 

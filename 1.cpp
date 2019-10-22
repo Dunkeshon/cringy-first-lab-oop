@@ -5,12 +5,30 @@
 #include "FILE.h"
 #include "list_node.h"
 #include "list_realisation.h"
+#include "TreeNode.h"
 //#include <vector>
+void menu(TreeNode &current,int &input);
 using namespace std;
 int main() {
+	TreeNode Mytree;//tree, that we will use to store objects
+	int input;// используется в меню
 	return 0;
 }
-/*void menu(list_realisation<file> &list,int &input);
+void menu(TreeNode &current, int &input)
+{
+	string input_name;
+	cout << "\t\t  MENU " << endl;
+	if ((current.info.Get_parent()==0) && (current.info.is_empty())) {// if current object don't have parent and is empty create first element
+		cout << "To create first element press 1: " << endl;
+	}
+	cout << "\t To add a file press 1 : " << endl;
+
+}
+
+
+
+
+/*
 
 {
 	int input;// используется в меню

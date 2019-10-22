@@ -15,12 +15,14 @@ protected:
 	Taime _time;
 	Taime _changed_time;
 public:
+	bool is_empty();
 	void set_common_info(Catalog *parent);
 	void print_common_info();
 	string Get_name() const;
 	int Get_size() const;
 	Taime Get_time() const;
 	Taime Get_changed_time() const;
+	Catalog* Get_parent() const;
 	Catalog();
 	~Catalog();
 };
