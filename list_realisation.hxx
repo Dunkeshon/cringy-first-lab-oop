@@ -12,8 +12,8 @@ template <class T>list_realisation<T>::list_realisation()//создание первого элем
 
 template <class T>list_realisation<T>::~list_realisation()// удаляет список
 {
-	list_node *current = head;
-	list_node *temp;
+	list_node<T> *current = head;
+	list_node<T> *temp;
 
 	while (current)
 	{
@@ -46,10 +46,12 @@ void list_realisation<T>::printFuncList()// вывод списка
 }
 
 template<class T>
-void list_realisation<T>::addEl(T *file)// добавление элемента
+void list_realisation<T>::addEl( T *Element)// добавление элемента
 {
-	list_node *temp = new list_node();
-	temp->info=file;
+	list_node<T> *temp = new list_node<T>();
+
+	temp->info=Element;// OVERLOAD 
+
 	// change set_info to seting info 
 	if (head == nullptr) {
 		head = temp;
@@ -79,18 +81,18 @@ void list_realisation<T>::deletion()// удаление списка
 }
 
 template<class T>
-void list_realisation<T>::insertion(list_node *previous,T *adress_of_el) // вставка эллемента после элемента,который мы передаем в функцию
+void list_realisation<T>::insertion(list_node<T> *previous, T *element) // вставка эллемента после элемента,который мы передаем в функцию
 {
 	 if (previous->next == nullptr)
 	{
-		addEl();
+		addEl(element);
 		return;
 	}
 	else {
 		// нужно вызвать конструктор нового элемента и заполнить его данными- done
-		list_node *p;//p-storring pointer to the next el
-		list_node  * new_node = new list_node;
-		new_node->info.set_info();
+		list_node<T> *p;//p-storring pointer to the next el
+		list_node<T>  * new_node = new list_node<T>;
+		//new_node->info = element , need to overload "=" 
 		p = previous->next;
 		previous->next = new_node;
 		new_node->next = p;
@@ -102,9 +104,9 @@ void list_realisation<T>::insertion(list_node *previous,T *adress_of_el) // вста
 }
 
 template<class T>
-list_node* list_realisation<T>::search_name(string key)
+list_node<T>* list_realisation<T>::search_name(string key)
 {
-	list_node *temp = new list_node;
+	list_node<T> *temp = new list_node<T>;
 	temp = head;
 	while (temp) {
 		if (temp->info.Get_name() == key)
@@ -115,26 +117,26 @@ list_node* list_realisation<T>::search_name(string key)
 			temp = temp->next;
 		}
 	}
-	cout << "file with this name don't exist" << endl;
+	cout << "file with this name doesn't exist" << endl;
 	// нужно пройти по списку и вернуть адресс
 	return nullptr;
 }
 
 template<class T>
- list_node * list_realisation<T>::Get_head()
+ list_node<T> * list_realisation<T>::Get_head()
 {
 
 	return head;
 }
 
  template<class T>
- list_node * list_realisation<T>::Get_tail()
+ list_node<T> * list_realisation<T>::Get_tail()
  {
 	 return tail;
  }
 
  template<class T>
- void list_realisation<T>::delete_element(list_node * el_to_delete)
+ void list_realisation<T>::delete_element(list_node<T> * el_to_delete)
  {	 if ((el_to_delete == head) && (el_to_delete == tail))
 	 {
 		 delete el_to_delete;

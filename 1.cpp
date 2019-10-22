@@ -2,17 +2,23 @@
 //the first catalog, and then decide which ones i want to put in list (and what operations i should do on them) 
 #include "pch.h"
 #include <iostream>
+#include "Catalog.h"
 #include "FILE.h"
 #include "list_node.h"
 #include "list_realisation.h"
 #include "TreeNode.h"
 //#include <vector>
-void menu(TreeNode *current,int &input);
-void file_element_menu(file *current);
-void catalog_elemant_menu(Catalog *current);
+
 using namespace std;
+
+void menu(TreeNode *current,int &input);
+void file_element_menu(file *current, int &input,list_realisation<Catalog> &Mylist, TreeNode *Catalog_node);
+void catalog_element_menu(Catalog *current, int &input, list_realisation<Catalog> &Mylist, TreeNode *Catalog_node);
+
+
 int main() {
 	TreeNode Mytree;//tree, that we will use to store objects
+	list_realisation<Catalog> Mylist;
 	int input;// используется в меню
 	menu(&Mytree,input);
 	return 0;
@@ -25,16 +31,53 @@ void menu(TreeNode *current, int &input)
 		cout << "To create first element press 1: " << endl;
 		cin >> input;
 		if (input == 1) {
-			current->info.set_common_info(nullptr);
+			current->info.set_info(nullptr);//set info to 1-st el and say that he hasn't got father
 		}
 	}
 	//checkout
 }
 
-void file_element_menu(file *current) {
-
+void file_element_menu(file *current,int &input, list_realisation<Catalog> &Mylist,TreeNode *Catalog_node) {
+	cout << "Print file info press 1: " << endl;
+	cout << "Add file to list press 2: " << endl;
+	cout << "Checkout parent press 3:" << endl;
+	cout << ">>>";
+	cin >> input;
+	switch (input)
+	{
+	case 1: current->print_info(); break;
+	case 2: Mylist.addEl(current); break;// add to list; break;
+	case 3: catalog_element_menu(current->Get_parent(), input, Mylist, Catalog_node);//checkout
+ 	 break;
+	default: 
+		break;
+	}
 }
-void catalog_elemant_menu(Catalog *current) {
+void catalog_element_menu(Catalog *current,int &input, list_realisation<Catalog> &Mylist,TreeNode *Catalog_node)// checkout catalog
+{
+	cout << "\t Print this catalog info press 1: " << endl;
+	cout << "\t Add this catalog to list press 2: " << endl;
+	cout << "\t Checkout parent press 3:" << endl;
+	cout << "\t Create a file inside this catalog press 4:" << endl;
+	cout << "\t Create a catalog inside this catalog press 5: " << endl;
+	cout << "\t Print children files press 6:" << endl;
+	cout << "\t Print children catalogs press 7:" << endl;
+	cout << "\t checkout to children file press 8: " << endl;// need to choose the name of file and then checkout choosen file by pointer
+	cout << "\t checkout to children catalog press 9: " << endl;// same for catalog
+	cout << "\t Return to menu press 10 :" << endl;
+	cout << ">>>";
+	cin >> input;
+
+	switch (input)
+	{
+	case 1: current->print_info(); break;
+	case 2: // add to list; break;
+	case 3: catalog_element_menu(current->Get_parent(), input, Mylist, Catalog_node);//checkout
+		break;
+	case 4: 
+	default:
+		break;
+	}
 
 }
 

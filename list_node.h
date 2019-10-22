@@ -1,14 +1,15 @@
 //this is a node class
 // i think i should make it template because i have to make the list of catalogs also
 #pragma once
+#include "Catalog.h"
 #include "File.h"
-
+template <class T>
 class list_node
 {
 public:
 	list_node *next;
 	list_node *prev;
-	file info;// class with all info
+	T info;// class with all info
 
 	
 	list_node();// нужно реализовать функцию заполнения и создания файла

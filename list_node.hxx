@@ -5,15 +5,15 @@
 
 
 
- list_node ::list_node()
+ template <class T> list_node <T> ::list_node()
 {
 	next = nullptr;
 	prev = nullptr;
-	info = file();
+	info = T();
 }
 
 
- list_node ::~list_node()
+ template <class T> list_node <T> ::~list_node()
 {
 
 }
