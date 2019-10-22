@@ -7,21 +7,34 @@
 #include "list_realisation.h"
 #include "TreeNode.h"
 //#include <vector>
-void menu(TreeNode &current,int &input);
+void menu(TreeNode *current,int &input);
+void file_element_menu(file *current);
+void catalog_elemant_menu(Catalog *current);
 using namespace std;
 int main() {
 	TreeNode Mytree;//tree, that we will use to store objects
 	int input;// используется в меню
+	menu(&Mytree,input);
 	return 0;
 }
-void menu(TreeNode &current, int &input)
+void menu(TreeNode *current, int &input)
 {
 	string input_name;
 	cout << "\t\t  MENU " << endl;
-	if ((current.info.Get_parent()==0) && (current.info.is_empty())) {// if current object don't have parent and is empty create first element
+	if ((current->info.Get_parent()==0) && (current->info.is_empty())) {// if current object don't have parent and is empty create first element
 		cout << "To create first element press 1: " << endl;
+		cin >> input;
+		if (input == 1) {
+			current->info.set_common_info(nullptr);
+		}
 	}
-	cout << "\t To add a file press 1 : " << endl;
+	//checkout
+}
+
+void file_element_menu(file *current) {
+
+}
+void catalog_elemant_menu(Catalog *current) {
 
 }
 

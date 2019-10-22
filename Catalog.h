@@ -16,8 +16,8 @@ protected:
 	Taime _changed_time;
 public:
 	bool is_empty();
-	void set_common_info(Catalog *parent);
-	void print_common_info();
+	 void set_info(Catalog *parent);
+	 void print_info();
 	string Get_name() const;
 	int Get_size() const;
 	Taime Get_time() const;

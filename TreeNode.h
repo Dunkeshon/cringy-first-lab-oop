@@ -8,8 +8,8 @@ class TreeNode
 {
 public:
 	Catalog info; // хранить всю информацию о текущем елементе и испольховать его адрес в качестве ссылки на этот элемент
-	vector<file*>file_children;
-	vector<TreeNode*>catalog_children;
+	vector<file>file_children;
+	vector<TreeNode>catalog_children;
 	void create_file_children();
 	void create_catalog_children();
 	void checkout_file_child(string name);

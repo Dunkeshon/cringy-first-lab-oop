@@ -24,7 +24,7 @@ bool Catalog::is_empty()
 	return false;
 }
 
-void Catalog::set_common_info(Catalog *parent)
+void Catalog::set_info(Catalog *parent)
 {
 	string temp_name;
 	int temp_size;
@@ -40,7 +40,7 @@ void Catalog::set_common_info(Catalog *parent)
 	_size = temp_size;
 }
 
-void Catalog::print_common_info()//print
+void Catalog::print_info()//print
 {
 	//cout << '\t' << "File info: " << '\n';
 	cout << "File _name: " << _name << '\n';

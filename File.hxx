@@ -13,9 +13,9 @@ file::~file()
 
 }
 
-void file::set_info(Catalog *parent)
+void file::set_info(Catalog *parent) 
 {
-	set_common_info(parent);// basic class function 
+	Catalog::set_info(parent);// basic class function 
 	string temp_file_type;
 	cout << "enter the file type : ";
 	cin >> temp_file_type;
@@ -24,7 +24,7 @@ void file::set_info(Catalog *parent)
 
 void file::print_info()//print file info
 {
-	print_common_info();
+	Catalog::print_info();
 	cout << "File type: " << _file_type << '\n';
 }
 /**
