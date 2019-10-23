@@ -3,15 +3,19 @@
 #pragma once
 #include "Catalog.h"
 #include "File.h"
-//<T>
-template <class T>
+enum type
+{
+	not_setted , is_catalog , is_file
+};
 class list_node
 {
+	type _type_of_element;
 public:
-	list_node<T> *next;
-	list_node<T> *prev;
-	T info;// class with all info
-
+	void set_type_of_el(type this_type);
+	list_node *next;
+	list_node *prev;
+	Catalog Catalog_info;
+	file File_info;
 	
 	list_node();// нужно реализовать функцию заполнения и создания файла
 	~list_node();

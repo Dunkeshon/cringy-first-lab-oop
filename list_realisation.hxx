@@ -12,8 +12,8 @@ list_realisation::list_realisation()//создание первого элемента
 
 list_realisation::~list_realisation()// удаляет список
 {
-	list_node<Catalog> *current = head;
-	list_node<Catalog> *temp;
+	list_node *current = head;
+	list_node *temp;
 
 	while (current)
 	{
@@ -46,7 +46,7 @@ void list_realisation::printFuncList()// вывод списка
 
 void list_realisation::addEl_Catalog( Catalog *Element)// добавление элемента
 {
-	list_node<Catalog> *temp = new list_node<Catalog>();
+	list_node *temp = new list_node();
 
 	temp->info=Element;// OVERLOAD 
 
@@ -64,7 +64,7 @@ void list_realisation::addEl_Catalog( Catalog *Element)// добавление элемента
 }
 void list_realisation::addEl_File(file *Element)// добавление элемента
 {
-	list_node<file> *temp = new list_node<file>();
+	list_node *temp = new list_node();
 
 	temp->info = Element;// OVERLOAD 
 
@@ -89,7 +89,7 @@ void list_realisation::deletion()// удаление списка
 	tail = nullptr;
 }
 
-void list_realisation::insertion(list_node<Catalog> *previous, Catalog *element) // вставка эллемента после элемента,который мы передаем в функцию
+void list_realisation::insertion(list_node *previous, Catalog *element) // вставка эллемента после элемента,который мы передаем в функцию
 {
 	 if (previous->next == nullptr)
 	{
@@ -98,8 +98,8 @@ void list_realisation::insertion(list_node<Catalog> *previous, Catalog *element)
 	}
 	else {
 		// нужно вызвать конструктор нового элемента и заполнить его данными- done
-		list_node<T> *p;//p-storring pointer to the next el
-		list_node<T>  * new_node = new list_node<T>;
+		list_node *p;//p-storring pointer to the next el
+		list_node  * new_node = new list_node;
 		//new_node->info = element , need to overload "=" 
 		p = previous->next;
 		previous->next = new_node;
@@ -111,9 +111,9 @@ void list_realisation::insertion(list_node<Catalog> *previous, Catalog *element)
 	}
 }
 
-list_node<Catalog>* list_realisation::search_name(string key)
+list_node* list_realisation::search_name(string key)
 {
-	list_node<Catalog> *temp = new list_node<Catalog>;
+	list_node *temp = new list_node;
 	temp = head;
 	while (temp) {
 		if (temp->info.Get_name() == key)
@@ -129,18 +129,18 @@ list_node<Catalog>* list_realisation::search_name(string key)
 	return nullptr;
 }
 
- list_node<Catalog> * list_realisation::Get_head()
+ list_node * list_realisation::Get_head()
 {
 
 	return head;
 }
 
- list_node<Catalog> * list_realisation::Get_tail()
+ list_node * list_realisation::Get_tail()
  {
 	 return tail;
  }
 
- void list_realisation::delete_element(list_node<Catalog> * el_to_delete)
+ void list_realisation::delete_element(list_node * el_to_delete)
  {	 if ((el_to_delete == head) && (el_to_delete == tail))
 	 {
 		 delete el_to_delete;
