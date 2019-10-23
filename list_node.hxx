@@ -18,7 +18,7 @@ list_node::list_node()
 }
 
 
- void list_node::set_type_of_el(type this_type)
+ void list_node::Set_type_of_el(type this_type)
 {
 	 _type_of_element = this_type;
 }

@@ -36,3 +36,14 @@ string file::Get_type() const
 {
 	return _file_type;
 }
+
+file file::operator=(file other)
+{
+	file one;
+	one._name = other._name;
+	one._size = other._size;
+	one._time = other._time;
+	one._changed_time = other._changed_time;
+	one._file_type = other._file_type;
+	return one;
+}

@@ -25,6 +25,13 @@ inline void Taime::PrintTime()
 {
 	cout<<hour << ":" << min << '\n';
 }
+Taime Taime::operator=(Taime other)
+{
+	Taime one;
+	one.hour = other.hour;
+	one.min = other.min;
+	return one;
+}
 std::ostream& operator<< (std::ostream &out, const Taime &time)
 {
 	// Поскольку operator<< является другом класса Point, то мы имеем прямой доступ к членам Point

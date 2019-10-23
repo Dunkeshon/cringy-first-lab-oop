@@ -11,6 +11,7 @@ public:
 	void SetTime();
 	void PrintTime();
 
+	Taime operator =(Taime other);
 	friend std::ostream& operator<< (std::ostream &out, const Taime &time);
 };
 

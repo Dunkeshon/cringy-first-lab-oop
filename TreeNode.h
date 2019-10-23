@@ -12,8 +12,8 @@ public:
 	vector<TreeNode>catalog_children;
 	void create_file_children();
 	void create_catalog_children();
-	void checkout_file_child(string name);
-	void checkout_catalog_child(string name);
+	//void checkout_file_child(string name);
+	//void checkout_catalog_child(string name);
 	void print_catalog_child_names();
 	void print_file_child_names();
 

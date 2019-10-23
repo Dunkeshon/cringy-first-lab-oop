@@ -10,6 +10,7 @@ public:
 	void set_info(Catalog *parent)override;// i will call this method for a file , created by method of catalog "Create_file_child"
 	void print_info()override;
 	string Get_type() const;
+	file operator =(file other);
 
 
 };

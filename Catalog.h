@@ -25,6 +25,8 @@ public:
 	Catalog* Get_parent() const;
 	Catalog();
 	~Catalog();
+	
+	Catalog operator =(Catalog other);
 };
 
 #include "Catalog.hxx"

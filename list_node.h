@@ -9,14 +9,18 @@ enum type
 };
 class list_node
 {
+private:
 	type _type_of_element;
+	
 public:
-	void set_type_of_el(type this_type);
-	list_node *next;
-	list_node *prev;
+	void Set_type_of_el(type this_type);
+	type Get_type();
 	Catalog Catalog_info;
 	file File_info;
-	type Get_type();
+	list_node *next;
+	list_node *prev;
+	
+	
 	
 	list_node();// нужно реализовать функцию заполнения и создания файла
 	~list_node();

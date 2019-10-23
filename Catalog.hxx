@@ -15,6 +15,16 @@ Catalog::~Catalog()
 {
 }
 
+ Catalog Catalog::operator=(Catalog other)
+{
+	 Catalog one;
+	 one._name = other._name;
+	 one._size = other._size;
+	 one._time = other._time;
+	 one._changed_time = other._changed_time;
+	return one;
+}
+
 bool Catalog::is_empty()
 {
 	if (_name==""&& _size==0)
@@ -38,6 +48,7 @@ void Catalog::set_info(Catalog *parent)
 	_changed_time.SetTime();
 	_name = temp_name;
 	_size = temp_size;
+	this->parent = parent;
 }
 
 void Catalog::print_info()//print

@@ -25,17 +25,28 @@ list_realisation::~list_realisation()// удаляет список
 
 void list_realisation::printFuncList()// вывод списка
 {
-	auto tmp = head;
+	list_node *tmp = new list_node;
+	 tmp = head;
 	if (head != tail) {
 		while (tmp){
-			 tmp->info.print_info() ;
+			if (tmp->Get_type() == is_catalog) {
+				tmp->Catalog_info.print_info();
+			}
+			else if (tmp->Get_type() == is_file) {
+				tmp->File_info.print_info();
+			}
 			cout << "######################" << endl;
 			tmp = tmp->next;
 		} 
 	}
 	else if ((head == tail)&&(head!=nullptr))
 	{
-		tmp->info.print_info();
+		if (tmp->Get_type() == is_catalog) {
+			tmp->Catalog_info.print_info();
+		}
+		else if (tmp->Get_type() == is_file) {
+			tmp->File_info.print_info();
+		}
 	}
 	else
 	{
@@ -44,13 +55,12 @@ void list_realisation::printFuncList()// вывод списка
 }
 
 
-void list_realisation::addEl_Catalog( Catalog *Element)// добавление элемента
+void list_realisation::addEl_Catalog( Catalog Element)// добавление элемента
 {
 	list_node *temp = new list_node();
+	temp->Set_type_of_el(is_catalog);// say, that we store catalog in this node
+	temp->Catalog_info = Element;// assignment of element to catalog_info that is in list
 
-	temp->info=Element;// OVERLOAD 
-
-	// change set_info to seting info 
 	if (head == nullptr) {
 		head = temp;
 		tail = temp;
@@ -62,11 +72,11 @@ void list_realisation::addEl_Catalog( Catalog *Element)// добавление элемента
 		tail = temp;
 	}
 }
-void list_realisation::addEl_File(file *Element)// добавление элемента
+void list_realisation::addEl_File(file Element)// добавление элемента
 {
 	list_node *temp = new list_node();
-
-	temp->info = Element;// OVERLOAD 
+	temp->Set_type_of_el(is_file);
+	temp->File_info = Element;
 
 	
 	temp->prev = tail;
@@ -89,18 +99,42 @@ void list_realisation::deletion()// удаление списка
 	tail = nullptr;
 }
 
-void list_realisation::insertion(list_node *previous, Catalog *element) // вставка эллемента после элемента,который мы передаем в функцию
+void list_realisation::insertion_of_catalog(list_node *previous, Catalog element) // вставка эллемента после элемента,который мы передаем в функцию
 {
 	 if (previous->next == nullptr)
 	{
-		addEl(element);
+		addEl_Catalog(element);
 		return;
 	}
 	else {
 		// нужно вызвать конструктор нового элемента и заполнить его данными- done
 		list_node *p;//p-storring pointer to the next el
-		list_node  * new_node = new list_node;
-		//new_node->info = element , need to overload "=" 
+		list_node  * new_node = new list_node();
+		new_node->Set_type_of_el(is_catalog);// set
+		new_node->Catalog_info = element;// setting
+		p = previous->next;
+		previous->next = new_node;
+		new_node->next = p;
+		new_node->prev = previous;
+		if (p != nullptr) {
+			p->prev = new_node;
+		}
+	}
+}
+
+void list_realisation::insertion_of_file(list_node * previous, file element)
+{
+	if (previous->next == nullptr)
+	{
+		addEl_File(element);
+		return;
+	}
+	else {
+		// нужно вызвать конструктор нового элемента и заполнить его данными- done
+		list_node *p;//p-storring pointer to the next el
+		list_node  * new_node = new list_node();
+		new_node->Set_type_of_el(is_file);// set
+		new_node->File_info = element;// setting
 		p = previous->next;
 		previous->next = new_node;
 		new_node->next = p;
