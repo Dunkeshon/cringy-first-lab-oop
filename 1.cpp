@@ -12,13 +12,13 @@
 using namespace std;
 
 void menu(TreeNode *current,int &input);
-void file_element_menu(file *current, int &input,list_realisation<Catalog> &Mylist, TreeNode *Catalog_node);
-void catalog_element_menu(Catalog *current, int &input, list_realisation<Catalog> &Mylist, TreeNode *Catalog_node);
+void file_element_menu(file *current, int &input,list_realisation &Mylist, TreeNode *Catalog_node);
+void catalog_element_menu(Catalog *current, int &input, list_realisation &Mylist, TreeNode *Catalog_node);
 
 
 int main() {
 	TreeNode Mytree;//tree, that we will use to store objects
-	list_realisation<Catalog> Mylist;
+	list_realisation Mylist;
 	int input;// используется в меню
 	menu(&Mytree,input);
 	return 0;
@@ -37,7 +37,7 @@ void menu(TreeNode *current, int &input)
 	//checkout
 }
 
-void file_element_menu(file *current,int &input, list_realisation<Catalog> &Mylist,TreeNode *Catalog_node) {
+void file_element_menu(file *current,int &input, list_realisation &Mylist,TreeNode *Catalog_node) {
 	cout << "Print file info press 1: " << endl;
 	cout << "Add file to list press 2: " << endl;
 	cout << "Checkout parent press 3:" << endl;
@@ -53,7 +53,7 @@ void file_element_menu(file *current,int &input, list_realisation<Catalog> &Myli
 		break;
 	}
 }
-void catalog_element_menu(Catalog *current,int &input, list_realisation<Catalog> &Mylist,TreeNode *Catalog_node)// checkout catalog
+void catalog_element_menu(Catalog *current,int &input, list_realisation &Mylist,TreeNode *Catalog_node)// checkout catalog
 {
 	cout << "\t Print this catalog info press 1: " << endl;
 	cout << "\t Add this catalog to list press 2: " << endl;

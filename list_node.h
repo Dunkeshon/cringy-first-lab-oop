@@ -3,12 +3,13 @@
 #pragma once
 #include "Catalog.h"
 #include "File.h"
+//<T>
 template <class T>
 class list_node
 {
 public:
-	list_node *next;
-	list_node *prev;
+	list_node<T> *next;
+	list_node<T> *prev;
 	T info;// class with all info
 
 	

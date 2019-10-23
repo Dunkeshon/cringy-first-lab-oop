@@ -3,17 +3,17 @@
 
 
 
-template <class T>list_realisation<T>::list_realisation()//создание первого элемента
+list_realisation::list_realisation()//создание первого элемента
 {
 	head = tail=nullptr;//первый элемент списка 
 	
 }
 
 
-template <class T>list_realisation<T>::~list_realisation()// удаляет список
+list_realisation::~list_realisation()// удаляет список
 {
-	list_node<T> *current = head;
-	list_node<T> *temp;
+	list_node<Catalog> *current = head;
+	list_node<Catalog> *temp;
 
 	while (current)
 	{
@@ -23,8 +23,7 @@ template <class T>list_realisation<T>::~list_realisation()// удаляет список
 	}
 }
 
-template<class T>
-void list_realisation<T>::printFuncList()// вывод списка
+void list_realisation::printFuncList()// вывод списка
 {
 	auto tmp = head;
 	if (head != tail) {
@@ -33,7 +32,6 @@ void list_realisation<T>::printFuncList()// вывод списка
 			cout << "######################" << endl;
 			tmp = tmp->next;
 		} 
-		
 	}
 	else if ((head == tail)&&(head!=nullptr))
 	{
@@ -45,10 +43,10 @@ void list_realisation<T>::printFuncList()// вывод списка
 	}
 }
 
-template<class T>
-void list_realisation<T>::addEl( T *Element)// добавление элемента
+
+void list_realisation::addEl_Catalog( Catalog *Element)// добавление элемента
 {
-	list_node<T> *temp = new list_node<T>();
+	list_node<Catalog> *temp = new list_node<Catalog>();
 
 	temp->info=Element;// OVERLOAD 
 
@@ -64,9 +62,20 @@ void list_realisation<T>::addEl( T *Element)// добавление элемента
 		tail = temp;
 	}
 }
+void list_realisation::addEl_File(file *Element)// добавление элемента
+{
+	list_node<file> *temp = new list_node<file>();
 
-template<class T>
-void list_realisation<T>::deletion()// удаление списка
+	temp->info = Element;// OVERLOAD 
+
+	
+	temp->prev = tail;
+	tail->next = temp;
+	tail = temp;
+	
+}
+
+void list_realisation::deletion()// удаление списка
 {
 	auto current = head;
 	auto temp = head;
@@ -80,8 +89,7 @@ void list_realisation<T>::deletion()// удаление списка
 	tail = nullptr;
 }
 
-template<class T>
-void list_realisation<T>::insertion(list_node<T> *previous, T *element) // вставка эллемента после элемента,который мы передаем в функцию
+void list_realisation::insertion(list_node<Catalog> *previous, Catalog *element) // вставка эллемента после элемента,который мы передаем в функцию
 {
 	 if (previous->next == nullptr)
 	{
@@ -103,10 +111,9 @@ void list_realisation<T>::insertion(list_node<T> *previous, T *element) // встав
 	}
 }
 
-template<class T>
-list_node<T>* list_realisation<T>::search_name(string key)
+list_node<Catalog>* list_realisation::search_name(string key)
 {
-	list_node<T> *temp = new list_node<T>;
+	list_node<Catalog> *temp = new list_node<Catalog>;
 	temp = head;
 	while (temp) {
 		if (temp->info.Get_name() == key)
@@ -122,21 +129,18 @@ list_node<T>* list_realisation<T>::search_name(string key)
 	return nullptr;
 }
 
-template<class T>
- list_node<T> * list_realisation<T>::Get_head()
+ list_node<Catalog> * list_realisation::Get_head()
 {
 
 	return head;
 }
 
- template<class T>
- list_node<T> * list_realisation<T>::Get_tail()
+ list_node<Catalog> * list_realisation::Get_tail()
  {
 	 return tail;
  }
 
- template<class T>
- void list_realisation<T>::delete_element(list_node<T> * el_to_delete)
+ void list_realisation::delete_element(list_node<Catalog> * el_to_delete)
  {	 if ((el_to_delete == head) && (el_to_delete == tail))
 	 {
 		 delete el_to_delete;
