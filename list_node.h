@@ -16,6 +16,7 @@ public:
 	list_node *prev;
 	Catalog Catalog_info;
 	file File_info;
+	type Get_type();
 	
 	list_node();// нужно реализовать функцию заполнения и создания файла
 	~list_node();
