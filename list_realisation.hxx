@@ -150,8 +150,10 @@ list_node* list_realisation::search_name(string key)
 	list_node *temp = new list_node;
 	temp = head;
 	while (temp) {
-		if (temp->info.Get_name() == key)
-		{
+		if (temp->Get_type()==is_catalog&& temp->Catalog_info.Get_name() == key){
+			return temp;
+		}
+		else if (temp->Get_type() == is_file && temp->File_info.Get_name() == key) {
 			return temp;
 		}
 		else {
@@ -165,7 +167,6 @@ list_node* list_realisation::search_name(string key)
 
  list_node * list_realisation::Get_head()
 {
-
 	return head;
 }
 
