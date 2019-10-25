@@ -1,2 +1,3 @@
 # 1
-class 1 semestr
+first semestr 2-nd year 
+first lab variant 2.8
