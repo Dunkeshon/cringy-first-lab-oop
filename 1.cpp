@@ -11,10 +11,10 @@
 
 using namespace std;
 
-void menu(TreeNode *current,int &input);
+void menu(TreeNode *current,int &input, list_realisation &Mylist);
 void file_element_menu(file *current, int &input,list_realisation &Mylist, TreeNode *Catalog_node);
-void catalog_element_menu(Catalog *current, int &input, list_realisation &Mylist, TreeNode *Catalog_node);
-
+void catalog_element_menu(Catalog *current, int &input, list_realisation &Mylist, TreeNode *Catalog_node);//acces from catalog
+//void catalog_element_menu(file current, int &input, list_realisation &Mylist, TreeNode *Catalog_node);//acces from file
 
 int main() {
 	TreeNode Mytree;//tree, that we will use to store objects
@@ -23,7 +23,7 @@ int main() {
 	menu(&Mytree,input);
 	return 0;
 }
-void menu(TreeNode *current, int &input)
+void menu(TreeNode *current, int &input, list_realisation &Mylist)
 {
 	string input_name;
 	cout << "\t\t  MENU " << endl;
@@ -32,12 +32,16 @@ void menu(TreeNode *current, int &input)
 		cin >> input;
 		if (input == 1) {
 			current->info.set_info(nullptr);//set info to 1-st el and say that he hasn't got father
+			cout << "first element created" << endl;
 		}
+		catalog_element_menu(current->info, input, Mylist, current);
 	}
+	
 	//checkout
 }
 
 void file_element_menu(file *current,int &input, list_realisation &Mylist,TreeNode *Catalog_node) {
+	cout << "\t\t  Catalog menu" << endl;
 	cout << "Print file info press 1: " << endl;
 	cout << "Add file to list press 2: " << endl;
 	cout << "Checkout parent press 3:" << endl;
@@ -45,9 +49,9 @@ void file_element_menu(file *current,int &input, list_realisation &Mylist,TreeNo
 	cin >> input;
 	switch (input)
 	{
-	case 1: current->print_info(); break;
-	case 2: Mylist.addEl(current); break;// add to list; break;
-	case 3: catalog_element_menu(current->Get_parent(), input, Mylist, Catalog_node);//checkout
+	case 1: current.print_info(); break;
+	case 2: Mylist.addEl_File(current); break;// add to list; break;
+	case 3: catalog_element_menu(current.Get_parent(), input, Mylist, Catalog_node);//checkout parent
  	 break;
 	default: 
 		break;
@@ -71,7 +75,7 @@ void catalog_element_menu(Catalog *current,int &input, list_realisation &Mylist,
 	switch (input)
 	{
 	case 1: current->print_info(); break;
-	case 2: // add to list; break;
+	case 2: Mylist.addEl_Catalog(*current); break;// add to list; break;
 	case 3: catalog_element_menu(current->Get_parent(), input, Mylist, Catalog_node);//checkout
 		break;
 	case 4: 
@@ -80,8 +84,6 @@ void catalog_element_menu(Catalog *current,int &input, list_realisation &Mylist,
 	}
 
 }
-
-
 
 
 /*
