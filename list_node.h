@@ -13,9 +13,24 @@ private:
 	type _type_of_element;
 	
 public:
+	/**
+	*brief set type of element which will be stored in this list node
+	@param this_type Type of element which will be stored in this list node
+	*/
 	void Set_type_of_el(type this_type);
+	/**
+	*brief returns type of element which is stored in this list node. 
+	*If this node hasn't been already setted - returns not_setted
+	@return type _type_of_element
+	*/
 	type Get_type();
+	/**
+	* catalog, that is stored in this list_node 
+	*/
 	Catalog Catalog_info;
+	/**
+	* file, that is stored in this list_node
+	*/
 	file File_info;
 	list_node *next;
 	list_node *prev;

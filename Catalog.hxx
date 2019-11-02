@@ -17,12 +17,11 @@ Catalog::~Catalog()
 
  Catalog Catalog::operator=(Catalog other)
 {
-	 Catalog one;
-	 one._name = other._name;
-	 one._size = other._size;
-	 one._time = other._time;
-	 one._changed_time = other._changed_time;
-	return one;
+	 _name = other._name;
+	 _size = other._size;
+	 _time = other._time;
+	 _changed_time = other._changed_time;
+	return *this;
 }
 
 bool Catalog::is_empty()
