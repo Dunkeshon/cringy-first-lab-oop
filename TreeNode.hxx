@@ -38,8 +38,7 @@ file * TreeNode::search_child_file_by_name(string file_name)
 			return it._Ptr;
 		}
 	}
-	cout << "there is no such file with this name" << endl;
-	return nullptr;
+	return nullptr;//there is no such file with this name
 	
 }
 
@@ -51,8 +50,7 @@ TreeNode * TreeNode::search_child_catalog_by_name(string catalog_name)
 			 return it._Ptr;
 		 }
 	 }
-	 cout << "there is no such catalog with this name" << endl;
-	 return nullptr;
+	 return nullptr;// there is no such catalog with this name
 }
 
 void TreeNode::print_catalog_child_names()

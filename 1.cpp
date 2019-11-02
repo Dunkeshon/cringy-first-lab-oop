@@ -11,36 +11,46 @@
 
 using namespace std;
 
-void menu(TreeNode *current,int &input, list_realisation *Mylist);
-void file_element_menu(file *current, int &input,list_realisation *Mylist, TreeNode *Catalog_node);
-void catalog_element_menu(Catalog *current, int &input, list_realisation *Mylist, TreeNode *Catalog_node);//acces from catalog
+void menu(TreeNode *current,int &input, list_realisation *Mylist,string &input_name);
+void file_element_menu(file *current, // pointer to current file 
+						int &input, // users input
+						list_realisation *Mylist, // list
+						TreeNode *Catalog_node,  // pointer to father TreeNode . Catalog_node->info : father of current file
+						string &input_name); // users input of name 
+void catalog_element_menu(Catalog *current, // pointer to current file (same as)
+						int &input, // users input
+						list_realisation *Mylist, // list
+						// подумать нужно ли передавать только этот елемент или еще и отца TreeNode
+						TreeNode *Catalog_node, //
+						string &input_name);// users input of name
 //void catalog_element_menu(file current, int &input, list_realisation &Mylist, TreeNode *Catalog_node);//acces from file
 
 int main() {
 	TreeNode Mytree;//tree, that we will use to store objects
 	list_realisation Mylist;
 	int input;// используется в меню
-	menu(&Mytree,input,&Mylist);
+	string input_name;
+	menu(&Mytree,input,&Mylist,input_name);
 	return 0;
 }
-void menu(TreeNode *current, int &input, list_realisation *Mylist)
+void menu(TreeNode *current, int &input, list_realisation *Mylist, string &input_name)
 {
-	string input_name;
+	
 	cout << "\t\t  MENU " << endl;
-	if ((current->info.Get_parent()==0) && (current->info.is_empty())) {// if current object don't have parent and is empty create first element
+	if ((current->info.Get_parent()==nullptr) && (current->info.is_empty())) {// if current object don't have parent and is empty create first element
 		cout << "To create first element press 1: " << endl;
 		cin >> input;
 		if (input == 1) {
 			current->info.set_info(nullptr);//set info to 1-st el and say that he hasn't got father
 			cout << "first element created" << endl;
 		}
-		catalog_element_menu(&current->info, input, Mylist, current);
+		catalog_element_menu(&current->info, input, Mylist, current, input_name);
 	}
 	
 	//checkout
 }
 
-void file_element_menu(file *current,int &input, list_realisation *Mylist,TreeNode *Catalog_node) {
+void file_element_menu(file *current,int &input, list_realisation *Mylist,TreeNode *Catalog_node, string &input_name) {
 	cout << "\t\t  Catalog menu" << endl;
 	cout << "Print file info press 1: " << endl;
 	cout << "Add file to list press 2: " << endl;
@@ -51,14 +61,14 @@ void file_element_menu(file *current,int &input, list_realisation *Mylist,TreeNo
 	{
 		case 1: current->print_info(); break;
 		case 2: Mylist->addEl_File(*current); break;// add to list; break;
-		case 3: catalog_element_menu(current->Get_parent(), input, Mylist, Catalog_node);//checkout parent
+		case 3: catalog_element_menu(current->Get_parent(), input, Mylist, Catalog_node, input_name);//checkout parent
 		 break;
 		default: 
 			break;
 	}
-	file_element_menu(current, input, Mylist, Catalog_node);
+	file_element_menu(current, input, Mylist, Catalog_node, input_name);
 }
-void catalog_element_menu(Catalog *current,int &input, list_realisation *Mylist,TreeNode *Catalog_node)// checkout catalog
+void catalog_element_menu(Catalog *current,int &input, list_realisation *Mylist,TreeNode *Catalog_node, string &input_name)// checkout catalog
 {
 	cout << "\t Print this catalog info press 1: " << endl;
 	cout << "\t Add this catalog to list press 2: " << endl;
@@ -77,16 +87,40 @@ void catalog_element_menu(Catalog *current,int &input, list_realisation *Mylist,
 	{
 	case 1: current->print_info(); break;
 	case 2: Mylist->addEl_Catalog(*current); break;// add to list; break;
-	case 3: catalog_element_menu(current->Get_parent(), input, Mylist, Catalog_node);//checkout
+	case 3: catalog_element_menu(current->Get_parent(), input, Mylist, Catalog_node, input_name);//checkout
 		break;
 	case 4: Catalog_node->create_file_children(); break;
 	case 5: Catalog_node->create_catalog_children(); break;
-	case 6: Catalog_node->print_file_child_names ; break;
+	case 6: Catalog_node->print_file_child_names() ; break;
 	case 7: Catalog_node->print_catalog_child_names(); break;
+	case 8: cout << "enter name of file that you want to checkout " << endl;
+		cout << ">>>";
+		cin >> input_name;
+		if (Catalog_node->search_child_file_by_name(input_name) != nullptr)
+		{
+			file_element_menu(Catalog_node->search_child_file_by_name(input_name), input, Mylist, Catalog_node, input_name);
+		}
+		else
+		{
+			catalog_element_menu(current, input, Mylist, Catalog_node, input_name);
+		}
+		// найти по имени , если такой есть - чекаут этот элемент, если нет(нульпоинтер), чекаут тот же еллемент что был до этоого
+	case 9:
+		cout << "enter name of catalog that you want to checkout " << endl;
+		cout << ">>>";
+		cin >> input_name;
+		if (Catalog_node->search_child_catalog_by_name(input_name) != nullptr)
+		{
+			catalog_element_menu(Catalog_node->search_catalog_file_by_name(input_name), input, Mylist, Catalog_node, input_name);
+		}
+		else
+		{
+			catalog_element_menu(current, input, Mylist, Catalog_node, input_name);
+		}
 	default:
 		break;
 	}
-	catalog_element_menu(current, input, Mylist, Catalog_node);
+	catalog_element_menu(current, input, Mylist, Catalog_node, input_name);
 }
 
 
