@@ -54,7 +54,6 @@ public:
 	@return pointer to parent of class catalog
 	*/
 	Catalog* Get_parent() const;
-
 	/**
 	*brief initialize all protected fields with 0
 	*/

@@ -34,8 +34,6 @@ Taime Taime::operator=(Taime other)
 }
 std::ostream& operator<< (std::ostream &out, const Taime &time)
 {
-	// Поскольку operator<< является другом класса Point, то мы имеем прямой доступ к членам Point
 	out << time.hour<< ":" << time.min;
-
 	return out;
 }
