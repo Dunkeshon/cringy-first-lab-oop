@@ -4,7 +4,6 @@
 file::file()
 {
 	_file_type = string();
-	
 }
 
 
@@ -24,7 +23,12 @@ void file::set_info(Catalog *parent)
 
 void file::print_info()//print file info
 {
-	Catalog::print_info();
+	cout << "File name: " << _name << '\n';
+	cout << "File size: " << _size << '\n';
+	cout << "Time of creation: ";
+	_time.PrintTime();
+	cout << "Time of the last change: ";
+	_changed_time.PrintTime();
 	cout << "File type: " << _file_type << '\n';
 }
 /**

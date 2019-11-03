@@ -13,7 +13,6 @@ using namespace std;
 
 
 /**
-
 *brief Node, where is stored catalog and all his children elements , TreeNode
 *details An implementation of TreeNode. This is a class where we store catalog and his children in vectors : file_children, catalog_children
 */

@@ -53,8 +53,8 @@ void Catalog::set_info(Catalog *parent)
 void Catalog::print_info()//print
 {
 	//cout << '\t' << "File info: " << '\n';
-	cout << "File _name: " << _name << '\n';
-	cout << "File _size: " << _size << '\n';
+	cout << "Catalog name: " << _name << '\n';
+	cout << "Catalog size: " << _size << '\n';
 	cout << "Time of creation: ";
 	_time.PrintTime();
 	cout << "Time of the last change: ";
