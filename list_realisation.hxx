@@ -78,11 +78,16 @@ void list_realisation::addEl_File(file Element)// добавление элемента
 	temp->Set_type_of_el(is_file);
 	temp->File_info = Element;
 
-	
-	temp->prev = tail;
-	tail->next = temp;
-	tail = temp;
-	
+	if (head == nullptr) {
+		head = temp;
+		tail = temp;
+	}
+	else
+	{
+		temp->prev = tail;
+		tail->next = temp;
+		tail = temp;
+	}
 }
 
 void list_realisation::deletion()// удаление списка

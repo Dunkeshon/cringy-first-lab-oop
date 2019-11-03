@@ -22,7 +22,9 @@ void catalog_element_menu(TreeNode *Tree_node, // pointer to current catalog (wi
 						list_realisation *Mylist, // list
 						string &input_name);// users input of name
 //void catalog_element_menu(file current, int &input, list_realisation &Mylist, TreeNode *Catalog_node);//acces from file
-
+void list_menu(int &input, // users input
+				list_realisation *Mylist, // list
+				string &input_name);// users input of name
 int main() {
 	TreeNode Mytree;//tree, that we will use to store objects
 	list_realisation Mylist;
@@ -41,18 +43,21 @@ void menu(TreeNode *current, int &input, list_realisation *Mylist, string &input
 			current->info.set_info(nullptr);//set info to 1-st el and say that he hasn't got father
 			cout << "first element created" << endl;
 		}
+		system("pause");
+		system("cls");
 		catalog_element_menu(current, input, Mylist, input_name);
 	}	
+	
 	//
 	// menu of list 
 }
 
 void file_element_menu(file *current,int &input, list_realisation *Mylist, TreeNode * father_Tree_node, string &input_name) {
-	cout << "\t\t  file menu" << endl;
+	cout << "\t\t  file "<< current->Get_name() <<" menu" << endl;
 	cout << "Print file info press 1:" << endl;
 	cout << "Add file to list press 2:" << endl;
 	cout << "Checkout parent press 3:" << endl;
-	cout << "Return to menu press 4:" << endl;
+	cout << "Menu of list press 4:" << endl;
 	cout << ">>>";
 	cin >> input;
 	switch (input)
@@ -60,21 +65,24 @@ void file_element_menu(file *current,int &input, list_realisation *Mylist, TreeN
 		case 1: current->print_info();
 			file_element_menu(current, input, Mylist, father_Tree_node, input_name); break;
 		case 2: Mylist->addEl_File(*current);
-			cout << "file was added to list" << endl;
+			cout << "file "<< current->Get_name() << " was added to list" << endl;
 			file_element_menu(current, input, Mylist, father_Tree_node, input_name); break;
 		case 3: catalog_element_menu(father_Tree_node, input, Mylist, input_name);//checkout parent
 		 break;
-		case 4: menu(father_Tree_node, input, Mylist, input_name);
+		case 4:
+			list_menu(input, Mylist, input_name);
+			file_element_menu(current, input, Mylist, father_Tree_node, input_name); break;
 		default: 
 			break;
 	}
 }
 void catalog_element_menu(TreeNode *Tree_node, // pointer to current catalog (with children) 
-	int &input, // users input
-	list_realisation *Mylist, // list
-	string &input_name)// users input of name
-	//checkout catalog
+						int &input, // users input
+						list_realisation *Mylist, // list
+						string &input_name)// users input of name
+						//checkout catalog
 {
+	cout << "\t\t  Catalog "<< Tree_node->info.Get_name() <<" menu" << endl;
 	cout << "\t Print this catalog info press 1: " << endl;
 	cout << "\t Add this catalog to list press 2: " << endl;
 	cout << "\t Checkout parent press 3:" << endl;
@@ -84,7 +92,7 @@ void catalog_element_menu(TreeNode *Tree_node, // pointer to current catalog (wi
 	cout << "\t Print children catalogs press 7:" << endl; // print names
 	cout << "\t checkout to children file press 8: " << endl;// need to choose the name of file and then checkout choosen file by pointer
 	cout << "\t checkout to children catalog press 9: " << endl;// same for catalog
-	cout << "\t Return to menu press 10 :" << endl;
+	cout << "\t menu of list press 10 :" << endl;
 	cout << ">>>";
 	cin >> input;
 
@@ -94,7 +102,7 @@ void catalog_element_menu(TreeNode *Tree_node, // pointer to current catalog (wi
 		catalog_element_menu(Tree_node, input, Mylist, input_name);
 		break;
 	case 2: Mylist->addEl_Catalog(Tree_node->info);
-		cout << "catalog was added to list" << endl;
+		cout << "catalog "<< Tree_node->info.Get_name() <<" was added to list" << endl;
 		catalog_element_menu(Tree_node, input, Mylist, input_name);
 		break;
 	case 3: 
@@ -147,11 +155,49 @@ void catalog_element_menu(TreeNode *Tree_node, // pointer to current catalog (wi
 			catalog_element_menu(Tree_node, input, Mylist, input_name);
 		}
 	case 10:
-		menu(Tree_node, input, Mylist, input_name);
+		list_menu(input, Mylist, input_name);
+		catalog_element_menu(Tree_node, input, Mylist, input_name);
 	default:
 		break;
 	}
 	
+}
+
+void list_menu(int & input, list_realisation * Mylist, string & input_name)
+{
+	cout << "\t\t LIST MENU " << endl;
+	cout << "\t To print your list press 1 : " << endl;
+	cout << "\t To delete your list press 2 :" << endl;
+	cout << "\t To delete an element from your list press 3 :" << endl;
+	cout << "\t Exit list menu press 4 :" << endl;
+	cout << ">>>";
+	cin >> input;
+	switch (input)
+	{
+	case 1: 
+		Mylist->printFuncList();
+		list_menu(input, Mylist, input_name);
+		break;
+	case 2:
+		Mylist->deletion();
+		cout << "your list have been deleted" << endl;
+		list_menu(input, Mylist, input_name);
+		break;
+	case 3:
+		cout << "choose the name of the element that you want to delete: " << endl;
+		Mylist->printFuncList();
+		if ((Mylist->Get_head() == nullptr)) {
+			break;
+			// УЖЕ ВЫВЕДЕТСЯ ЧТО СПИСОК ПУСТ , ПОЭТОМУ ВЫЙТИ ИЗ ФУНКЦИИ,нужно вызвать меню
+		}
+		cout << "enter the chosen name : ";
+		cin >> input_name;
+		Mylist->delete_element(Mylist->search_name(input_name));
+		list_menu(input, Mylist, input_name);
+		break;
+	case 4: break;
+	default: break;
+	}
 }
 
 

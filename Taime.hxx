@@ -27,10 +27,9 @@ inline void Taime::PrintTime()
 }
 Taime Taime::operator=(Taime other)
 {
-	Taime one;
-	one.hour = other.hour;
-	one.min = other.min;
-	return one;
+	hour = other.hour;
+	min = other.min;
+	return *this;
 }
 std::ostream& operator<< (std::ostream &out, const Taime &time)
 {

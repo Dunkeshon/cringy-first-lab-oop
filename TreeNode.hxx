@@ -20,7 +20,7 @@ TreeNode::TreeNode()
 	 file new_node;
 	 new_node.set_info(&info);//	передаем ссылку на отца
 	 file_children.push_back(new_node);//	положить в вектор
-	 cout << "file has been created inside catalog " << info.Get_name()<<endl;
+	 cout << "file "<<new_node.Get_name() <<" has been created inside catalog " << info.Get_name()<<endl;
 }
 
  void TreeNode::create_catalog_children()
@@ -29,7 +29,7 @@ TreeNode::TreeNode()
 	 new_node.info.set_info(&info);//	create catalog
 	 new_node.parent = this;
 	 catalog_children.push_back(new_node);//	push to vector
-	 cout << "catalog has been created inside catalog" << info.Get_name() << endl;
+	 cout << "catalog "<< new_node.info.Get_name() <<" has been created inside catalog " << info.Get_name() << endl;
  }
 
 file * TreeNode::search_child_file_by_name(string file_name)
