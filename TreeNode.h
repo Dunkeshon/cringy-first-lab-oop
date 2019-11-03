@@ -21,6 +21,10 @@ class TreeNode
 {
 public:
 	/**
+	pointer to parent TreeNode with parent catalog inside
+	*/
+	TreeNode *parent;
+	/**
 	*stores Catalog
 	*/
 	Catalog info; 

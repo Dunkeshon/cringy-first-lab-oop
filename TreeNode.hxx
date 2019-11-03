@@ -5,6 +5,7 @@
 
 TreeNode::TreeNode()
 {
+	parent = nullptr;
 	info=Catalog();
 }
 
@@ -26,6 +27,7 @@ TreeNode::TreeNode()
  {
 	 TreeNode new_node;//	create new tree node
 	 new_node.info.set_info(&info);//	create catalog
+	 new_node.parent = this;
 	 catalog_children.push_back(new_node);//	push to vector
 	 cout << "catalog has been created inside catalog" << info.Get_name() << endl;
  }
@@ -55,16 +57,16 @@ TreeNode * TreeNode::search_child_catalog_by_name(string catalog_name)
 
 void TreeNode::print_catalog_child_names()
 {
-	for(vector<TreeNode>::size_type i = 0; i != catalog_children.size; i++) 
+	for(std::vector<TreeNode>::iterator it = catalog_children.begin(); it != catalog_children.end(); ++it)
 	{
-		cout << catalog_children[i].info.Get_name() << endl;
+		cout << it._Ptr->info.Get_name() << endl;
 	}
 }
 
   void TreeNode::print_file_child_names()
   {
-	  for(vector<file>::size_type i = 0;i!=file_children.size();i++)
+	  for(vector<file>::iterator it = file_children.begin();it!=file_children.end();++it)
 	  {
-		  cout << file_children[i].Get_name() << endl;
+		  cout << it._Ptr->Get_name() << endl;
 	  }
   }
