@@ -1,29 +1,80 @@
-//этот класс реализует двусвязный линейный список.
-//имеет функции для: создания первого элемента,удаления списка,вывода списка на экран, добавления эллемента, вставка элемента после предыдущего
-//список не удалять,при функциях удаления удалять элементы, но оставлять head=tail=nullptr;
+/**
+*file
+*brief Header file containing class list_realisation
+*This file contains definition and implementation of list_realisation, all methods that could be called for list 
+*/
 #pragma once
 #include "list_node.h"
 
- 
+/**
+*brief Realization of list, where are stored pointers to head, tail, and all methods of list
+*details An implementation of list_realisation. 
+*/
 class list_realisation
 {
 private:
 	list_node * head;
 	list_node * tail;
 public:
-	list_realisation();// initialisation with nullptr
-	~list_realisation();// deleting list
+	/**
+	*brief Constructor, initialisation of private fields with nullptr
+	*/
+	list_realisation();
+	/**
+	*brief Destructor, delete all list
+	*/
+	~list_realisation();
+	/**
+	*brief Print list in console 
+	*details output all fields of list nodes in console.If list is empty : message "list is empty".
+	*/
 	void printFuncList();// print list
-	void addEl_Catalog( Catalog Element);// i need to copy and add already existing element to the list
-	void addEl_File(file Element);// i need to copy and add already existing element to the list
-	void deletion();// deleting the list
-	void insertion_of_catalog(list_node *previous, Catalog element); // inserting element that already exist after the one we put in function
-	void insertion_of_file(list_node *previous, file element);
-																	 // i need to create similar method for list_node<file>
-	list_node* search_name(string key);// searching by name, returns adress of an element with such name
+	/**
+	*brief Adds catalog in the list
+	@param Element [in] A copy of already existing catalog that we add in the list
+	*details We set that this list node will store Catalog, by setting type_of_el to is_catalog
+	*/
+	void addEl_Catalog( Catalog Element);
+	/**
+	*brief Adds file in the list
+	@param [in] Element A copy of already existing file that we add in the list
+	*details We set that this list node will store File, by setting type_of_el to is_file
+	*/
+	void addEl_File(file Element);
+	/**
+	*brief Deletion of list
+	*details Delete all information and then set head=tail=nullptr , so that we can use this list again 
+	*/
+	void deletion();		
+	/**
+	*brief Searching by name, returns adress of an element with such name
+	@param [in] key A name that we search in our list 
+	@return Adress of an element whose field _name = key
+	*details If list hasn't got any element with name we searched for : print message "file with this name doesn't exist".   
+	*/
+	list_node* search_name(string key);
+	/**
+	*brief Returns pointer to the tail of the list
+	@return Pointer to tail
+	*/
 	list_node* Get_head();//getter
+	/**
+	*brief Returns pointer to the head of the list
+	@return Pointer to head 
+	*/
 	list_node* Get_tail();//getter
-	void delete_element(list_node *el_to_delete);// deleting an element
+	/**
+	*brief Delete element from the list
+	@param [in] el_to_delete A pointer to an element that we want to delete from list
+	*details Prints message "element has been deleted" after deletion of the element
+	*/
+	void delete_element(list_node *el_to_delete);
+	/**
+	*brief Swaps two elements in the list
+	@param [in] elToSwap1 Element to swap
+	@param [in] elToSwap2 Element to swap with elToSwap1
+	*/
+	void swapEl(list_node * elToSwap1, list_node * elToSwap2);
 };
 
 #include "list_realisation.hxx"

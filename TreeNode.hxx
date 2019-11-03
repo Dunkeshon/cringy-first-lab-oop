@@ -1,7 +1,10 @@
+/**
+	*file
+	*brief hxx file containing implementations of TreeNode.h
+*/
+
 #include "TreeNode.h"
 #pragma once
-
-
 
 TreeNode::TreeNode()
 {
@@ -9,12 +12,10 @@ TreeNode::TreeNode()
 	info=Catalog();
 }
 
-
  TreeNode::~TreeNode()
 {
 }
- 
- 
+  
  void TreeNode::create_file_children()
 {
 	 file new_node;
