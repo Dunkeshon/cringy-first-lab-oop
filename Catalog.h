@@ -1,11 +1,17 @@
-//this class is a super  class for "file" and "catalog". It has common info and methods for both of them
+/**
+*file
+*brief Header file containing class catalog
+*This file contains definition and implementation of catalog
+*/
 #pragma once
 #include <iostream>
 #include <string>
 #include "Taime.h"
-
 using namespace std;
-
+/**
+*brief An implementation of list_realisation.
+*details Realization of list, this class is a super class for "file". It has common info and methods for both of them
+*/
 class Catalog
 {
 protected:

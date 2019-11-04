@@ -7,8 +7,8 @@
 #include "list_node.h"
 
 /**
-*brief Realization of list, where are stored pointers to head, tail, and all methods of list
-*details An implementation of list_realisation. 
+*brief An implementation of list_realisation. 
+*details Realization of list, where are stored pointers to head, tail, and all methods of list
 */
 class list_realisation
 {

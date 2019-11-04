@@ -1,3 +1,8 @@
+/**
+	*file
+	*brief hxx file containing implementations of Catalog.h
+*/
+
 #include "Catalog.h"
 
 
