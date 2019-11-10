@@ -61,6 +61,61 @@ Taime Taime::operator=(Taime other)
 	return *this;
 }
 /**
+*brief overloaded comparizion operator ">"
+@param other Other Taime class that we compare with our time
+@return true if time of "this" is bigger than "other"
+*/
+ bool Taime::operator>(Taime other)
+{
+	 if (hour > other.hour) {
+		return true;
+	 }
+	 else if (hour == other.hour) {
+		 if (min > other.min) {
+			 return true;
+		 }
+	 }
+	 else
+	 {
+		return false;
+	 }
+}
+ /**
+*brief overloaded comparizion operator "<"
+@param other Other Taime class that we compare with our time
+@return true if time of "this" is smaller than "other"
+*/
+ bool Taime::operator<(Taime other)
+ {
+	 if (hour < other.hour) {
+		 return true;
+	 }
+	 else if (hour == other.hour) {
+		 if (min < other.min) {
+			 return true;
+		 }
+	 }
+	 else
+	 {
+		 return false;
+	 }
+ }
+ bool Taime::operator<=(Taime other)
+ {
+	 if (hour < other.hour) {
+		 return true;
+	 }
+	 else if (hour == other.hour) {
+		 if (min <= other.min) {
+			 return true;
+		 }
+	 }
+	 else
+	 {
+		 return false;
+	 }
+ }
+/**
 	*brief Output stored information
 	*details Print stored fields of the Taime to the console, using <iostream> library
 */

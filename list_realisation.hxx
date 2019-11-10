@@ -285,3 +285,31 @@ list_node* list_realisation::search_name(string key)
 		 elToSwap2->prev->next = elToSwap2;
 	 }
  }
+ /**
+ *brief Realization of merge sort
+ *details user choose based on which parameter he want to sort our list
+ */
+ void list_realisation::merge_sort()
+ {
+	 cout << "\t\t Choose the parameter, based on which you want to sort your list " << endl;
+	 int i;
+	 cout << "\t sort by time of creation press 1 "<< endl;
+	 cout << "\t sort by changed time press 2 " << endl;
+	 cout << "\t sort by name press 3 " << endl;
+	 cout << "\t sort by size press 4 " << endl;
+	 cout << ">>>";
+	 cin >> i;
+	 switch (i)
+	 {
+	 case 1: MergeSort_time(&head);
+		 break;
+	 case 2: MergeSort_changed_time(&head);
+		 break;
+	 case 3: MergeSort_name(&head);
+		 break;
+	 case 4: MergeSort_size(&head);
+		 break;
+	 default:
+		 break;
+	 }
+ }

@@ -30,7 +30,20 @@ public:
 	@return *this
 	*/
 	Taime operator =(Taime other);
+	/**
+	*brief overloaded comparizion operator ">"
+	@param other Other Taime class that we compare with our time
+	@return true if time of "this" is bigger than "other"
+	*/
+	bool operator >(Taime other);
+	/**
+	*brief overloaded comparizion operator "<"
+	@param other Other Taime class that we compare with our time
+	@return true if time of "this" is smaller than "other"
+	*/
+	bool operator <(Taime other);
 
+	bool operator <=(Taime other);
 
 	/**
 	*brief Output stored information

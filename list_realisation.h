@@ -5,12 +5,13 @@
 */
 #pragma once
 #include "list_node.h"
+#include "mergeSort.h"
 
 /**
 *brief An implementation of list_realisation. 
 *details Realization of list, where are stored pointers to head, tail, and all methods of list
 */
-class list_realisation
+class list_realisation : public mergeSort
 {
 private:
 	list_node * head;
@@ -75,6 +76,11 @@ public:
 	@param [in] elToSwap2 Element to swap with elToSwap1
 	*/
 	void swapEl(list_node * elToSwap1, list_node * elToSwap2);
+	/**
+	*brief Realization of merge sort
+	*details user choose based on which parameter he want to sort our list  
+	*/
+	void merge_sort();
 };
 
 #include "list_realisation.hxx"

@@ -21,7 +21,6 @@ void catalog_element_menu(TreeNode *Tree_node, // pointer to current catalog (wi
 						int &input, // users input
 						list_realisation *Mylist, // list
 						string &input_name);// users input of name
-//void catalog_element_menu(file current, int &input, list_realisation &Mylist, TreeNode *Catalog_node);//acces from file
 void list_menu(int &input, // users input
 				list_realisation *Mylist, // list
 				string &input_name);// users input of name
@@ -184,7 +183,8 @@ void list_menu(int & input, list_realisation * Mylist, string & input_name)
 	cout << "\t To print your list press 1 : " << endl;
 	cout << "\t To delete your list press 2 :" << endl;
 	cout << "\t To delete an element from your list press 3 :" << endl;
-	cout << "\t Exit list menu press 4 :" << endl;
+	cout << "\t To sort your list press 4:" << endl;
+	cout << "\t Exit list menu press 5 :" << endl;
 	cout << ">>>";
 	cin >> input;
 	switch (input)
@@ -210,7 +210,28 @@ void list_menu(int & input, list_realisation * Mylist, string & input_name)
 		Mylist->delete_element(Mylist->search_name(input_name));
 		list_menu(input, Mylist, input_name);
 		break;
-	case 4: break;
+	case 4:
+		cout << "\t\t Choose sorting type " << endl;
+		cout << "\t Merge sort press 1 : " << endl;
+		cout << "\t Quick sort press 2 : " << endl;
+		cout << "\t Insertion sort press 3 : " << endl;
+		int i;
+		cout << ">>>";
+		cin >> i;
+		if (i == 1) {
+			//MERGE SORT
+			Mylist->merge_sort();// contains menu of choosing the parameter on which we will sort
+			cout << "Your list was sorted " << endl;
+		}
+		else if (i == 2) {
+			//quick sort
+		}
+		else if (i == 3) {
+			//insertion sort
+		}
+		list_menu(input, Mylist, input_name);
+		break;
+	case 5: break;
 	default: break;
 	}
 }

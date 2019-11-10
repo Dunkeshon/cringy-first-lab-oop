@@ -157,6 +157,8 @@
     <ClInclude Include="list_realisation.hxx" />
     <ClInclude Include="list_node.h" />
     <ClInclude Include="list_node.hxx" />
+    <ClInclude Include="mergeSort.h" />
+    <ClInclude Include="mergeSort.hxx" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Catalog.h" />
     <ClInclude Include="Catalog.hxx" />
