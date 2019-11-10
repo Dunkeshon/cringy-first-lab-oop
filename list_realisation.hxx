@@ -299,15 +299,44 @@ list_node* list_realisation::search_name(string key)
 	 cout << "\t sort by size press 4 " << endl;
 	 cout << ">>>";
 	 cin >> i;
+	 list_node* temp;
 	 switch (i)
 	 {
 	 case 1: MergeSort_time(&head);
+		 temp = head;
+		 while (temp!=nullptr) {
+			 if (temp->next == nullptr) {
+				 tail = temp;
+			 }
+			 temp = temp->next;
+		 };
 		 break;
 	 case 2: MergeSort_changed_time(&head);
+		 temp = head;
+		 while (temp != nullptr) {
+			 if (temp->next == nullptr) {
+				 tail = temp;
+			 }
+			 temp = temp->next;
+		 };
 		 break;
 	 case 3: MergeSort_name(&head);
+		 temp = head;
+		 while (temp != nullptr) {
+			 if (temp->next == nullptr) {
+				 tail = temp;
+			 }
+			 temp = temp->next;
+		 };
 		 break;
 	 case 4: MergeSort_size(&head);
+		 temp = head;
+		 while (temp != nullptr) {
+			 if (temp->next == nullptr) {
+				 tail = temp;
+			 }
+			 temp = temp->next;
+		 };
 		 break;
 	 default:
 		 break;

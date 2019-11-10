@@ -20,10 +20,12 @@ list_node * mergeSort::SortedMerge_time(list_node * a, list_node * b)
 		if (a->Catalog_info.Get_time() <= b->Catalog_info.Get_time()) {
 			result = a;
 			result->next = SortedMerge_time(a->next, b);
+			result->next->prev = result;
 		}
 		else {
 			result = b;
 			result->next = SortedMerge_time(a, b->next);
+			result->next->prev = result;
 		}
 		return (result);
 	}
@@ -32,10 +34,12 @@ list_node * mergeSort::SortedMerge_time(list_node * a, list_node * b)
 		if (a->Catalog_info.Get_time() <= b->File_info.Get_time()) {
 			result = a;
 			result->next = SortedMerge_time(a->next, b);
+			result->next->prev = result;
 		}
 		else {
 			result = b;
 			result->next = SortedMerge_time(a, b->next);
+			result->next->prev = result;
 		}
 		return (result);
 	}
@@ -44,10 +48,12 @@ list_node * mergeSort::SortedMerge_time(list_node * a, list_node * b)
 		if (a->File_info.Get_time() <= b->Catalog_info.Get_time()) {
 			result = a;
 			result->next = SortedMerge_time(a->next, b);
+			result->next->prev = result;
 		}
 		else {
 			result = b;
 			result->next = SortedMerge_time(a, b->next);
+			result->next->prev = result;
 		}
 		return (result);
 	}
@@ -56,10 +62,12 @@ list_node * mergeSort::SortedMerge_time(list_node * a, list_node * b)
 		if (a->File_info.Get_time() <= b->File_info.Get_time()) {
 			result = a;
 			result->next = SortedMerge_time(a->next, b);
+			result->next->prev = result;
 		}
 		else {
 			result = b;
 			result->next = SortedMerge_time(a, b->next);
+			result->next->prev = result;
 		}
 		return (result);
 	}
@@ -82,10 +90,12 @@ list_node * mergeSort::SortedMerge_changed_time(list_node * a, list_node * b)
 		if (a->Catalog_info.Get_changed_time() <= b->Catalog_info.Get_changed_time()) {
 			result = a;
 			result->next = SortedMerge_changed_time(a->next, b);
+			result->next->prev = result;
 		}
 		else {
 			result = b;
 			result->next = SortedMerge_changed_time(a, b->next);
+			result->next->prev = result;
 		}
 		return (result);
 	}
@@ -94,10 +104,12 @@ list_node * mergeSort::SortedMerge_changed_time(list_node * a, list_node * b)
 		if (a->Catalog_info.Get_changed_time() <= b->File_info.Get_changed_time()) {
 			result = a;
 			result->next = SortedMerge_changed_time(a->next, b);
+			result->next->prev = result;
 		}
 		else {
 			result = b;
 			result->next = SortedMerge_changed_time(a, b->next);
+			result->next->prev = result;
 		}
 		return (result);
 	}
@@ -106,10 +118,12 @@ list_node * mergeSort::SortedMerge_changed_time(list_node * a, list_node * b)
 		if (a->File_info.Get_changed_time() <= b->Catalog_info.Get_changed_time()) {
 			result = a;
 			result->next = SortedMerge_changed_time(a->next, b);
+			result->next->prev = result;
 		}
 		else {
 			result = b;
 			result->next = SortedMerge_changed_time(a, b->next);
+			result->next->prev = result;
 		}
 		return (result);
 	}
@@ -118,10 +132,12 @@ list_node * mergeSort::SortedMerge_changed_time(list_node * a, list_node * b)
 		if (a->File_info.Get_changed_time() <= b->File_info.Get_changed_time()) {
 			result = a;
 			result->next = SortedMerge_changed_time(a->next, b);
+			result->next->prev = result;
 		}
 		else {
 			result = b;
 			result->next = SortedMerge_changed_time(a, b->next);
+			result->next->prev = result;
 		}
 		return (result);
 	}
@@ -144,10 +160,12 @@ list_node * mergeSort::SortedMerge_changed_time(list_node * a, list_node * b)
 		 if (a->Catalog_info.Get_name() <= b->Catalog_info.Get_name()) {
 			 result = a;
 			 result->next = SortedMerge_name(a->next, b);
+			 result->next->prev = result;
 		 }
 		 else {
 			 result = b;
 			 result->next = SortedMerge_name(a, b->next);
+			 result->next->prev = result;
 		 }
 		 return (result);
 	 }
@@ -156,10 +174,12 @@ list_node * mergeSort::SortedMerge_changed_time(list_node * a, list_node * b)
 		 if (a->Catalog_info.Get_name() <= b->File_info.Get_name()) {
 			 result = a;
 			 result->next = SortedMerge_name(a->next, b);
+			 result->next->prev = result;
 		 }
 		 else {
 			 result = b;
 			 result->next = SortedMerge_name(a, b->next);
+			 result->next->prev = result;
 		 }
 		 return (result);
 	 }
@@ -168,10 +188,12 @@ list_node * mergeSort::SortedMerge_changed_time(list_node * a, list_node * b)
 		 if (a->File_info.Get_name() <= b->Catalog_info.Get_name()) {
 			 result = a;
 			 result->next = SortedMerge_name(a->next, b);
+			 result->next->prev = result;
 		 }
 		 else {
 			 result = b;
 			 result->next = SortedMerge_name(a, b->next);
+			 result->next->prev = result;
 		 }
 		 return (result);
 	 }
@@ -180,10 +202,12 @@ list_node * mergeSort::SortedMerge_changed_time(list_node * a, list_node * b)
 		 if (a->File_info.Get_name() <= b->File_info.Get_name()) {
 			 result = a;
 			 result->next = SortedMerge_name(a->next, b);
+			 result->next->prev = result;
 		 }
 		 else {
 			 result = b;
 			 result->next = SortedMerge_name(a, b->next);
+			 result->next->prev = result;
 		 }
 		 return (result);
 	 }
@@ -206,10 +230,12 @@ list_node * mergeSort::SortedMerge_changed_time(list_node * a, list_node * b)
 		 if (a->Catalog_info.Get_size() <= b->Catalog_info.Get_size()) {
 			 result = a;
 			 result->next = SortedMerge_size(a->next, b);
+			 result->next->prev = result;
 		 }
 		 else {
 			 result = b;
 			 result->next = SortedMerge_size(a, b->next);
+			 result->next->prev = result;
 		 }
 		 return (result);
 	 }
@@ -218,10 +244,12 @@ list_node * mergeSort::SortedMerge_changed_time(list_node * a, list_node * b)
 		 if (a->Catalog_info.Get_size() <= b->File_info.Get_size()) {
 			 result = a;
 			 result->next = SortedMerge_size(a->next, b);
+			 result->next->prev = result;
 		 }
 		 else {
 			 result = b;
 			 result->next = SortedMerge_size(a, b->next);
+			 result->next->prev = result;
 		 }
 		 return (result);
 	 }
@@ -230,10 +258,12 @@ list_node * mergeSort::SortedMerge_changed_time(list_node * a, list_node * b)
 		 if (a->File_info.Get_size() <= b->Catalog_info.Get_size()) {
 			 result = a;
 			 result->next = SortedMerge_size(a->next, b);
+			 result->next->prev = result;
 		 }
 		 else {
 			 result = b;
 			 result->next = SortedMerge_size(a, b->next);
+			 result->next->prev = result;
 		 }
 		 return (result);
 	 }
@@ -242,10 +272,12 @@ list_node * mergeSort::SortedMerge_changed_time(list_node * a, list_node * b)
 		 if (a->File_info.Get_size() <= b->File_info.Get_size()) {
 			 result = a;
 			 result->next = SortedMerge_size(a->next, b);
+			 result->next->prev = result;
 		 }
 		 else {
 			 result = b;
 			 result->next = SortedMerge_size(a, b->next);
+			 result->next->prev = result;
 		 }
 		 return (result);
 	 }
@@ -278,16 +310,16 @@ list_node * mergeSort::SortedMerge_changed_time(list_node * a, list_node * b)
 
 void mergeSort::MergeSort_time(list_node ** headRef)
 {
-	list_node* head = *headRef;
+	list_node* cur_head = *headRef;
 	list_node* a;
 	list_node* b;
 
 	/* Base case -- length 0 or 1 */
-	if ((head == nullptr) || (head->next == nullptr)) {
+	if ((cur_head == nullptr) || (cur_head->next == nullptr)) {
 		return;
 	}
 	/* Split head into 'a' and 'b' sublists */
-	FrontBackSplit(head, &a, &b);
+	FrontBackSplit(cur_head, &a, &b);
 
 	/* Recursively sort the sublists */
 	MergeSort_time(&a);
@@ -321,16 +353,16 @@ void mergeSort::MergeSort_changed_time(list_node ** headRef)
  void mergeSort::MergeSort_name(list_node ** headRef)
 {
 
-	 list_node* head = *headRef;
+	 list_node* cur_head = *headRef;
 	 list_node* a;
 	 list_node* b;
 
 	 /* Base case -- length 0 or 1 */
-	 if ((head == nullptr) || (head->next == nullptr)) {
+	 if ((cur_head == nullptr) || (cur_head->next == nullptr)) {
 		 return;
 	 }
 	 /* Split head into 'a' and 'b' sublists */
-	 FrontBackSplit(head, &a, &b);
+	 FrontBackSplit(cur_head, &a, &b);
 
 	 /* Recursively sort the sublists */
 	 MergeSort_time(&a);
@@ -343,16 +375,16 @@ void mergeSort::MergeSort_changed_time(list_node ** headRef)
  void mergeSort::MergeSort_size(list_node ** headRef)
  {
 
-	 list_node* head = *headRef;
+	 list_node* cur_head = *headRef;
 	 list_node* a;
 	 list_node* b;
 
 	 /* Base case -- length 0 or 1 */
-	 if ((head == nullptr) || (head->next == nullptr)) {
+	 if ((cur_head == nullptr) || (cur_head->next == nullptr)) {
 		 return;
 	 }
 	 /* Split head into 'a' and 'b' sublists */
-	 FrontBackSplit(head, &a, &b);
+	 FrontBackSplit(cur_head, &a, &b);
 
 	 /* Recursively sort the sublists */
 	 MergeSort_time(&a);
