@@ -607,13 +607,13 @@ list_node * list_realisation::Q_Sort_partition_size(list_node * low, list_node *
 	}
 }
 
-void list_realisation::_quickSort_time(list_node * low, list_node * high)
+void list_realisation::_quickSort_time_recur(list_node * low, list_node * high)
 {
 	if (high != nullptr && low != high && low != high->next)
 	{
 		list_node *p = Q_Sort_partition_time(low, high);
-		_quickSort_time(low, p->prev);
-		_quickSort_time(p->next, high);
+		_quickSort_time_recur(low, p->prev);
+		_quickSort_time_recur(p->next, high);
 	}
 }
 
@@ -997,7 +997,14 @@ list_node* list_realisation::search_name(string key)
 	 list_node* temp;
 	 switch (i)
 	 {
-	 case 1:_quickSort_time(head, tail);
+	 case 1:_quickSort_time_recur(head, tail);
+		 temp = head;
+		 while (temp != nullptr) {
+			 if (temp->next == nullptr) {
+				 tail = temp;
+			 }
+			 temp = temp->next;
+		 };
 		 break;
 	 case 2: _quickSort_changed_time(head, tail);
 		 break;

@@ -26,7 +26,7 @@ private:
 	list_node* Q_Sort_partition_changed_time(list_node *low, list_node *high);
 	list_node* Q_Sort_partition_name(list_node *low, list_node *high);
 	list_node* Q_Sort_partition_size(list_node *low, list_node *high);
-	void _quickSort_time(list_node* low, list_node *high);
+	void _quickSort_time_recur(list_node* low, list_node *high);
 	void _quickSort_changed_time(list_node* low, list_node *high);
 	void _quickSort_name(list_node* low, list_node *high);
 	void _quickSort_size(list_node* low, list_node *high);

@@ -162,6 +162,8 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Catalog.h" />
     <ClInclude Include="Catalog.hxx" />
+    <ClInclude Include="Quicksort.h" />
+    <ClInclude Include="Quicksort.hxx" />
     <ClInclude Include="Taime.h" />
     <ClInclude Include="Taime.hxx" />
     <ClInclude Include="TreeNode.h" />
