@@ -14,6 +14,23 @@
 class list_realisation : public mergeSort
 {
 private:
+	/**
+	*brief Function to compare nodes, depending on time in quicksort
+	@param low , high Pointers to left and right sides of list
+	*details Considers last element as pivot,places the pivot element at its
+	correct position in sorted array,and places all smaller (smaller than
+	pivot) to left of pivot and all greater
+	elements to right of pivot 
+	*/
+	list_node* Q_Sort_partition_time(list_node *low, list_node *high);
+	list_node* Q_Sort_partition_changed_time(list_node *low, list_node *high);
+	list_node* Q_Sort_partition_name(list_node *low, list_node *high);
+	list_node* Q_Sort_partition_size(list_node *low, list_node *high);
+	void _quickSort_time(list_node* low, list_node *high);
+	void _quickSort_changed_time(list_node* low, list_node *high);
+	void _quickSort_name(list_node* low, list_node *high);
+	void _quickSort_size(list_node* low, list_node *high);
+
 	list_node * head;
 	list_node * tail;
 public:
@@ -78,9 +95,11 @@ public:
 	void swapEl(list_node * elToSwap1, list_node * elToSwap2);
 	/**
 	*brief Realization of merge sort
-	*details user choose based on which parameter he want to sort our list  
+	*details User choose based on which parameter he want to sort our list. 
+	*Contains all kind off parameters that can be taken
 	*/
 	void merge_sort();
+	void quick_sort();
 };
 
 #include "list_realisation.hxx"

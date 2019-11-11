@@ -6,6 +6,647 @@
 #include "list_realisation.h"
 
 
+list_node * list_realisation::Q_Sort_partition_time(list_node * low, list_node * high)
+{
+	if ((low->Get_type() == is_catalog) && (high->Get_type() == is_catalog)) {
+		// set pivot as high element  
+		//int x = high.;
+
+
+		// similar to i = l-1 for array implementation  
+		list_node *i = low->prev;
+
+		// Similar to "for (int j = l; j <= h- 1; j++)"  
+		for (list_node *j = low; j != high; j = j->next)
+		{
+			if (j->Catalog_info.Get_time() <= high->Catalog_info.Get_time())
+			{
+				// Similar to i++ for array  
+				if (i == nullptr)
+				{
+					i = low;
+				}
+				else
+				{
+					i = i->next;
+				}
+				swap(i,j);
+			}
+		}
+		if (i == nullptr)
+		{
+			i = low;
+		}
+		else
+		{
+			i = i->next;
+		}
+		
+		swap(i,high);
+		return i;
+	}
+	else if ((low->Get_type() == is_catalog) && (high->Get_type() == is_file)) {
+		// set pivot as high element  
+		//int x = high.;
+
+		// similar to i = l-1 for array implementation  
+		list_node *i = low->prev;
+
+		// Similar to "for (int j = l; j <= h- 1; j++)"  
+		for (list_node *j = low; j != high; j = j->next)
+		{
+			if (j->Catalog_info.Get_time() <= high->File_info.Get_time())
+			{
+				// Similar to i++ for array  
+				if (i == nullptr)
+				{
+					i = low;
+				}
+				else
+				{
+					i = i->next;
+				}
+				swap(i, j);
+			}
+		}
+		if (i == nullptr)
+		{
+			i = low;
+		}
+		else
+		{
+			i = i->next;
+		}
+
+		swap(i, high);
+		return i;
+	}
+	else if ((low->Get_type() == is_file) && (high->Get_type() == is_catalog)) {
+		// set pivot as high element  
+		//int x = high.;
+
+		// similar to i = l-1 for array implementation  
+		list_node *i = low->prev;
+
+		// Similar to "for (int j = l; j <= h- 1; j++)"  
+		for (list_node *j = low; j != high; j = j->next)
+		{
+			if (j->File_info.Get_time() <= high->Catalog_info.Get_time())
+			{
+				// Similar to i++ for array  
+				if (i == nullptr)
+				{
+					i = low;
+				}
+				else
+				{
+					i = i->next;
+				}
+				swap(i, j);
+			}
+		}
+		if (i == nullptr)
+		{
+			i = low;
+		}
+		else
+		{
+			i = i->next;
+		}
+
+		swap(i, high);
+		return i;
+	}
+	else 
+	{
+		// set pivot as high element  
+		//int x = high.;
+
+		// similar to i = l-1 for array implementation  
+		list_node *i = low->prev;
+
+		// Similar to "for (int j = l; j <= h- 1; j++)"  
+		for (list_node *j = low; j != high; j = j->next)
+		{
+			if (j->File_info.Get_time() <= high->File_info.Get_time())
+			{
+				// Similar to i++ for array  
+				if (i == nullptr)
+				{
+					i = low;
+				}
+				else
+				{
+					i = i->next;
+				}
+				swap(i, j);
+			}
+		}
+		if (i == nullptr)
+		{
+			i = low;
+		}
+		else
+		{
+			i = i->next;
+		}
+
+		swap(i, high);
+		return i;
+	}
+}
+
+list_node * list_realisation::Q_Sort_partition_changed_time(list_node * low, list_node * high)
+{
+	if ((low->Get_type() == is_catalog) && (high->Get_type() == is_catalog)) {
+		// set pivot as high element  
+		//int x = high.;
+
+
+		// similar to i = l-1 for array implementation  
+		list_node *i = low->prev;
+
+		// Similar to "for (int j = l; j <= h- 1; j++)"  
+		for (list_node *j = low; j != high; j = j->next)
+		{
+			if (j->Catalog_info.Get_changed_time() <= high->Catalog_info.Get_changed_time())
+			{
+				// Similar to i++ for array  
+				if (i == nullptr)
+				{
+					i = low;
+				}
+				else
+				{
+					i = i->next;
+				}
+				swap(i, j);
+			}
+		}
+		if (i == nullptr)
+		{
+			i = low;
+		}
+		else
+		{
+			i = i->next;
+		}
+
+		swap(i, high);
+		return i;
+	}
+	else if ((low->Get_type() == is_catalog) && (high->Get_type() == is_file)) {
+		// set pivot as high element  
+		//int x = high.;
+
+		// similar to i = l-1 for array implementation  
+		list_node *i = low->prev;
+
+		// Similar to "for (int j = l; j <= h- 1; j++)"  
+		for (list_node *j = low; j != high; j = j->next)
+		{
+			if (j->Catalog_info.Get_changed_time() <= high->File_info.Get_changed_time())
+			{
+				// Similar to i++ for array  
+				if (i == nullptr)
+				{
+					i = low;
+				}
+				else
+				{
+					i = i->next;
+				}
+				swap(i, j);
+			}
+		}
+		if (i == nullptr)
+		{
+			i = low;
+		}
+		else
+		{
+			i = i->next;
+		}
+
+		swap(i, high);
+		return i;
+	}
+	else if ((low->Get_type() == is_file) && (high->Get_type() == is_catalog)) {
+		// set pivot as high element  
+		//int x = high.;
+
+		// similar to i = l-1 for array implementation  
+		list_node *i = low->prev;
+
+		// Similar to "for (int j = l; j <= h- 1; j++)"  
+		for (list_node *j = low; j != high; j = j->next)
+		{
+			if (j->File_info.Get_changed_time() <= high->Catalog_info.Get_changed_time())
+			{
+				// Similar to i++ for array  
+				if (i == nullptr)
+				{
+					i = low;
+				}
+				else
+				{
+					i = i->next;
+				}
+				swap(i, j);
+			}
+		}
+		if (i == nullptr)
+		{
+			i = low;
+		}
+		else
+		{
+			i = i->next;
+		}
+
+		swap(i, high);
+		return i;
+	}
+	else
+	{
+		// set pivot as high element  
+		//int x = high.;
+
+		// similar to i = l-1 for array implementation  
+		list_node *i = low->prev;
+
+		// Similar to "for (int j = l; j <= h- 1; j++)"  
+		for (list_node *j = low; j != high; j = j->next)
+		{
+			if (j->File_info.Get_changed_time() <= high->File_info.Get_changed_time())
+			{
+				// Similar to i++ for array  
+				if (i == nullptr)
+				{
+					i = low;
+				}
+				else
+				{
+					i = i->next;
+				}
+				swap(i, j);
+			}
+		}
+		if (i == nullptr)
+		{
+			i = low;
+		}
+		else
+		{
+			i = i->next;
+		}
+
+		swap(i, high);
+		return i;
+	}
+}
+
+list_node * list_realisation::Q_Sort_partition_name(list_node * low, list_node * high)
+{
+	if ((low->Get_type() == is_catalog) && (high->Get_type() == is_catalog)) {
+		// set pivot as high element  
+		//int x = high.;
+
+
+		// similar to i = l-1 for array implementation  
+		list_node *i = low->prev;
+
+		// Similar to "for (int j = l; j <= h- 1; j++)"  
+		for (list_node *j = low; j != high; j = j->next)
+		{
+			if (j->Catalog_info.Get_name() <= high->Catalog_info.Get_name())
+			{
+				// Similar to i++ for array  
+				if (i == nullptr)
+				{
+					i = low;
+				}
+				else
+				{
+					i = i->next;
+				}
+				swap(i, j);
+			}
+		}
+		if (i == nullptr)
+		{
+			i = low;
+		}
+		else
+		{
+			i = i->next;
+		}
+
+		swap(i, high);
+		return i;
+	}
+	else if ((low->Get_type() == is_catalog) && (high->Get_type() == is_file)) {
+		// set pivot as high element  
+		//int x = high.;
+
+		// similar to i = l-1 for array implementation  
+		list_node *i = low->prev;
+
+		// Similar to "for (int j = l; j <= h- 1; j++)"  
+		for (list_node *j = low; j != high; j = j->next)
+		{
+			if (j->Catalog_info.Get_name() <= high->File_info.Get_name())
+			{
+				// Similar to i++ for array  
+				if (i == nullptr)
+				{
+					i = low;
+				}
+				else
+				{
+					i = i->next;
+				}
+				swap(i, j);
+			}
+		}
+		if (i == nullptr)
+		{
+			i = low;
+		}
+		else
+		{
+			i = i->next;
+		}
+
+		swap(i, high);
+		return i;
+	}
+	else if ((low->Get_type() == is_file) && (high->Get_type() == is_catalog)) {
+		// set pivot as high element  
+		//int x = high.;
+
+		// similar to i = l-1 for array implementation  
+		list_node *i = low->prev;
+
+		// Similar to "for (int j = l; j <= h- 1; j++)"  
+		for (list_node *j = low; j != high; j = j->next)
+		{
+			if (j->File_info.Get_name() <= high->Catalog_info.Get_name())
+			{
+				// Similar to i++ for array  
+				if (i == nullptr)
+				{
+					i = low;
+				}
+				else
+				{
+					i = i->next;
+				}
+				swap(i, j);
+			}
+		}
+		if (i == nullptr)
+		{
+			i = low;
+		}
+		else
+		{
+			i = i->next;
+		}
+
+		swap(i, high);
+		return i;
+	}
+	else
+	{
+		// set pivot as high element  
+		//int x = high.;
+
+		// similar to i = l-1 for array implementation  
+		list_node *i = low->prev;
+
+		// Similar to "for (int j = l; j <= h- 1; j++)"  
+		for (list_node *j = low; j != high; j = j->next)
+		{
+			if (j->File_info.Get_name() <= high->File_info.Get_name())
+			{
+				// Similar to i++ for array  
+				if (i == nullptr)
+				{
+					i = low;
+				}
+				else
+				{
+					i = i->next;
+				}
+				swap(i, j);
+			}
+		}
+		if (i == nullptr)
+		{
+			i = low;
+		}
+		else
+		{
+			i = i->next;
+		}
+
+		swap(i, high);
+		return i;
+	}
+}
+
+list_node * list_realisation::Q_Sort_partition_size(list_node * low, list_node * high)
+{
+
+	if ((low->Get_type() == is_catalog) && (high->Get_type() == is_catalog)) {
+		// set pivot as high element  
+		//int x = high.;
+
+
+		// similar to i = l-1 for array implementation  
+		list_node *i = low->prev;
+
+		// Similar to "for (int j = l; j <= h- 1; j++)"  
+		for (list_node *j = low; j != high; j = j->next)
+		{
+			if (j->Catalog_info.Get_size() <= high->Catalog_info.Get_size())
+			{
+				// Similar to i++ for array  
+				if (i == nullptr)
+				{
+					i = low;
+				}
+				else
+				{
+					i = i->next;
+				}
+				swap(i, j);
+			}
+		}
+		if (i == nullptr)
+		{
+			i = low;
+		}
+		else
+		{
+			i = i->next;
+		}
+
+		swap(i, high);
+		return i;
+	}
+	else if ((low->Get_type() == is_catalog) && (high->Get_type() == is_file)) {
+		// set pivot as high element  
+		//int x = high.;
+
+		// similar to i = l-1 for array implementation  
+		list_node *i = low->prev;
+
+		// Similar to "for (int j = l; j <= h- 1; j++)"  
+		for (list_node *j = low; j != high; j = j->next)
+		{
+			if (j->Catalog_info.Get_size() <= high->File_info.Get_size())
+			{
+				// Similar to i++ for array  
+				if (i == nullptr)
+				{
+					i = low;
+				}
+				else
+				{
+					i = i->next;
+				}
+				swap(i, j);
+			}
+		}
+		if (i == nullptr)
+		{
+			i = low;
+		}
+		else
+		{
+			i = i->next;
+		}
+
+		swap(i, high);
+		return i;
+	}
+	else if ((low->Get_type() == is_file) && (high->Get_type() == is_catalog)) {
+		// set pivot as high element  
+		//int x = high.;
+
+		// similar to i = l-1 for array implementation  
+		list_node *i = low->prev;
+
+		// Similar to "for (int j = l; j <= h- 1; j++)"  
+		for (list_node *j = low; j != high; j = j->next)
+		{
+			if (j->File_info.Get_size() <= high->Catalog_info.Get_size())
+			{
+				// Similar to i++ for array  
+				if (i == nullptr)
+				{
+					i = low;
+				}
+				else
+				{
+					i = i->next;
+				}
+				swap(i, j);
+			}
+		}
+		if (i == nullptr)
+		{
+			i = low;
+		}
+		else
+		{
+			i = i->next;
+		}
+
+		swap(i, high);
+		return i;
+	}
+	else
+	{
+		// set pivot as high element  
+		//int x = high.;
+
+		// similar to i = l-1 for array implementation  
+		list_node *i = low->prev;
+
+		// Similar to "for (int j = l; j <= h- 1; j++)"  
+		for (list_node *j = low; j != high; j = j->next)
+		{
+			if (j->File_info.Get_size() <= high->File_info.Get_size())
+			{
+				// Similar to i++ for array  
+				if (i == nullptr)
+				{
+					i = low;
+				}
+				else
+				{
+					i = i->next;
+				}
+				swap(i, j);
+			}
+		}
+		if (i == nullptr)
+		{
+			i = low;
+		}
+		else
+		{
+			i = i->next;
+		}
+
+		swap(i, high);
+		return i;
+	}
+}
+
+void list_realisation::_quickSort_time(list_node * low, list_node * high)
+{
+	if (high != nullptr && low != high && low != high->next)
+	{
+		list_node *p = Q_Sort_partition_time(low, high);
+		_quickSort_time(low, p->prev);
+		_quickSort_time(p->next, high);
+	}
+}
+
+void list_realisation::_quickSort_changed_time(list_node * low, list_node * high)
+{
+	if (high != nullptr && low != high && low != high->next)
+	{
+		list_node *p = Q_Sort_partition_changed_time(low, high);
+		_quickSort_changed_time(low, p->prev);
+		_quickSort_changed_time(p->next, high);
+	}
+}
+
+void list_realisation::_quickSort_name(list_node * low, list_node * high)
+{
+	if (high != nullptr && low != high && low != high->next)
+	{
+		list_node *p = Q_Sort_partition_name(low, high);
+		_quickSort_name(low, p->prev);
+		_quickSort_name(p->next, high);
+	}
+}
+
+void list_realisation::_quickSort_size(list_node * low, list_node * high)
+{
+	if (high != nullptr && low != high && low != high->next)
+	{
+		list_node *p = Q_Sort_partition_size(low, high);
+		_quickSort_size(low, p->prev);
+		_quickSort_size(p->next, high);
+	}
+}
+
 /**
 *brief Constructor, initialisation of private fields with nullptr
 */
@@ -337,6 +978,32 @@ list_node* list_realisation::search_name(string key)
 			 }
 			 temp = temp->next;
 		 };
+		 break;
+	 default:
+		 break;
+	 }
+ }
+
+ void list_realisation::quick_sort()
+ {
+	 cout << "\t\t Choose the parameter, based on which you want to sort your list " << endl;
+	 int i;
+	 cout << "\t sort by time of creation press 1 " << endl;
+	 cout << "\t sort by changed time press 2 " << endl;
+	 cout << "\t sort by name press 3 " << endl;
+	 cout << "\t sort by size press 4 " << endl;
+	 cout << ">>>";
+	 cin >> i;
+	 list_node* temp;
+	 switch (i)
+	 {
+	 case 1:_quickSort_time(head, tail);
+		 break;
+	 case 2: _quickSort_changed_time(head, tail);
+		 break;
+	 case 3: _quickSort_name(head, tail);
+		 break;
+	 case 4: _quickSort_size(head,tail);
 		 break;
 	 default:
 		 break;

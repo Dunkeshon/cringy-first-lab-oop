@@ -221,10 +221,12 @@ void list_menu(int & input, list_realisation * Mylist, string & input_name)
 		if (i == 1) {
 			//MERGE SORT
 			Mylist->merge_sort();// contains menu of choosing the parameter on which we will sort
-			cout << "Your list was sorted " << endl;
+			cout << "Your list was sorted by merge sort" << endl;
 		}
 		else if (i == 2) {
 			//quick sort
+			Mylist->quick_sort();
+			cout << "Your list was sorted by quick sort" << endl;
 		}
 		else if (i == 3) {
 			//insertion sort
