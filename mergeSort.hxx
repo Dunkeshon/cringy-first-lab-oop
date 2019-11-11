@@ -343,8 +343,8 @@ void mergeSort::MergeSort_changed_time(list_node ** headRef)
 	FrontBackSplit(head, &a, &b);
 
 	/* Recursively sort the sublists */
-	MergeSort_time(&a);
-	MergeSort_time(&b);
+	MergeSort_changed_time(&a);
+	MergeSort_changed_time(&b);
 
 	/* answer = merge the two sorted lists together */
 	*headRef = SortedMerge_changed_time(a, b);
@@ -365,8 +365,8 @@ void mergeSort::MergeSort_changed_time(list_node ** headRef)
 	 FrontBackSplit(cur_head, &a, &b);
 
 	 /* Recursively sort the sublists */
-	 MergeSort_time(&a);
-	 MergeSort_time(&b);
+	 MergeSort_name(&a);
+	 MergeSort_name(&b);
 
 	 /* answer = merge the two sorted lists together */
 	 *headRef = SortedMerge_name(a, b);
@@ -387,8 +387,8 @@ void mergeSort::MergeSort_changed_time(list_node ** headRef)
 	 FrontBackSplit(cur_head, &a, &b);
 
 	 /* Recursively sort the sublists */
-	 MergeSort_time(&a);
-	 MergeSort_time(&b);
+	 MergeSort_size(&a);
+	 MergeSort_size(&b);
 
 	 /* answer = merge the two sorted lists together */
 	 *headRef = SortedMerge_size(a, b);
