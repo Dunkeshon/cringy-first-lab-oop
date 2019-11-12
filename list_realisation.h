@@ -6,31 +6,15 @@
 #pragma once
 #include "list_node.h"
 #include "mergeSort.h"
+#include "Quicksort.h"
 
 /**
 *brief An implementation of list_realisation. 
 *details Realization of list, where are stored pointers to head, tail, and all methods of list
 */
-class list_realisation : public mergeSort
+class list_realisation : public mergeSort , Quicksort
 {
 private:
-	/**
-	*brief Function to compare nodes, depending on time in quicksort
-	@param low , high Pointers to left and right sides of list
-	*details Considers last element as pivot,places the pivot element at its
-	correct position in sorted array,and places all smaller (smaller than
-	pivot) to left of pivot and all greater
-	elements to right of pivot 
-	*/
-	list_node* Q_Sort_partition_time(list_node *low, list_node *high);
-	list_node* Q_Sort_partition_changed_time(list_node *low, list_node *high);
-	list_node* Q_Sort_partition_name(list_node *low, list_node *high);
-	list_node* Q_Sort_partition_size(list_node *low, list_node *high);
-	void _quickSort_time_recur(list_node* low, list_node *high);
-	void _quickSort_changed_time(list_node* low, list_node *high);
-	void _quickSort_name(list_node* low, list_node *high);
-	void _quickSort_size(list_node* low, list_node *high);
-
 	list_node * head;
 	list_node * tail;
 public:
