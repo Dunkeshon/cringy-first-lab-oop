@@ -75,10 +75,7 @@ Taime Taime::operator=(Taime other)
 			 return true;
 		 }
 	 }
-	 else
-	 {
-		return false;
-	 }
+	 return false;
 }
  /**
 *brief overloaded comparizion operator "<"
@@ -95,10 +92,7 @@ Taime Taime::operator=(Taime other)
 			 return true;
 		 }
 	 }
-	 else
-	 {
-		 return false;
-	 }
+	 return false;
  }
  bool Taime::operator<=(Taime other)
  {
@@ -110,10 +104,7 @@ Taime Taime::operator=(Taime other)
 			 return true;
 		 }
 	 }
-	 else
-	 {
-		 return false;
-	 }
+	 return false;
  }
  bool Taime::operator>=(Taime other)
  {
@@ -125,10 +116,7 @@ Taime Taime::operator=(Taime other)
 			 return true;
 		 }
 	 }
-	 else
-	 {
-		 return false;
-	 }
+	 return false;
  }
 /**
 	*brief Output stored information

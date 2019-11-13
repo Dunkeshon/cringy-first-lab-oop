@@ -1,6 +1,7 @@
 #pragma once
 #include "list_node.h"
 #include "Taime.h"
+#include <string>
 class insertionSort
 {
 private:
