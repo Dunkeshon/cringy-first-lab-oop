@@ -367,3 +367,57 @@ list_node* list_realisation::search_name(string key)
 		 break;
 	 }
  }
+
+  void list_realisation::insertion_sort()
+ {
+	  cout << "\t\t Choose the parameter, based on which you want to sort your list " << endl;
+	  int i;
+	  cout << "\t sort by time of creation press 1 " << endl;
+	  cout << "\t sort by changed time press 2 " << endl;
+	  cout << "\t sort by name press 3 " << endl;
+	  cout << "\t sort by size press 4 " << endl;
+	  cout << ">>>";
+	  cin >> i;
+	  list_node* temp;
+	  switch (i)
+	  {
+	  case 1: insertionSort_time(&head);
+		  temp = head;
+		  while (temp != nullptr) {
+			  if (temp->next == nullptr) {
+				  tail = temp;
+			  }
+			  temp = temp->next;
+		  };
+		  break;
+	  case 2: insertionSort_changed_time(&head);
+		  temp = head;
+		  while (temp != nullptr) {
+			  if (temp->next == nullptr) {
+				  tail = temp;
+			  }
+			  temp = temp->next;
+		  };
+		  break;
+	  case 3: insertionSort_name(&head);
+		  temp = head;
+		  while (temp != nullptr) {
+			  if (temp->next == nullptr) {
+				  tail = temp;
+			  }
+			  temp = temp->next;
+		  };
+		  break;
+	  case 4: insertionSort_size(&head);
+		  temp = head;
+		  while (temp != nullptr) {
+			  if (temp->next == nullptr) {
+				  tail = temp;
+			  }
+			  temp = temp->next;
+		  };
+		  break;
+	  default:
+		  break;
+	  }
+ }

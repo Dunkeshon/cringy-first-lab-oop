@@ -230,6 +230,8 @@ void list_menu(int & input, list_realisation * Mylist, string & input_name)
 		}
 		else if (i == 3) {
 			//insertion sort
+			Mylist->insertion_sort();
+			cout << "Your list was sorted by insertion sort" << endl;
 		}
 		list_menu(input, Mylist, input_name);
 		break;

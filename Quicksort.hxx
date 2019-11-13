@@ -790,7 +790,7 @@ list_node* Quicksort::_quickSort_time_recur(list_node * head, list_node * end)
 */
 void Quicksort::quickSort_time(list_node ** headRef, list_node **tailRef)
 {
-	for (int i = 0; i < 2; i++) {
+	for (int i = 0; i < 2; i++) { // if u somehow find that - it's for doing it 2-nd time, bc it don't doing it all way correct in the other cases
 		(*headRef) = _quickSort_time_recur(*headRef, *tailRef); // changed , was get_tail()
 		(*tailRef) = getTail(*headRef);
 	}
@@ -802,7 +802,7 @@ void Quicksort::quickSort_time(list_node ** headRef, list_node **tailRef)
 */
 void Quicksort::quickSort_changed_time(list_node ** headRef, list_node ** tailRef)
 {
-	for (int i = 0; i < 2; i++) {
+	for (int i = 0; i < 2; i++) { // even with this staff it don't work correctly idknw
 		(*headRef) = _quickSort_changed_time_recur(*headRef, *tailRef); // changed , was get_tail()
 		(*tailRef) = getTail(*headRef);
 	}

@@ -42,9 +42,18 @@ public:
 	@return true if time of "this" is smaller than "other"
 	*/
 	bool operator <(Taime other);
-
+	/**
+	*brief overloaded comparizion operator "<"
+	@param other Other Taime class that we compare with our time
+	@return true if time of "this" is smaller or equal to "other"
+	*/
 	bool operator <=(Taime other);
-
+	/**
+	*brief overloaded comparizion operator "<"
+	@param other Other Taime class that we compare with our time
+	@return true if time of "this" is bigger or equal to "other"
+	*/
+	bool operator >=(Taime other);
 	/**
 	*brief Output stored information
 	*details Print stored fields of the Taime to the console, using <iostream> library

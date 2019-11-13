@@ -7,12 +7,13 @@
 #include "list_node.h"
 #include "mergeSort.h"
 #include "Quicksort.h"
+#include "insertionSort.h"
 
 /**
 *brief An implementation of list_realisation. 
 *details Realization of list, where are stored pointers to head, tail, and all methods of list
 */
-class list_realisation : public mergeSort , Quicksort
+class list_realisation : public mergeSort , Quicksort , insertionSort
 {
 private:
 	list_node * head;
@@ -84,6 +85,7 @@ public:
 	*/
 	void merge_sort();
 	void quick_sort();
+	void insertion_sort();
 };
 
 #include "list_realisation.hxx"
