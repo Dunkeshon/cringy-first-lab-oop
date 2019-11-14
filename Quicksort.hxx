@@ -6,18 +6,18 @@ list_node * Quicksort::Q_Sort_partition_time(list_node * head, list_node *end, l
 {
 	list_node *pivot = end;
 	list_node *prev = nullptr, *cur = head, *tail = pivot;
-	if ((cur->Get_type() == is_catalog) && (pivot->Get_type() == is_catalog)) {
+	
 		// During partition, both the head and end of the list might change 
 		// which is updated in the newHead and newEnd variables 
-		while (cur != pivot)
-		{
+	while (cur != pivot)
+	{
+	if ((cur->Get_type() == is_catalog) && (pivot->Get_type() == is_catalog)) {
 			if (cur->Catalog_info.Get_time() < pivot->Catalog_info.Get_time())
 			{
 				// First node that has a value less than the pivot - becomes 
 				// the new head 
 				if ((*newHead) == nullptr)
-					(*newHead) = cur;
-
+				(*newHead) = cur;
 				prev = cur;
 				cur = cur->next;
 				cur->prev = prev; // ADDED V2.0
@@ -26,7 +26,7 @@ list_node * Quicksort::Q_Sort_partition_time(list_node * head, list_node *end, l
 			{
 				cur->next->prev = cur; // ADDED V 2.0 
 				// Move cur node to next of tail, and change tail 
-				if (prev) 
+				if (prev)
 				{
 					prev->next = cur->next;
 				}
@@ -38,20 +38,13 @@ list_node * Quicksort::Q_Sort_partition_time(list_node * head, list_node *end, l
 				cur = tmp;
 			}
 		}
-    }
-	else if ((cur->Get_type() == is_catalog) && (pivot->Get_type() == is_file)) 
-	{
-		// During partition, both the head and end of the list might change 
-		// which is updated in the newHead and newEnd variables 
-		while (cur != pivot)
-		{
+	else if ((cur->Get_type() == is_catalog) && (pivot->Get_type() == is_file)) {
 			if (cur->Catalog_info.Get_time() < pivot->File_info.Get_time())
-			{
+				{
 				// First node that has a value less than the pivot - becomes 
 				// the new head 
 				if ((*newHead) == nullptr)
-					(*newHead) = cur;
-
+				(*newHead) = cur;
 				prev = cur;
 				cur = cur->next;
 				cur->prev = prev; // ADDED V2.0
@@ -71,77 +64,64 @@ list_node * Quicksort::Q_Sort_partition_time(list_node * head, list_node *end, l
 				cur = tmp;
 			}
 		}
-	}
-
-	else if ((cur->Get_type() == is_file) && (pivot->Get_type() == is_catalog))
-	{
-		// During partition, both the head and end of the list might change 
-		// which is updated in the newHead and newEnd variables 
-		while (cur != pivot)
+	else if ((cur->Get_type() == is_file) && (pivot->Get_type() == is_catalog)) {
+		if (cur->File_info.Get_time() < pivot->Catalog_info.Get_time())
 		{
-			if (cur->File_info.Get_time() < pivot->Catalog_info.Get_time())
-			{
-				// First node that has a value less than the pivot - becomes 
-				// the new head 
-				if ((*newHead) == nullptr)
-					(*newHead) = cur;
+			// First node that has a value less than the pivot - becomes 
+			// the new head 
+			if ((*newHead) == nullptr)
+				(*newHead) = cur;
 
-				prev = cur;
-				cur = cur->next;
-				cur->prev = prev; // ADDED V2.0
-			}
-			else // If cur node is greater than pivot 
+			prev = cur;
+			cur = cur->next;
+			cur->prev = prev; // ADDED V2.0
+		}
+		else // If cur node is greater than pivot 
+		{
+			cur->next->prev = cur; // ADDED V 2.0 
+			// Move cur node to next of tail, and change tail 
+			if (prev)
 			{
-				cur->next->prev = cur; // ADDED V 2.0 
-				// Move cur node to next of tail, and change tail 
-				if (prev)
-				{
-					prev->next = cur->next;
-				}
-				list_node *tmp = cur->next;
-				cur->next = nullptr;
-				tail->next = cur;
-				cur->prev = tail;// ADDED V 2.0
-				tail = cur;
-				cur = tmp;
+				prev->next = cur->next;
 			}
+			list_node *tmp = cur->next;
+			cur->next = nullptr;
+			tail->next = cur;
+			cur->prev = tail;// ADDED V 2.0
+			tail = cur;
+			cur = tmp;
 		}
 	}
-
-	else 
-	{
-		// During partition, both the head and end of the list might change 
-		// which is updated in the newHead and newEnd variables 
-		while (cur != pivot)
+	else {
+		if (cur->File_info.Get_time() < pivot->File_info.Get_time())
 		{
-			if (cur->File_info.Get_time() < pivot->File_info.Get_time())
-			{
-				// First node that has a value less than the pivot - becomes 
-				// the new head 
-				if ((*newHead) == nullptr)
-					(*newHead) = cur;
+			// First node that has a value less than the pivot - becomes 
+			// the new head 
+			if ((*newHead) == nullptr)
+				(*newHead) = cur;
 
-				prev = cur;
-				cur = cur->next;
-				cur->prev = prev; // ADDED V2.0
-			}
-			else // If cur node is greater than pivot 
+			prev = cur;
+			cur = cur->next;
+			cur->prev = prev; // ADDED V2.0
+		}
+		else // If cur node is greater than pivot 
+		{
+			cur->next->prev = cur; // ADDED V 2.0 
+			// Move cur node to next of tail, and change tail 
+			if (prev)
 			{
-				cur->next->prev = cur; // ADDED V 2.0 
-				// Move cur node to next of tail, and change tail 
-				if (prev)
-				{
-					prev->next = cur->next;
-				}
-				list_node *tmp = cur->next;
-				cur->next = nullptr;
-				tail->next = cur;
-				cur->prev = tail;// ADDED V 2.0
-				tail = cur;
-				cur = tmp;
+				prev->next = cur->next;
 			}
+			list_node *tmp = cur->next;
+			cur->next = nullptr;
+			tail->next = cur;
+			cur->prev = tail;// ADDED V 2.0
+			tail = cur;
+			cur = tmp;
 		}
 	}
+	}
+
 	// If the pivot data is the smallest element in the current list, 
 	// pivot becomes the head 
 	if ((*newHead) == nullptr)
@@ -159,18 +139,18 @@ list_node * Quicksort::Q_Sort_partition_changed_time(list_node * head, list_node
 {
 	list_node *pivot = end;
 	list_node *prev = nullptr, *cur = head, *tail = pivot;
-	if ((cur->Get_type() == is_catalog) && (pivot->Get_type() == is_catalog)) {
-		// During partition, both the head and end of the list might change 
-		// which is updated in the newHead and newEnd variables 
-		while (cur != pivot)
-		{
+
+	// During partition, both the head and end of the list might change 
+	// which is updated in the newHead and newEnd variables 
+	while (cur != pivot)
+	{
+		if ((cur->Get_type() == is_catalog) && (pivot->Get_type() == is_catalog)) {
 			if (cur->Catalog_info.Get_changed_time() < pivot->Catalog_info.Get_changed_time())
 			{
 				// First node that has a value less than the pivot - becomes 
 				// the new head 
 				if ((*newHead) == nullptr)
 					(*newHead) = cur;
-
 				prev = cur;
 				cur = cur->next;
 				cur->prev = prev; // ADDED V2.0
@@ -191,20 +171,13 @@ list_node * Quicksort::Q_Sort_partition_changed_time(list_node * head, list_node
 				cur = tmp;
 			}
 		}
-	}
-	else if ((cur->Get_type() == is_catalog) && (pivot->Get_type() == is_file))
-	{
-		// During partition, both the head and end of the list might change 
-		// which is updated in the newHead and newEnd variables 
-		while (cur != pivot)
-		{
+		else if ((cur->Get_type() == is_catalog) && (pivot->Get_type() == is_file)) {
 			if (cur->Catalog_info.Get_changed_time() < pivot->File_info.Get_changed_time())
 			{
 				// First node that has a value less than the pivot - becomes 
 				// the new head 
 				if ((*newHead) == nullptr)
 					(*newHead) = cur;
-
 				prev = cur;
 				cur = cur->next;
 				cur->prev = prev; // ADDED V2.0
@@ -213,8 +186,7 @@ list_node * Quicksort::Q_Sort_partition_changed_time(list_node * head, list_node
 			{
 				cur->next->prev = cur; // ADDED V 2.0 
 				// Move cur node to next of tail, and change tail 
-				if (prev)
-				{
+				if (prev) {
 					prev->next = cur->next;
 				}
 				list_node *tmp = cur->next;
@@ -225,14 +197,7 @@ list_node * Quicksort::Q_Sort_partition_changed_time(list_node * head, list_node
 				cur = tmp;
 			}
 		}
-	}
-
-	else if ((cur->Get_type() == is_file) && (pivot->Get_type() == is_catalog))
-	{
-		// During partition, both the head and end of the list might change 
-		// which is updated in the newHead and newEnd variables 
-		while (cur != pivot)
-		{
+		else if ((cur->Get_type() == is_file) && (pivot->Get_type() == is_catalog)) {
 			if (cur->File_info.Get_changed_time() < pivot->Catalog_info.Get_changed_time())
 			{
 				// First node that has a value less than the pivot - becomes 
@@ -260,14 +225,7 @@ list_node * Quicksort::Q_Sort_partition_changed_time(list_node * head, list_node
 				cur = tmp;
 			}
 		}
-	}
-
-	else
-	{
-		// During partition, both the head and end of the list might change 
-		// which is updated in the newHead and newEnd variables 
-		while (cur != pivot)
-		{
+		else {
 			if (cur->File_info.Get_changed_time() < pivot->File_info.Get_changed_time())
 			{
 				// First node that has a value less than the pivot - becomes 
@@ -296,6 +254,7 @@ list_node * Quicksort::Q_Sort_partition_changed_time(list_node * head, list_node
 			}
 		}
 	}
+
 	// If the pivot data is the smallest element in the current list, 
 	// pivot becomes the head 
 	if ((*newHead) == nullptr)
@@ -313,18 +272,18 @@ list_node * Quicksort::Q_Sort_partition_name(list_node * head, list_node * end, 
 {
 	list_node *pivot = end;
 	list_node *prev = nullptr, *cur = head, *tail = pivot;
-	if ((cur->Get_type() == is_catalog) && (pivot->Get_type() == is_catalog)) {
-		// During partition, both the head and end of the list might change 
-		// which is updated in the newHead and newEnd variables 
-		while (cur != pivot)
-		{
+
+	// During partition, both the head and end of the list might change 
+	// which is updated in the newHead and newEnd variables 
+	while (cur != pivot)
+	{
+		if ((cur->Get_type() == is_catalog) && (pivot->Get_type() == is_catalog)) {
 			if (cur->Catalog_info.Get_name() < pivot->Catalog_info.Get_name())
 			{
 				// First node that has a value less than the pivot - becomes 
 				// the new head 
 				if ((*newHead) == nullptr)
 					(*newHead) = cur;
-
 				prev = cur;
 				cur = cur->next;
 				cur->prev = prev; // ADDED V2.0
@@ -345,20 +304,13 @@ list_node * Quicksort::Q_Sort_partition_name(list_node * head, list_node * end, 
 				cur = tmp;
 			}
 		}
-	}
-	else if ((cur->Get_type() == is_catalog) && (pivot->Get_type() == is_file))
-	{
-		// During partition, both the head and end of the list might change 
-		// which is updated in the newHead and newEnd variables 
-		while (cur != pivot)
-		{
+		else if ((cur->Get_type() == is_catalog) && (pivot->Get_type() == is_file)) {
 			if (cur->Catalog_info.Get_name() < pivot->File_info.Get_name())
 			{
 				// First node that has a value less than the pivot - becomes 
 				// the new head 
 				if ((*newHead) == nullptr)
 					(*newHead) = cur;
-
 				prev = cur;
 				cur = cur->next;
 				cur->prev = prev; // ADDED V2.0
@@ -367,8 +319,7 @@ list_node * Quicksort::Q_Sort_partition_name(list_node * head, list_node * end, 
 			{
 				cur->next->prev = cur; // ADDED V 2.0 
 				// Move cur node to next of tail, and change tail 
-				if (prev)
-				{
+				if (prev) {
 					prev->next = cur->next;
 				}
 				list_node *tmp = cur->next;
@@ -379,14 +330,7 @@ list_node * Quicksort::Q_Sort_partition_name(list_node * head, list_node * end, 
 				cur = tmp;
 			}
 		}
-	}
-
-	else if ((cur->Get_type() == is_file) && (pivot->Get_type() == is_catalog))
-	{
-		// During partition, both the head and end of the list might change 
-		// which is updated in the newHead and newEnd variables 
-		while (cur != pivot)
-		{
+		else if ((cur->Get_type() == is_file) && (pivot->Get_type() == is_catalog)) {
 			if (cur->File_info.Get_name() < pivot->Catalog_info.Get_name())
 			{
 				// First node that has a value less than the pivot - becomes 
@@ -414,14 +358,7 @@ list_node * Quicksort::Q_Sort_partition_name(list_node * head, list_node * end, 
 				cur = tmp;
 			}
 		}
-	}
-
-	else
-	{
-		// During partition, both the head and end of the list might change 
-		// which is updated in the newHead and newEnd variables 
-		while (cur != pivot)
-		{
+		else {
 			if (cur->File_info.Get_name() < pivot->File_info.Get_name())
 			{
 				// First node that has a value less than the pivot - becomes 
@@ -450,6 +387,7 @@ list_node * Quicksort::Q_Sort_partition_name(list_node * head, list_node * end, 
 			}
 		}
 	}
+
 	// If the pivot data is the smallest element in the current list, 
 	// pivot becomes the head 
 	if ((*newHead) == nullptr)
@@ -467,18 +405,18 @@ list_node * Quicksort::Q_Sort_partition_size(list_node * head, list_node * end, 
 {
 	list_node *pivot = end;
 	list_node *prev = nullptr, *cur = head, *tail = pivot;
-	if ((cur->Get_type() == is_catalog) && (pivot->Get_type() == is_catalog)) {
-		// During partition, both the head and end of the list might change 
-		// which is updated in the newHead and newEnd variables 
-		while (cur != pivot)
-		{
+
+	// During partition, both the head and end of the list might change 
+	// which is updated in the newHead and newEnd variables 
+	while (cur != pivot)
+	{
+		if ((cur->Get_type() == is_catalog) && (pivot->Get_type() == is_catalog)) {
 			if (cur->Catalog_info.Get_size() < pivot->Catalog_info.Get_size())
 			{
 				// First node that has a value less than the pivot - becomes 
 				// the new head 
 				if ((*newHead) == nullptr)
 					(*newHead) = cur;
-
 				prev = cur;
 				cur = cur->next;
 				cur->prev = prev; // ADDED V2.0
@@ -499,20 +437,13 @@ list_node * Quicksort::Q_Sort_partition_size(list_node * head, list_node * end, 
 				cur = tmp;
 			}
 		}
-	}
-	else if ((cur->Get_type() == is_catalog) && (pivot->Get_type() == is_file))
-	{
-		// During partition, both the head and end of the list might change 
-		// which is updated in the newHead and newEnd variables 
-		while (cur != pivot)
-		{
+		else if ((cur->Get_type() == is_catalog) && (pivot->Get_type() == is_file)) {
 			if (cur->Catalog_info.Get_size() < pivot->File_info.Get_size())
 			{
 				// First node that has a value less than the pivot - becomes 
 				// the new head 
 				if ((*newHead) == nullptr)
 					(*newHead) = cur;
-
 				prev = cur;
 				cur = cur->next;
 				cur->prev = prev; // ADDED V2.0
@@ -521,8 +452,7 @@ list_node * Quicksort::Q_Sort_partition_size(list_node * head, list_node * end, 
 			{
 				cur->next->prev = cur; // ADDED V 2.0 
 				// Move cur node to next of tail, and change tail 
-				if (prev)
-				{
+				if (prev) {
 					prev->next = cur->next;
 				}
 				list_node *tmp = cur->next;
@@ -533,14 +463,7 @@ list_node * Quicksort::Q_Sort_partition_size(list_node * head, list_node * end, 
 				cur = tmp;
 			}
 		}
-	}
-
-	else if ((cur->Get_type() == is_file) && (pivot->Get_type() == is_catalog))
-	{
-		// During partition, both the head and end of the list might change 
-		// which is updated in the newHead and newEnd variables 
-		while (cur != pivot)
-		{
+		else if ((cur->Get_type() == is_file) && (pivot->Get_type() == is_catalog)) {
 			if (cur->File_info.Get_size() < pivot->Catalog_info.Get_size())
 			{
 				// First node that has a value less than the pivot - becomes 
@@ -568,14 +491,7 @@ list_node * Quicksort::Q_Sort_partition_size(list_node * head, list_node * end, 
 				cur = tmp;
 			}
 		}
-	}
-
-	else
-	{
-		// During partition, both the head and end of the list might change 
-		// which is updated in the newHead and newEnd variables 
-		while (cur != pivot)
-		{
+		else {
 			if (cur->File_info.Get_size() < pivot->File_info.Get_size())
 			{
 				// First node that has a value less than the pivot - becomes 
@@ -604,6 +520,7 @@ list_node * Quicksort::Q_Sort_partition_size(list_node * head, list_node * end, 
 			}
 		}
 	}
+
 	// If the pivot data is the smallest element in the current list, 
 	// pivot becomes the head 
 	if ((*newHead) == nullptr)
@@ -790,10 +707,9 @@ list_node* Quicksort::_quickSort_time_recur(list_node * head, list_node * end)
 */
 void Quicksort::quickSort_time(list_node ** headRef, list_node **tailRef)
 {
-	for (int i = 0; i < 2; i++) { // if u somehow find that - it's for doing it 2-nd time, bc it don't doing it all way correct in the other cases
 		(*headRef) = _quickSort_time_recur(*headRef, *tailRef); // changed , was get_tail()
 		(*tailRef) = getTail(*headRef);
-	}
+	
 }
 
 /**
@@ -802,10 +718,9 @@ void Quicksort::quickSort_time(list_node ** headRef, list_node **tailRef)
 */
 void Quicksort::quickSort_changed_time(list_node ** headRef, list_node ** tailRef)
 {
-	for (int i = 0; i < 2; i++) { // even with this staff it don't work correctly idknw
 		(*headRef) = _quickSort_changed_time_recur(*headRef, *tailRef); // changed , was get_tail()
 		(*tailRef) = getTail(*headRef);
-	}
+	
 }
 /**
 @param [in] headRef pointer to head reference
@@ -813,18 +728,14 @@ void Quicksort::quickSort_changed_time(list_node ** headRef, list_node ** tailRe
 */
  void Quicksort::quickSort_name(list_node ** headRef, list_node ** tailRef)
 {
-	 for (int i = 0; i < 2; i++) {
 		 (*headRef) = _quickSort_name_recur(*headRef, *tailRef); // changed , was get_tail()
 		 (*tailRef) = getTail(*headRef);
-	 }
 }
 
  void Quicksort::quickSort_size(list_node ** headRef, list_node ** tailRef)
  {
-	 for (int i = 0; i < 2; i++) {
 		 (*headRef) = _quickSort_size_recur(*headRef, *tailRef); // changed , was get_tail()
 		 (*tailRef) = getTail(*headRef);
-	 }
  }
 
  Quicksort::Quicksort()
