@@ -40,20 +40,20 @@ Taime::~Taime()
 		cin >> min;
 	}
 }
- /**
+/**
 	*brief Output stored information
 	*details Print stored fields of the Taime to the console in form of "hours : minutes"
-	*/
+*/
  void Taime::PrintTime()
 {
 	cout<<hour << ":" << min << '\n';
 }
- /**
+/**
 	*brief overloaded assignment operator
 	@param other Other Taime class that we assign to current Taime
 	*details assign all fields of other Taime to this
 	@return *this
-	*/
+*/
 Taime Taime::operator=(Taime other)
 {
 	hour = other.hour;
@@ -61,9 +61,9 @@ Taime Taime::operator=(Taime other)
 	return *this;
 }
 /**
-*brief overloaded comparizion operator ">"
-@param other Other Taime class that we compare with our time
-@return true if time of "this" is bigger than "other"
+	*brief overloaded comparizion operator ">"
+	@param other Other Taime class that we compare with our time
+	@return true if time of "this" is bigger than "other"
 */
  bool Taime::operator>(Taime other)
 {
@@ -78,9 +78,9 @@ Taime Taime::operator=(Taime other)
 	 return false;
 }
  /**
-*brief overloaded comparizion operator "<"
-@param other Other Taime class that we compare with our time
-@return true if time of "this" is smaller than "other"
+	*brief overloaded comparizion operator "<"
+	@param other Other Taime class that we compare with our time
+	@return true if time of "this" is smaller than "other"
 */
  bool Taime::operator<(Taime other)
  {
@@ -94,6 +94,11 @@ Taime Taime::operator=(Taime other)
 	 }
 	 return false;
  }
+/**
+	*brief overloaded comparizion operator "<"
+	@param other Other Taime class that we compare with our time
+	@return true if time of "this" is smaller or equal to "other"
+*/
  bool Taime::operator<=(Taime other)
  {
 	 if (hour < other.hour) {
@@ -106,6 +111,11 @@ Taime Taime::operator=(Taime other)
 	 }
 	 return false;
  }
+/**
+	*brief overloaded comparizion operator "<"
+	@param other Other Taime class that we compare with our time
+	@return true if time of "this" is bigger or equal to "other"
+*/
  bool Taime::operator>=(Taime other)
  {
 	 if (hour > other.hour) {

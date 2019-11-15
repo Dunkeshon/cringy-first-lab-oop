@@ -1,13 +1,20 @@
+/**
+	*file
+	*brief hxx file containing implementations of insertionSort.h
+*/
 #include "insertionSort.h"
 
 #pragma once
-/*
- если мы только приступили к сортировке - задать голову нового списка на первый елемент. 
- если голова нового списка больше или равна новому елементу - ставим новый елемент перед головой нового списка, затем двигаем голову на этот елемент
- в противном случае создаем временную переменную current , которой присваиваем значение головы нового списка и двигаемся вперед по списку , пока не найдем 
- елемент который будет больше данного . Все операции проводятся с проверкой того, какой тип данных лежит в list_node и в зависимости от этого брать данные для 
- сравнения именно из того типа данных, который нам нужен, поскольку если в list_node используется файл - то в классе catalog данного list_node лежат нули 
- Сравнение происходит по времени создания
+/**
+	@param [in] head_ref pointer to reference to head of the list
+	@param [in] new_node pointer to node, that we will compare to others and than add to sorted list
+	* brief compares node with other nodes and find its place in the list due to its time of creation
+	*details If we just started sorting, set the head of the new list to the first item.
+ 	if the head of the new list is greater than or equal to the new element - put the new element in front of the head of the new list, then move the head to this element
+ 	otherwise, create a temporary variable current, to which we assign the value of the head of the new list and move forward through the list until we find
+ 	an element that will be more than this. All operations are carried out with verification of what data type is in list_node and, depending on this, take data for
+ 	comparisons precisely from the data type that we need, because if a file is used in list_node, then zeros are in the catalog class of this list_node
+ 	Comparison occurs at the time of creation.
  */
 void insertionSort::sortedInsert_time(list_node** head_ref, list_node* new_node)
 {
@@ -20,25 +27,25 @@ void insertionSort::sortedInsert_time(list_node** head_ref, list_node* new_node)
 	else if (((*head_ref)->Get_type() == is_catalog) && (new_node->Get_type() == is_catalog) && ((*head_ref)->Catalog_info.Get_time() >= new_node->Catalog_info.Get_time()))
 	{
 		new_node->next = *head_ref;
-		(*head_ref)->prev = new_node; //ADDED 
+		(*head_ref)->prev = new_node; 
 		*head_ref = new_node;
 	}
 	else if (((*head_ref)->Get_type() == is_catalog) && (new_node->Get_type() == is_file) && ((*head_ref)->Catalog_info.Get_time() >= new_node->File_info.Get_time()))
 	{
 		new_node->next = *head_ref;
-		(*head_ref)->prev = new_node; //ADDED 
+		(*head_ref)->prev = new_node; 
 		*head_ref = new_node;
 	}
 	else if (((*head_ref)->Get_type() == is_file) && (new_node->Get_type() == is_catalog) && ((*head_ref)->File_info.Get_time() >= new_node->Catalog_info.Get_time()))
 	{
 		new_node->next = *head_ref;
-		(*head_ref)->prev = new_node; //ADDED 
+		(*head_ref)->prev = new_node; 
 		*head_ref = new_node;
 	}
 	else if (((*head_ref)->Get_type() == is_file) && (new_node->Get_type() == is_file) && ((*head_ref)->File_info.Get_time() >= new_node->File_info.Get_time()))
 	{
 		new_node->next = *head_ref;
-		(*head_ref)->prev = new_node; //ADDED 
+		(*head_ref)->prev = new_node; 
 		*head_ref = new_node;
 	}
 	// other casses
@@ -96,13 +103,22 @@ void insertionSort::sortedInsert_time(list_node** head_ref, list_node* new_node)
 		}
 		new_node->next = current->next;
 		if (new_node->next != nullptr) {
-			new_node->next->prev = new_node; // last update
+			new_node->next->prev = new_node; 
 		}
 		current->next = new_node;
 		new_node->prev = current;
 	}
 }
-
+/**
+	@param [in] head_ref pointer to reference to head of the list
+	@param [in] new_node pointer to node, that we will compare to others and than add to sorted list
+	* brief compares node with other nodes and find its place in the list due to its changed time
+	*details If we just started sorting, set the head of the new list to the first item.
+ 	if the head of the new list is greater than or equal to the new element - put the new element in front of the head of the new list, then move the head to this element
+ 	otherwise, create a temporary variable current, to which we assign the value of the head of the new list and move forward through the list until we find
+ 	an element that will be more than this. All operations are carried out with verification of what data type is in list_node and, depending on this, take data for
+ 	comparisons precisely from the data type that we need, because if a file is used in list_node, then zeros are in the catalog class of this list_node
+ */
 void insertionSort::sortedInsert_changed_time(list_node ** head_ref, list_node * new_node)
 {
 	list_node* current;
@@ -114,25 +130,25 @@ void insertionSort::sortedInsert_changed_time(list_node ** head_ref, list_node *
 	else if (((*head_ref)->Get_type() == is_catalog) && (new_node->Get_type() == is_catalog) && ((*head_ref)->Catalog_info.Get_changed_time() >= new_node->Catalog_info.Get_changed_time()))
 	{
 		new_node->next = *head_ref;
-		(*head_ref)->prev = new_node; //ADDED 
+		(*head_ref)->prev = new_node; 
 		*head_ref = new_node;
 	}
 	else if (((*head_ref)->Get_type() == is_catalog) && (new_node->Get_type() == is_file) && ((*head_ref)->Catalog_info.Get_changed_time() >= new_node->File_info.Get_changed_time()))
 	{
 		new_node->next = *head_ref;
-		(*head_ref)->prev = new_node; //ADDED 
+		(*head_ref)->prev = new_node; 
 		*head_ref = new_node;
 	}
 	else if (((*head_ref)->Get_type() == is_file) && (new_node->Get_type() == is_catalog) && ((*head_ref)->File_info.Get_changed_time() >= new_node->Catalog_info.Get_changed_time()))
 	{
 		new_node->next = *head_ref;
-		(*head_ref)->prev = new_node; //ADDED 
+		(*head_ref)->prev = new_node;
 		*head_ref = new_node;
 	}
 	else if (((*head_ref)->Get_type() == is_file) && (new_node->Get_type() == is_file) && ((*head_ref)->File_info.Get_changed_time() >= new_node->File_info.Get_changed_time()))
 	{
 		new_node->next = *head_ref;
-		(*head_ref)->prev = new_node; //ADDED 
+		(*head_ref)->prev = new_node; 
 		*head_ref = new_node;
 	}
 	// other casses
@@ -189,13 +205,22 @@ void insertionSort::sortedInsert_changed_time(list_node ** head_ref, list_node *
 		}
 		new_node->next = current->next;
 		if (new_node->next != nullptr) {
-			new_node->next->prev = new_node; // last update
+			new_node->next->prev = new_node;
 		}
 		current->next = new_node;
 		new_node->prev = current;
 	}
 }
-
+/**
+	@param [in] head_ref pointer to reference to head of the list
+	@param [in] new_node pointer to node, that we will compare to others and than add to sorted list
+	* brief compares node with other nodes and find its place in the list due to its name
+	*details If we just started sorting, set the head of the new list to the first item.
+ 	if the head of the new list is greater than or equal to the new element - put the new element in front of the head of the new list, then move the head to this element
+ 	otherwise, create a temporary variable current, to which we assign the value of the head of the new list and move forward through the list until we find
+ 	an element that will be more than this. All operations are carried out with verification of what data type is in list_node and, depending on this, take data for
+ 	comparisons precisely from the data type that we need, because if a file is used in list_node, then zeros are in the catalog class of this list_node
+ */
 void insertionSort::sortedInsert_name(list_node ** head_ref, list_node * new_node)
 {
 	list_node* current;
@@ -207,25 +232,25 @@ void insertionSort::sortedInsert_name(list_node ** head_ref, list_node * new_nod
 	else if (((*head_ref)->Get_type() == is_catalog) && (new_node->Get_type() == is_catalog) && ((*head_ref)->Catalog_info.Get_name() >= new_node->Catalog_info.Get_name()))
 	{
 		new_node->next = *head_ref;
-		(*head_ref)->prev = new_node; //ADDED 
+		(*head_ref)->prev = new_node; 
 		*head_ref = new_node;
 	}
 	else if (((*head_ref)->Get_type() == is_catalog) && (new_node->Get_type() == is_file) && ((*head_ref)->Catalog_info.Get_name() >= new_node->File_info.Get_name()))
 	{
 		new_node->next = *head_ref;
-		(*head_ref)->prev = new_node; //ADDED 
+		(*head_ref)->prev = new_node; 
 		*head_ref = new_node;
 	}
 	else if (((*head_ref)->Get_type() == is_file) && (new_node->Get_type() == is_catalog) && ((*head_ref)->File_info.Get_name() >= new_node->Catalog_info.Get_name()))
 	{
 		new_node->next = *head_ref;
-		(*head_ref)->prev = new_node; //ADDED 
+		(*head_ref)->prev = new_node;  
 		*head_ref = new_node;
 	}
 	else if (((*head_ref)->Get_type() == is_file) && (new_node->Get_type() == is_file) && ((*head_ref)->File_info.Get_name() >= new_node->File_info.Get_name()))
 	{
 		new_node->next = *head_ref;
-		(*head_ref)->prev = new_node; //ADDED 
+		(*head_ref)->prev = new_node; 
 		*head_ref = new_node;
 	}
 	// other casses
@@ -282,13 +307,22 @@ void insertionSort::sortedInsert_name(list_node ** head_ref, list_node * new_nod
 		}
 		new_node->next = current->next;
 		if (new_node->next != nullptr) {
-			new_node->next->prev = new_node; // last update
+			new_node->next->prev = new_node; 
 		}
 		current->next = new_node;
 		new_node->prev = current;
 	}
 }
-
+/**
+	@param [in] head_ref pointer to reference to head of the list
+	@param [in] new_node pointer to node, that we will compare to others and than add to sorted list
+	* brief compares node with other nodes and find its place in the list due to its size
+	*details If we just started sorting, set the head of the new list to the first item.
+ 	if the head of the new list is greater than or equal to the new element - put the new element in front of the head of the new list, then move the head to this element
+ 	otherwise, create a temporary variable current, to which we assign the value of the head of the new list and move forward through the list until we find
+ 	an element that will be more than this. All operations are carried out with verification of what data type is in list_node and, depending on this, take data for
+ 	comparisons precisely from the data type that we need, because if a file is used in list_node, then zeros are in the catalog class of this list_node	
+ */
 void insertionSort::sortedInsert_size(list_node ** head_ref, list_node * new_node)
 {
 	list_node* current;
@@ -300,25 +334,25 @@ void insertionSort::sortedInsert_size(list_node ** head_ref, list_node * new_nod
 	else if (((*head_ref)->Get_type() == is_catalog) && (new_node->Get_type() == is_catalog) && ((*head_ref)->Catalog_info.Get_size() >= new_node->Catalog_info.Get_size()))
 	{
 		new_node->next = *head_ref;
-		(*head_ref)->prev = new_node; //ADDED 
+		(*head_ref)->prev = new_node; 
 		*head_ref = new_node;
 	}
 	else if (((*head_ref)->Get_type() == is_catalog) && (new_node->Get_type() == is_file) && ((*head_ref)->Catalog_info.Get_size() >= new_node->File_info.Get_size()))
 	{
 		new_node->next = *head_ref;
-		(*head_ref)->prev = new_node; //ADDED 
+		(*head_ref)->prev = new_node;  
 		*head_ref = new_node;
 	}
 	else if (((*head_ref)->Get_type() == is_file) && (new_node->Get_type() == is_catalog) && ((*head_ref)->File_info.Get_size() >= new_node->Catalog_info.Get_size()))
 	{
 		new_node->next = *head_ref;
-		(*head_ref)->prev = new_node; //ADDED 
+		(*head_ref)->prev = new_node; 
 		*head_ref = new_node;
 	}
 	else if (((*head_ref)->Get_type() == is_file) && (new_node->Get_type() == is_file) && ((*head_ref)->File_info.Get_size() >= new_node->File_info.Get_size()))
 	{
 		new_node->next = *head_ref;
-		(*head_ref)->prev = new_node; //ADDED 
+		(*head_ref)->prev = new_node; 
 		*head_ref = new_node;
 	}
 	// other casses
@@ -376,14 +410,22 @@ void insertionSort::sortedInsert_size(list_node ** head_ref, list_node * new_nod
 		}
 		new_node->next = current->next;
 		if (new_node->next != nullptr) {
-			new_node->next->prev = new_node; // last update
+			new_node->next->prev = new_node; 
 		}
 		current->next = new_node;
 		new_node->prev = current;
 	}
 }
 
-
+/**
+	@param [in] head_ref pointer to reference to head of the list
+	*brief go through the list and insert each node in the new list, 
+	comparing nodes by their time of creation. 
+	*details Creation of new list, that will be sorted via insertion sort.
+	go through the list and insert each node in the new list.
+	After finishing with creating new sorted list - set head of sorted list to 
+	head of list, with which we work in our program 
+ */
 void insertionSort::insertionSort_time(list_node **head_ref) {
 	// Initialize sorted linked list 
 	list_node *sorted = nullptr;
@@ -406,6 +448,15 @@ void insertionSort::insertionSort_time(list_node **head_ref) {
 	// Update head_ref to point to sorted linked list 
 	*head_ref = sorted;
 }
+/**
+	@param [in] head_ref pointer to reference to head of the list
+	*brief go through the list and insert each node in the new list,
+	comparing nodes by their changed time .
+	*details Creation of new list, that will be sorted via insertion sort.
+	go through the list and insert each node in the new list.
+	After finishing with creating new sorted list - set head of sorted list to
+	head of list, with which we work in our program
+ */
 void insertionSort::insertionSort_changed_time(list_node ** head_ref)
 {
 	// Initialize sorted linked list 
@@ -429,6 +480,15 @@ void insertionSort::insertionSort_changed_time(list_node ** head_ref)
 	// Update head_ref to point to sorted linked list 
 	*head_ref = sorted;
 }
+/**
+	@param [in] head_ref pointer to reference to head of the list
+	*brief go through the list and insert each node in the new list,
+	comparing nodes by their name.
+	*details Creation of new list, that will be sorted via insertion sort.
+	go through the list and insert each node in the new list.
+	After finishing with creating new sorted list - set head of sorted list to
+	head of list, with which we work in our program
+ */
 void insertionSort::insertionSort_name(list_node ** head_ref)
 {
 	// Initialize sorted linked list 
@@ -452,6 +512,15 @@ void insertionSort::insertionSort_name(list_node ** head_ref)
 	// Update head_ref to point to sorted linked list 
 	*head_ref = sorted;
 }
+/**
+	@param [in] head_ref pointer to reference to head of the list
+	*brief go through the list and insert each node in the new list,
+	comparing nodes by their size .
+	*details Creation of new list, that will be sorted via insertion sort.
+	go through the list and insert each node in the new list.
+	After finishing with creating new sorted list - set head of sorted list to
+	head of list, with which we work in our program
+ */
 void insertionSort::insertionSort_size(list_node ** head_ref)
 {
 	// Initialize sorted linked list 

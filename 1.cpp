@@ -1,5 +1,9 @@
-﻿//I need to write other menu , because me logic has changed. Firstly i need to create catalogs and files inside 
-//the first catalog, and then decide which ones i want to put in list (and what operations i should do on them) 
+﻿/**
+	*file
+	*brief Main C++ file
+	This file contains main function
+*/
+
 #include "pch.h"
 #include <iostream>
 #include "Catalog.h"
@@ -7,31 +11,68 @@
 #include "list_node.h"
 #include "list_realisation.h"
 #include "TreeNode.h"
-//#include <vector>
+
 
 using namespace std;
-
+/**
+*param[in] current A pointer to node, that contains catalog and its children 
+*param[in] input a reference to user's input, that allows you to choose menu options
+*param[in] Mylist a pointer to list, that i use in my progam  
+*param[in] input_name a reference to user's input, where tou can input names
+*brief basic menu, where you can create your first catalog
+*/
 void menu(TreeNode *current,int &input, list_realisation *Mylist,string &input_name);
+/**
+*param[in] current A pointer to current file 
+*param[in] input a reference to user's input, that allows you to choose menu options
+*param[in] Mylist a pointer to list, that i use in my progam
+ *param[in] father_Tree_node A pointer to father node, that contains catalog and its children 
+*param[in] input_name a reference to user's input, where tou can input names
+ *brief file element menu : list of option that you can do to your file 
+*/
 void file_element_menu(file *current, // pointer to current file 
 						int &input, // users input
 						list_realisation *Mylist, // list
 						TreeNode * father_Tree_node,  // pointer to father TreeNode . Catalog_node->info : father of current file
 						string &input_name); // users input of name 
+/**
+*param[in] current A pointer to node, that contains current catalog and its children
+*param[in] input a reference to user's input, that allows you to choose menu options
+*param[in] Mylist a pointer to list, that i use in my progam
+*param[in] input_name a reference to user's input, where tou can input names
+*brief menu of catalog element, where you can choose options that you can do to your catalog
+*/
 void catalog_element_menu(TreeNode *Tree_node, // pointer to current catalog (with children) 
 						int &input, // users input
 						list_realisation *Mylist, // list
 						string &input_name);// users input of name
+/**
+*param[in] input a reference to user's input, that allows you to choose menu options
+*param[in] Mylist a pointer to list, that i use in my progam
+*param[in] input_name a reference to user's input, where tou can input names
+*brief menu of list, where you can choose options, that you can do to your list
+*/
 void list_menu(int &input, // users input
 				list_realisation *Mylist, // list
 				string &input_name);// users input of name
+
+
 int main() {
 	TreeNode Mytree;//tree, that we will use to store objects
 	list_realisation Mylist;
-	int input;// используется в меню
-	string input_name;
+	int input;// is used in menu
+	string input_name; // is used in menu
 	menu(&Mytree,input,&Mylist,input_name);
 	return 0;
 }
+
+/**
+*param[in] current A pointer to node, that contains catalog and its children
+*param[in] input a reference to user's input, that allows you to choose menu options
+*param[in] Mylist a pointer to list, that i use in my progam
+*param[in] input_name a reference to user's input, where tou can input names
+*brief basic menu, where you can create your first catalog
+*/
 void menu(TreeNode *current, int &input, list_realisation *Mylist, string &input_name)
 {
 	cout << "\t\t  MENU " << endl;
@@ -48,7 +89,14 @@ void menu(TreeNode *current, int &input, list_realisation *Mylist, string &input
 		catalog_element_menu(current, input, Mylist, input_name);
 	}	
 }
-
+/**
+*param[in] current A pointer to current file
+*param[in] input a reference to user's input, that allows you to choose menu options
+*param[in] Mylist a pointer to list, that i use in my progam
+ *param[in] father_Tree_node A pointer to father node, that contains catalog and its children
+*param[in] input_name a reference to user's input, where tou can input names
+ *brief file element menu : list of option that you can do to your file
+*/
 void file_element_menu(file *current,int &input, list_realisation *Mylist, TreeNode * father_Tree_node, string &input_name) {
 	cout << "\t\t  file "<< current->Get_name() <<" menu" << endl;
 	cout << "\t Print file info press 1:" << endl;
@@ -73,6 +121,13 @@ void file_element_menu(file *current,int &input, list_realisation *Mylist, TreeN
 			break;
 	}
 }
+/**
+*param[in] current A pointer to node, that contains current catalog and its children
+*param[in] input a reference to user's input, that allows you to choose menu options
+*param[in] Mylist a pointer to list, that i use in my progam
+*param[in] input_name a reference to user's input, where tou can input names
+*brief menu of catalog element, where you can choose options that you can do to your catalog
+*/
 void catalog_element_menu(TreeNode *Tree_node, // pointer to current catalog (with children) 
 						int &input, // users input
 						list_realisation *Mylist, // list
@@ -176,7 +231,12 @@ void catalog_element_menu(TreeNode *Tree_node, // pointer to current catalog (wi
 	}
 	
 }
-
+/**
+*param[in] input a reference to user's input, that allows you to choose menu options
+*param[in] Mylist a pointer to list, that i use in my progam
+*param[in] input_name a reference to user's input, where tou can input names
+*brief menu of list, where you can choose options, that you can do to your list
+*/
 void list_menu(int & input, list_realisation * Mylist, string & input_name)
 {
 	cout << "\t\t LIST MENU " << endl;
@@ -219,18 +279,15 @@ void list_menu(int & input, list_realisation * Mylist, string & input_name)
 		cout << ">>>";
 		cin >> i;
 		if (i == 1) {
-			//MERGE SORT
 			Mylist->merge_sort();// contains menu of choosing the parameter on which we will sort
 			cout << "Your list was sorted by merge sort" << endl;
 		}
 		else if (i == 2) {
-			//quick sort
-			Mylist->quick_sort();
+			Mylist->quick_sort();// contains menu of choosing the parameter on which we will sort
 			cout << "Your list was sorted by quick sort" << endl;
 		}
 		else if (i == 3) {
-			//insertion sort
-			Mylist->insertion_sort();
+			Mylist->insertion_sort();// contains menu of choosing the parameter on which we will sort
 			cout << "Your list was sorted by insertion sort" << endl;
 		}
 		list_menu(input, Mylist, input_name);

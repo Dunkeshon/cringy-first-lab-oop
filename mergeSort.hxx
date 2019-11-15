@@ -1,7 +1,16 @@
+/**
+	*file
+	*brief hxx file containing implementations of mergeSort.h
+*/
 #include "pch.h"
 #include "mergeSort.h"
 #pragma once
-
+/**
+	@param[in] a first node to compare
+	@param[in] b second node to compare
+	* brief Pick either a or b, and recur
+	* returns node , that have less time of creation
+*/
 list_node * mergeSort::SortedMerge_time(list_node * a, list_node * b)
 {
 	
@@ -72,7 +81,12 @@ list_node * mergeSort::SortedMerge_time(list_node * a, list_node * b)
 		return (result);
 	}
 }
-
+/**
+	@param[in] a first node to compare
+	@param[in] b second node to compare
+	* brief Pick either a or b, and recur
+	* returns node , that have less changed time
+*/
 list_node * mergeSort::SortedMerge_changed_time(list_node * a, list_node * b)
 {
 	list_node* result = nullptr;
@@ -142,6 +156,12 @@ list_node * mergeSort::SortedMerge_changed_time(list_node * a, list_node * b)
 		return (result);
 	}
 }
+/**
+	@param[in] a first node to compare
+	@param[in] b second node to compare
+	* brief Pick either a or b, and recur
+	* returns node , that have less name
+*/
  list_node * mergeSort::SortedMerge_name(list_node * a, list_node * b)
 {
 
@@ -212,6 +232,12 @@ list_node * mergeSort::SortedMerge_changed_time(list_node * a, list_node * b)
 		 return (result);
 	 }
 }
+/**
+	@param[in] a first node to compare
+	@param[in] b second node to compare
+	* brief Pick either a or b, and recur
+	* returns node , that have less size
+*/
  list_node * mergeSort::SortedMerge_size(list_node * a, list_node * b)
  {
 
@@ -282,10 +308,17 @@ list_node * mergeSort::SortedMerge_changed_time(list_node * a, list_node * b)
 		 return (result);
 	 }
  }
-/* Split the nodes of the given list into front and back halves,
+ /**
+	@param[in] source pointer to node, from which we start
+	@param[in] frontRef pointer to head
+	@param[in] backRef pointer to tail
+	* brief Split the nodes of the given list into front and back halves
+	*details Split the nodes of the given list into front and back halves,
 	and return the two lists using the reference parameters.
 	If the length is odd, the extra node should go in the front list.
-	Uses the fast/slow pointer strategy. */
+	Uses the fast/slow pointer strategy.
+*/
+
  void mergeSort::FrontBackSplit(list_node * source, list_node ** frontRef, list_node ** backRef)
 {
 	 list_node* fast;
@@ -308,6 +341,12 @@ list_node * mergeSort::SortedMerge_changed_time(list_node * a, list_node * b)
 	 slow->next = nullptr;
 }
 
+/**
+	@param[in] headRef pointer to refernce of head of the list
+	* brief sorts list by their time of creation , using merge sort
+	*details Split head into 'a' and 'b' sublists ;  Recursively sort the sublists;
+	answer = merge the two sorted lists together.
+*/
 void mergeSort::MergeSort_time(list_node ** headRef)
 {
 	list_node* cur_head = *headRef;
@@ -328,7 +367,12 @@ void mergeSort::MergeSort_time(list_node ** headRef)
 	/* answer = merge the two sorted lists together */
 	*headRef = SortedMerge_time(a, b);
 }
-
+/**
+	@param[in] headRef pointer to refernce of head of the list
+	* brief sorts list by their changed time , using merge sort
+	*details Split head into 'a' and 'b' sublists ;  Recursively sort the sublists;
+	answer = merge the two sorted lists together.
+*/
 void mergeSort::MergeSort_changed_time(list_node ** headRef)
 {
 	list_node* head = *headRef;
@@ -349,7 +393,12 @@ void mergeSort::MergeSort_changed_time(list_node ** headRef)
 	/* answer = merge the two sorted lists together */
 	*headRef = SortedMerge_changed_time(a, b);
 }
-
+/**
+	@param[in] headRef pointer to refernce of head of the list
+	* brief sorts list by their name, using merge sort
+	*details Split head into 'a' and 'b' sublists ;  Recursively sort the sublists;
+	answer = merge the two sorted lists together.
+*/
  void mergeSort::MergeSort_name(list_node ** headRef)
 {
 
@@ -371,7 +420,12 @@ void mergeSort::MergeSort_changed_time(list_node ** headRef)
 	 /* answer = merge the two sorted lists together */
 	 *headRef = SortedMerge_name(a, b);
 }
-
+ /**
+	@param[in] headRef pointer to refernce of head of the list
+	* brief sorts list by their size , using merge sort
+	*details Split head into 'a' and 'b' sublists ;  Recursively sort the sublists;
+	answer = merge the two sorted lists together.
+*/
  void mergeSort::MergeSort_size(list_node ** headRef)
  {
 

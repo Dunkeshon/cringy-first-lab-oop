@@ -1,6 +1,13 @@
+/**
+	*file
+	*brief hxx file containing implementations of FILE.h
+*/
 #include "pch.h"
 #include"FILE.h"
 
+/**
+	*brief initialize all private fields with 0
+*/
 file::file()
 {
 	_file_type = string();
@@ -12,6 +19,11 @@ file::~file()
 
 }
 
+/**
+#override virtual void set_info(Catalog *parent)
+*brief set all private fields of file class, by user's input
+@param parent A pointer to Catalog which set the parent of current file
+*/
 void file::set_info(Catalog *parent) 
 {
 	Catalog::set_info(parent);// basic class function 
@@ -20,7 +32,10 @@ void file::set_info(Catalog *parent)
 	cin >> temp_file_type;
 	_file_type = temp_file_type;
 }
-
+/**
+#override virtual void Catalog :: print_info()
+*brief print in console all private fields of file class
+*/
 void file::print_info()//print file info
 {
 	cout << "File name: " << _name << '\n';
@@ -31,16 +46,21 @@ void file::print_info()//print file info
 	_changed_time.PrintTime();
 	cout << "File type: " << _file_type << '\n';
 }
+
 /**
-getter
+*returns protected variable string _file_type of class file
+@return string _file_type of class file
 */
-
-
 string file::Get_type() const
 {
 	return _file_type;
 }
-
+/**
+*brief overloaded assignment operator
+@param other Other file class that we assign to current file
+*details assign all fields of other file to this
+@return *this
+*/
 file file::operator=(file other)
 {
 	_name = other._name;

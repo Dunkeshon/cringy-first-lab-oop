@@ -9,8 +9,8 @@
 #include "Taime.h"
 using namespace std;
 /**
-*brief An implementation of list_realisation.
-*details Realization of list, this class is a super class for "file". It has common info and methods for both of them
+*brief An implementation of Catalog.
+*details Realization of catalog, this class is a super class for "file". It has common info and methods for both of them
 */
 class Catalog
 {
