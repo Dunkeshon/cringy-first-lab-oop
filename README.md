@@ -1,4 +1,4 @@
-# 1
+# cringy first lab oop 
 first semestr 2-nd year 
 first lab variant 2.8
 Список. Реалізації на основі зв’язних списків, масивів, бібліотечних засобів. Алгоритми сортування: insertion sort, quicksort, merge sort.
